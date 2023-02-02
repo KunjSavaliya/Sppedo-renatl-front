@@ -1,0 +1,13 @@
+/* .buttonhover:hover{
+background-color: #23809fc2;
+color: aliceblue;
+} */
+.text:active {
+  color: red;
+}
+.text:visited {
+  background-color: blue;
+}
+.text {
+  color: black;
+}
