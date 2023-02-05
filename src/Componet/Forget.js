@@ -137,7 +137,6 @@ export default function Register() {
           style={{ backgroundColor: "#77ccff38", borderRadius: "20px" }}
           // style={{ backgroundColor: "white", borderRadius: "20px" }}
         >
-          {/* <CssBaseline /> */}
           <Box
             sx={{
               marginTop: 8,
@@ -170,7 +169,7 @@ export default function Register() {
               <span
                 style={{ color: "red", fontWeight: "bold", fontSize: "15px" }}
               >
-                Enter The Your Email Address
+                Enter Your Email Address
               </span>
             )}
             {hide.email == true && (
@@ -184,7 +183,7 @@ export default function Register() {
               fullWidth
               id="password"
               type="Password"
-              label="Password"
+              label="New Password"
               name="password"
               autoComplete="Password"
               autoFocus
@@ -196,12 +195,12 @@ export default function Register() {
               <span
                 style={{ color: "red", fontWeight: "bold", fontSize: "15px" }}
               >
-                Enter The Your Password
+                Enter New Password
               </span>
             )}
             {hide.password == true && (
               <span style={{ color: "red" }}>
-                Enter The Symbols,Uppercase,Numbers Characters
+                Enter Symbols,Uppercase,Numbers Characters
               </span>
             )}
 
@@ -211,7 +210,7 @@ export default function Register() {
               fullWidth
               id="Cpassword"
               type={type}
-              label="ReEnterPassword"
+              label="Reenter New Password"
               name="Cpassword"
               autoComplete="Password"
               autoFocus
@@ -223,7 +222,7 @@ export default function Register() {
               <span
                 style={{ color: "red", fontWeight: "bold", fontSize: "15px" }}
               >
-                Enter The Your Password
+                Enter Your Password
               </span>
             )}
             {hide.Cpassword == true && (

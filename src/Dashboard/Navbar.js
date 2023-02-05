@@ -10,10 +10,11 @@ import List from "@mui/material/List";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
+// import button from "@mui/material/button";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../Image/logoo.jpg";
 import { Navitem } from "./Navitem";
+import { NavLink } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -26,21 +27,6 @@ function DrawerAppBar(props) {
     setMobileOpen(!mobileOpen);
   };
 
-  const handleOnHome = () => {
-    navigate("/Home");
-  };
-  const handleOnAbout = () => {
-    navigate("/About");
-  };
-  const handleOnPopuler = () => {
-    navigate("/Populer");
-  };
-  const handleOnBook = () => {
-    navigate("/Book");
-  };
-  const handleOnContact = () => {
-    navigate("/Contact");
-  };
   const handleOnLogout = () => {
     localStorage.removeItem("user");
     navigate("/login");
@@ -107,78 +93,24 @@ function DrawerAppBar(props) {
             ></Typography>
 
             <Box sx={{ display: "flex", flexDirection: "row", gap: "7px" }}>
-              <Button
-                key="Home"
-                className="buttonhover"
-                sx={{
-                  textTransform: "none",
-                  display: { xs: "none", sm: "block" },
-                  
-                }}
-                onClick={handleOnHome}
-              >
-                <strong className="text">Home</strong>
-              </Button>
-              <Button
-                key="About"
-                className="buttonhover"
-                sx={{
-                  // color: "black",
-                  textTransform: "none",
-                  display: { xs: "none", sm: "block" },
-                }}
-                onClick={handleOnAbout}
-              >
-                <strong className="text">About</strong>
-              </Button>
-              <Button
-                key="Popular"
-                className="buttonhover"
-                sx={{
-                  // color: "black",
-                  textTransform: "none",
-                  display: { xs: "none", sm: "block" },
-                }}
-                onClick={handleOnPopuler}
-              >
-                <strong className="text">Popular Fleets</strong>
-              </Button>
-              <Button
-                key="Book"
-                className="buttonhover"
-                sx={{
-                  // color: "black",
-                  textTransform: "none",
-                  display: { xs: "none", sm: "block" },
-                }}
-                onClick={handleOnBook}
-              >
-                <strong className="text">Book Now</strong>
-              </Button>
-              <Button
-                key="Contact"
-                className="buttonhover"
-                sx={{
-                  // color: "black",
-                  textTransform: "none",
-                  display: { xs: "none", sm: "block" },
-                }}
-                onClick={handleOnContact}
-              >
-                <strong className="text">Contact us</strong>
-              </Button>
-              <Button
-                key="logout"
-                className="buttonhover"
-                sx={{
-                  color: "black",
-                  textTransform: "none",
-                  display: { xs: "none", sm: "block" },
-                }}
-                onClick={handleOnLogout}
-              >
-                <strong className="text">Logout</strong>
-              </Button>
+              <NavLink to="/home" className="btnactive">
+                Home
+              </NavLink>
+              <NavLink to="/About" className="btnactive">
+                About
+              </NavLink>
+              <NavLink to="/Populer" className="btnactive">
+                Popular Fleets
+              </NavLink>
+              <NavLink to="/Book" className="btnactive">
+                Book Now
+              </NavLink>
+              <NavLink to="/Contact" className="btnactive">
+                Contact us
+              </NavLink>
+              <NavLink onClick={handleOnLogout} className="logouts">
+                Logout
+              </NavLink>
             </Box>
 
             <IconButton

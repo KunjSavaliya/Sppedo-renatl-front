@@ -1,13 +1,34 @@
-/* .buttonhover:hover{
-background-color: #23809fc2;
-color: aliceblue;
-} */
-.text:active {
-  color: red;
-}
-.text:visited {
-  background-color: blue;
-}
-.text {
+.btnactive {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: white;
+  cursor: pointer;
   color: black;
+  font-weight: bolder;
+  text-decoration: none;
 }
+.active {
+  color: #23809fc2;
+}
+
+.logouts {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: white;
+  cursor: pointer;
+  color: black;
+  font-weight: bolder;
+  text-decoration: none;
+}
+/* .btnactive:hover {
+    background-color: #23809fc2;
+    border-radius: 10px;
+  }
+  .btnactive:active {
+    color: white;
+  }
+  .btnactive button.active {
+    background-color: red;
+  } */

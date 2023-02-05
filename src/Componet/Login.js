@@ -159,7 +159,7 @@ export default function Register() {
                 <span
                   style={{ color: "red", fontWeight: "bold", fontSize: "15px" }}
                 >
-                  Enter The Valid Email Address
+                  Enter Valid Email Address
                 </span>
               )}
               <TextField
@@ -174,7 +174,7 @@ export default function Register() {
                 <span
                   style={{ color: "red", fontWeight: "bold", fontSize: "15px" }}
                 >
-                  Enter The Valid Password
+                  Enter Valid Password
                 </span>
               )}
               <FormControlLabel

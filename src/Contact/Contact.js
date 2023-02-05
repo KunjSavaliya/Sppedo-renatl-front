@@ -128,7 +128,7 @@ export default function Contact() {
                 justifyContent: "center",
               }}
             >
-              Enter The Your Name
+              Enter Your Name
             </span>
           )}
           <Box style={{ fontWeight: "400", fontSize: "20px" }}>
@@ -152,7 +152,7 @@ export default function Contact() {
                 justifyContent: "center",
               }}
             >
-              Enter The Valid Number
+              Enter Valid Number
             </span>
           )}
           <Box style={{ fontWeight: "400", fontSize: "20px" }}>
@@ -176,7 +176,7 @@ export default function Contact() {
                 justifyContent: "center",
               }}
             >
-              Enter The Valid email
+              Enter Valid email
             </span>
           )}
           {hide.email == true && (

@@ -51,7 +51,7 @@ export default function Book() {
     email: "",
     car: "",
     drive: "",
-    state:"",
+    state: "",
     pickup: "",
     drop: "",
     date: "",
@@ -159,7 +159,7 @@ export default function Book() {
                 justifyContent: "center",
               }}
             >
-              Enter The Your Name
+              Enter Your Name
             </span>
           )}
           <Box style={{ fontWeight: "400", fontSize: "20px" }}>
@@ -183,7 +183,7 @@ export default function Book() {
                 justifyContent: "center",
               }}
             >
-              Enter The Valid Number
+              Enter Valid Number
             </span>
           )}
 
@@ -209,7 +209,7 @@ export default function Book() {
                 justifyContent: "center",
               }}
             >
-              Enter The Valid email
+              Enter Valid email
             </span>
           )}
           {hide.email == true && (
@@ -281,7 +281,7 @@ export default function Book() {
               Select Driver Opestion
             </span>
           )}
-             <FormControl fullWidth>
+          <FormControl fullWidth>
             <Box style={{ fontWeight: "400", fontSize: "20px" }}>
               Select State*
             </Box>
@@ -295,7 +295,6 @@ export default function Book() {
               <MenuItem value="Gujarat">Gujarat</MenuItem>
               <MenuItem value="Maharashtra">Maharashtra</MenuItem>
               <MenuItem value="Rajasthan">Rajasthan</MenuItem>
-
             </Select>
           </FormControl>
           {valid.state == true && (
@@ -332,7 +331,7 @@ export default function Book() {
                 justifyContent: "center",
               }}
             >
-              Enter The Pickup Address
+              Enter Pickup Address
             </span>
           )}
           <Box style={{ fontWeight: "400", fontSize: "20px" }}>
@@ -360,7 +359,7 @@ export default function Book() {
                 justifyContent: "center",
               }}
             >
-              Enter The Drop-Off Address
+              Enter Drop-Off Address
             </span>
           )}
           <TextField
@@ -384,7 +383,7 @@ export default function Book() {
                 justifyContent: "center",
               }}
             >
-              Enter The Gadi Book Date
+              Enter Gadi Book Date
             </span>
           )}
 

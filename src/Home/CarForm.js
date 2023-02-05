@@ -10,7 +10,7 @@ function CarForm() {
     phone: "",
     email: "",
     car: "",
-    state:"",
+    state: "",
     drop: "",
     pickup: "",
     drive: "",
@@ -131,7 +131,7 @@ function CarForm() {
                 justifyContent: "center",
               }}
             >
-              Enter The Your Name
+              Enter Your Name
             </span>
           )}
           <label htmlFor="exampleInputEmail1" className="form-label">
@@ -157,7 +157,7 @@ function CarForm() {
                 justifyContent: "center",
               }}
             >
-              Enter The Valid Number
+              Enter Valid Number
             </span>
           )}
           <label htmlFor="exampleInputEmail1" className="form-label">
@@ -183,7 +183,7 @@ function CarForm() {
                 justifyContent: "center",
               }}
             >
-              Enter The Valid email
+              Enter Valid email
             </span>
           )}
           {hide.email == true && (
@@ -261,19 +261,18 @@ function CarForm() {
               Select Driver Opestion
             </span>
           )}
-           <label htmlFor="exampleInputEmail1" className="form-label">
+          <label htmlFor="exampleInputEmail1" className="form-label">
             Select State
           </label>
           <select
             type="text"
             className="form-control"
-           
             name="state"
             value={userRegistration.State}
             onChange={handleinput}
             aria-describedby="state"
           >
-          <option> Chose your Option </option>
+            <option> Chose your Option </option>
             <option> Gujarat</option>
             <option> Maharashtra</option>
             <option> Rajasthan</option>
@@ -313,7 +312,7 @@ function CarForm() {
                 justifyContent: "center",
               }}
             >
-              Enter The Pickup Address
+              Enter Pickup Address
             </span>
           )}
           <label htmlFor="exampleInputEmail1" className="form-label">
@@ -339,7 +338,7 @@ function CarForm() {
                 justifyContent: "center",
               }}
             >
-              Enter The Drop-Off Address
+              Enter Drop-Off Address
             </span>
           )}
           <label htmlFor="exampleInputEmail1" className="form-label">
@@ -364,7 +363,7 @@ function CarForm() {
                 justifyContent: "center",
               }}
             >
-              Enter The vehicle Book Date
+              Enter vehicle Book Date
             </span>
           )}
         </div>

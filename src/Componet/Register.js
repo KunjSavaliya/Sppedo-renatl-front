@@ -197,7 +197,7 @@ export default function Register() {
                 <span
                   style={{ color: "red", fontWeight: "bold", fontSize: "15px" }}
                 >
-                  Enter The Your Name
+                  Enter Your Name
                 </span>
               )}
               <TextField
@@ -218,7 +218,7 @@ export default function Register() {
                 <span
                   style={{ color: "red", fontWeight: "bold", fontSize: "15px" }}
                 >
-                  Enter The Your Phone Number
+                  Enter Your Phone Number
                 </span>
               )}
 
@@ -239,7 +239,7 @@ export default function Register() {
                 <span
                   style={{ color: "red", fontWeight: "bold", fontSize: "15px" }}
                 >
-                  Enter The Your email
+                  Enter Your email
                 </span>
               )}
               {hide.email == true && (
@@ -274,14 +274,14 @@ export default function Register() {
                 <span
                   style={{ color: "red", fontWeight: "bold", fontSize: "15px" }}
                 >
-                  Enter The Your Password
+                  Enter Your Password
                 </span>
               )}
               {hide.password == true && (
                 <span
                   style={{ color: "red", fontWeight: "bold", fontSize: "15px" }}
                 >
-                  Enter the Symbols,Uppercase,Numbers Characters
+                  Enter Symbols,Uppercase,Numbers Characters
                 </span>
               )}
 
