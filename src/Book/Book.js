@@ -58,6 +58,7 @@ export default function Book() {
   });
   const [valid, setValid] = useState({});
   const [hide, setHide] = useState({});
+
   const onSubmit = () => {
     if (book.name === "") {
       setValid((...valid) => ({ ...valid, name: true }));
@@ -113,13 +114,19 @@ export default function Book() {
 
       .then((res) => console.log("dtaa", res.data.message));
 
-    const input = localStorage.getItem("Book");
-    const items = (() => {
-      return input === null ? [] : JSON.parse(input);
-    })();
-    items.push(book);
-    localStorage.setItem("Book", JSON.stringify(items));
-    navigate("/Thanks");
+    // const input = localStorage.getItem("Book");
+    // const items = (() => {
+    //   return input === null ? [] : JSON.parse(input);
+    // })();
+    // items.push(book);
+    // localStorage.setItem("Book", JSON.stringify(items));
+    // }
+
+    if (book.drive === "Yes") {
+      navigate("/ThanksDrive");
+    } else if (book.drive === "No") {
+      navigate("/Thanks");
+    }
   };
   const OnBook = (e) => {
     const { value, name } = e.target;

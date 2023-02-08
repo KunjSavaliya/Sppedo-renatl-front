@@ -7,28 +7,40 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import OwnerNavbar from "./OwnerNavbar";
+import axios from "axios";
 import Footer from "../Dashboard/Footer";
 
 export default function BookData() {
-  const [value, setValue] = useState([]);
-  const [active, setActive] = useState(false);
+  // var data = JSON.parse(localStorage.getItem("Book"));
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
 
-  var data = JSON.parse(localStorage.getItem("Book"));
+  const fetchData = async () => {
+    setLoading(true);
+    try {
+      const { data: response } = await axios.get(
+        "http://localhost:8000/api/Gmaildata"
+      );
+
+      setData(response);
+      console.log("==>", response);
+    } catch (error) {}
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  // const Ondelete = (i) => {
+  //   value.splice(i);
+  //   localStorage.setItem("Book", JSON.stringify(value));
+  //   value();
+  // };
   const current = new Date();
   const date = `${current.getFullYear()}-${
     current.getMonth() + 1
   }-${current.getDate()}`;
-
-  useEffect(() => {
-    setValue(data);
-  }, [data]);
-
-  const Ondelete = (i) => {
-    value.splice(i);
-    localStorage.setItem("Book", JSON.stringify(value));
-    value();
-  };
-
   return (
     <>
       <title>Booking Data</title>
@@ -57,14 +69,13 @@ export default function BookData() {
               <TableCell align="left">Car Name</TableCell>
               <TableCell align="left">Pickup Point</TableCell>
               <TableCell align="left">Drop Point</TableCell>
-              <TableCell align="left">Delete</TableCell>
-              <TableCell align="left">Driver Option</TableCell>
               <TableCell align="left">State</TableCell>
-
+              <TableCell align="left">Driver Option</TableCell>
+              <TableCell align="left">Delete</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {value.map((row, i) => (
+            {data.map((row, i) => (
               <TableRow
                 // key={row.name}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -82,14 +93,13 @@ export default function BookData() {
                 <TableCell align="left">{row.car}</TableCell>
                 <TableCell align="left">{row.pickup}</TableCell>
                 <TableCell align="left">{row.drop}</TableCell>
-                <TableCell align="left">{row.drive}</TableCell>
                 <TableCell align="left">{row.state}</TableCell>
-
+                <TableCell align="left">{row.drive}</TableCell>
 
                 <TableCell align="left">
                   <button
                     style={{ width: "80px", borderRadius: "10px" }}
-                    onClick={() => Ondelete(i)}
+                    // onClick={() => Ondelete(i)}
                   >
                     Delete
                   </button>

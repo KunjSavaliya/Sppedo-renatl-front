@@ -19,11 +19,6 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import logo from "../Image/logoo.jpg";
 
-// import { Icon } from "react-icons-kit";
-// import { eyeOff } from "react-icons-kit/feather/eyeOff";
-// import { eye } from "react-icons-kit/feather/eye";
-// import SweetAlert from "react-bootstrap-sweetalert";
-
 const theme = createTheme();
 
 const useStyles = makeStyles((theme) => ({}));
@@ -49,8 +44,6 @@ export default function Register() {
     } catch (error) {}
     setLoading(false);
   };
-
-  //   console.log(data);
 
   useEffect(() => {
     fetchData();
@@ -84,7 +77,11 @@ export default function Register() {
         data[index]?.email === input.email &&
         data[index]?.password === input.password
       ) {
-        navigate("/");
+        if (data[index].email === "speedocarrental85@gmail.com") {
+          navigate("/BookData");
+        } else {
+          navigate("/");
+        }
         localStorage.setItem("user", JSON.stringify(data[index]));
         // setinput({ email: "", password: "" });
       }
@@ -126,7 +123,7 @@ export default function Register() {
           <Container
             component="main"
             maxWidth="xs"
-            style={{ backgroundColor: "#77ccff38", borderRadius: "20px" }}
+            style={{ backgroundColor: "white", borderRadius: "20px" }}
           >
             {/* <CssBaseline /> */}
             <Box
@@ -213,6 +210,7 @@ export default function Register() {
             </Box>
           </Container>
         </ThemeProvider>
+        
       </div>
     </>
   );

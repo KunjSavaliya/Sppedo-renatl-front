@@ -83,14 +83,18 @@ function CarForm() {
 
       .then((res) => console.log("dtaa", res.data.message));
 
-    const input = localStorage.getItem("home");
-    const items = (() => {
-      return input === null ? [] : JSON.parse(input);
-    })();
-    items.push(userRegistration);
-    localStorage.setItem("home", JSON.stringify(items));
+    // const input = localStorage.getItem("home");
+    // const items = (() => {
+    //   return input === null ? [] : JSON.parse(input);
+    // })();
+    // items.push(userRegistration);
+    // localStorage.setItem("home", JSON.stringify(items));
 
-    navigate("/Thanks");
+    if (userRegistration.drive === "Yes") {
+      navigate("/ThanksDrive");
+    } else if (userRegistration.drive === "No") {
+      navigate("/Thanks");
+    }
   };
   return (
     <div className="card" style={{ margin: "7vw 4vw 7vw" }}>

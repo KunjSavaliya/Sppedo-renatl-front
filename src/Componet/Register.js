@@ -158,7 +158,7 @@ export default function Register() {
           <Container
             component="main"
             maxWidth="xs"
-            style={{ backgroundColor: "#77ccff38", borderRadius: "20px" }}
+            style={{ backgroundColor: "white", borderRadius: "20px" }}
           >
             {/* <CssBaseline /> */}
             <Box

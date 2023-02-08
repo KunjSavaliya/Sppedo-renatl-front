@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import "../Dashboard/Navbar.css";
+
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
@@ -12,6 +14,7 @@ import Button from "@mui/material/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { OwnerNavitem } from "./OwnerNavitem";
 import logo from "../Image/logoo.jpg";
+import { NavLink } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -101,55 +104,20 @@ function DrawerAppBar(props) {
             ></Typography>
 
             <Box sx={{ display: "flex", flexDirection: "row", gap: "7px" }}>
-              <Button
-                key="Home"
-                className="hover"
-                sx={{
-                  color: "black",
-                  textTransform: "none",
-                  display: { xs: "none", sm: "block" },
-                }}
-                onClick={handleOnHome}
-              >
-                <strong style={{ color: "black" }}>HomeBooking Data</strong>
-              </Button>
-              <Button
-                key="contact"
-                className="hover"
-                sx={{
-                  color: "black",
-                  textTransform: "none",
-                  display: { xs: "none", sm: "block" },
-                }}
-                onClick={handleOnContact}
-              >
-                <strong style={{ color: "black" }}>Contact Data</strong>
-              </Button>
-              <Button
-                key="Booking"
-                className="hover"
-                sx={{
-                  color: "black",
-                  textTransform: "none",
-                  display: { xs: "none", sm: "block" },
-                }}
-                onClick={handleOnBook}
-              >
-                <strong style={{ color: "black" }}>Booking Data</strong>
-              </Button>
+              <NavLink to="/BookData" className="btnactive">
+                BookData
+              </NavLink>
+              <NavLink to="/ContactData" className="btnactive">
+                Comment Data
+              </NavLink>
 
-              <Button
+              <button
                 key="Logout"
-                className="hover"
-                sx={{
-                  color: "black",
-                  textTransform: "none",
-                  display: { xs: "none", sm: "block" },
-                }}
+                className="btnactive"
                 onClick={handleOnLogout}
               >
-                <strong style={{ color: "black" }}>Logout</strong>
-              </Button>
+                <p>Logout</p>
+              </button>
             </Box>
 
             <IconButton

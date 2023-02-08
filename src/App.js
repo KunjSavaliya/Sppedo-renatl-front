@@ -10,7 +10,7 @@ import Login from "./Componet/Login";
 import Forget from "./Componet/Forget";
 import OwnerNavbar from "./Ownar/OwnerNavbar";
 import About from "./About/About";
-import HomeBookData from "./Ownar/HomeBookData";
+// import HomeBookData from "./Ownar/HomeBookData";
 import BookData from "./Ownar/BookData";
 import ContactData from "./Ownar/ContactData";
 import Book from "./Book/Book";
@@ -48,9 +48,9 @@ function App() {
           <Route exact path="/Forget" element={<Forget />}>
             {" "}
           </Route>
-          <Route exact path="/HomeBookData" element={<HomeBookData />}>
+          {/* <Route exact path="/HomeBookData" element={<HomeBookData />}>
             {" "}
-          </Route>
+          </Route> */}
           <Route exact path="/BookData" element={<BookData />}>
             {" "}
           </Route>
