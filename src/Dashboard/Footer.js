@@ -77,7 +77,7 @@ export default function Footer() {
             <Box className={classes.info2}>
               <span style={{ color: "#23809fc2" }}>Office</span> Hours
             </Box>
-            <Box className={classes.info1}>All Days :: 24X7 Available</Box>
+            <Box className={classes.info1}> 24X7 Available</Box>
           </Grid>
         </Grid>
       </Grid>

@@ -11,7 +11,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
-import "./Book.css";
+import "../Book/Book.css";
 
 const useStyles = makeStyles((theme) => ({
   us: {
@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Book() {
+export default function Editbook() {
   const navigate = useNavigate();
 
   const classes = useStyles();
@@ -114,11 +114,8 @@ export default function Book() {
 
       .then((res) => console.log("dtaa", res.data.message));
 
-    if (book.drive === "Yes") {
-      navigate("/ThanksDrive");
-    } else if (book.drive === "No") {
-      navigate("/Thanks");
-    }
+
+    
   };
   const OnBook = (e) => {
     const { value, name } = e.target;

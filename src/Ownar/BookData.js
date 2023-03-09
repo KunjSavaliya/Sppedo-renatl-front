@@ -32,15 +32,12 @@ export default function BookData() {
     fetchData();
   }, []);
 
-  // const Ondelete = (i) => {
-  //   value.splice(i);
-  //   localStorage.setItem("Book", JSON.stringify(value));
-  //   value();
-  // };
-  const current = new Date();
-  const date = `${current.getFullYear()}-${
-    current.getMonth() + 1
-  }-${current.getDate()}`;
+  const DeleteUser = (id) => {
+    console.log("id", id);
+    //  axios.delete(`http://localhost:3030/student/delete/${id}`);
+    axios.delete(`http://localhost:8000/Gmailiddelete/${id}`);
+    fetchData();
+  };
   return (
     <>
       <title>Booking Data</title>
@@ -62,7 +59,7 @@ export default function BookData() {
           <TableHead>
             <TableRow>
               <TableCell align="left">Name</TableCell>
-              <TableCell align="left">Today Date</TableCell>
+
               <TableCell align="left">Booking Date</TableCell>
               <TableCell align="left">Email Address</TableCell>
               <TableCell align="left">Phone Number</TableCell>
@@ -71,6 +68,7 @@ export default function BookData() {
               <TableCell align="left">Drop Point</TableCell>
               <TableCell align="left">State</TableCell>
               <TableCell align="left">Driver Option</TableCell>
+              <TableCell align="left">Edit</TableCell>
               <TableCell align="left">Delete</TableCell>
             </TableRow>
           </TableHead>
@@ -81,12 +79,7 @@ export default function BookData() {
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell align="left">{row.name}</TableCell>
-                <TableCell
-                  align="left"
-                  style={{ color: "red", fontWeight: "bold" }}
-                >
-                  {date}
-                </TableCell>
+
                 <TableCell align="left">{row.date}</TableCell>
                 <TableCell align="left">{row.email}</TableCell>
                 <TableCell align="left">{row.phone}</TableCell>
@@ -100,6 +93,14 @@ export default function BookData() {
                   <button
                     style={{ width: "80px", borderRadius: "10px" }}
                     // onClick={() => Ondelete(i)}
+                  >
+                    Edit
+                  </button>
+                </TableCell>
+                <TableCell align="left">
+                  <button
+                    style={{ width: "80px", borderRadius: "10px" }}
+                    onClick={() => DeleteUser(row._id)}
                   >
                     Delete
                   </button>

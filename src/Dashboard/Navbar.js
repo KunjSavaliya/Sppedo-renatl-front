@@ -108,6 +108,9 @@ function DrawerAppBar(props) {
               <NavLink to="/Contact" className="btnactive">
                 Contact us
               </NavLink>
+              <NavLink to="/FeedBack" className="btnactive">
+                Feed Back
+              </NavLink>
               <button onClick={handleOnLogout} className="logouts">
                 Logout
               </button>

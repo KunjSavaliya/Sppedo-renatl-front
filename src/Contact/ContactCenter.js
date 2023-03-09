@@ -3,6 +3,8 @@ import Grid from "@mui/material/Grid";
 import { Box } from "@mui/system";
 import { makeStyles } from "@mui/styles";
 import { MdEmail } from "react-icons/md";
+import { MdBookmark } from "react-icons/md";
+
 import { CiLocationOn } from "react-icons/ci";
 import "./Contact.css";
 
@@ -36,13 +38,15 @@ export default function ContactCenter() {
         </Grid>
         <Grid className="ebox">
           <Grid className="e-box11">
-            <MdEmail />
+            <MdBookmark />
           </Grid>
-          <Box className={classes.etext}>Email Address</Box>
+          <Box className={classes.etext}>Fast & Easy Booking</Box>
           <Box className="border"></Box>
           <Box className="border1"></Box>
 
-          <Box className={classes.eetext}>speedocarrental85@gmail.com</Box>
+          <Box className={classes.eetext}>
+            You can book a cab online in just 2 minutes. It's easy & simple
+          </Box>
         </Grid>
         <Grid className="ebox">
           <Grid className="e-box11">

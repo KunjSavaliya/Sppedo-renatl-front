@@ -10,13 +10,14 @@ import Login from "./Componet/Login";
 import Forget from "./Componet/Forget";
 import OwnerNavbar from "./Ownar/OwnerNavbar";
 import About from "./About/About";
-// import HomeBookData from "./Ownar/HomeBookData";
+import EditBookData from "./Ownar/Editbook";
 import BookData from "./Ownar/BookData";
 import ContactData from "./Ownar/ContactData";
 import Book from "./Book/Book";
 import Contact from "./Contact/Contact";
 import Home from "./Home/Home";
 import Populer from "./Populer/Populer";
+import Feedback from "./FeedBack/Feedback";
 
 function App() {
   var user = localStorage.getItem("user");
@@ -48,13 +49,16 @@ function App() {
           <Route exact path="/Forget" element={<Forget />}>
             {" "}
           </Route>
-          {/* <Route exact path="/HomeBookData" element={<HomeBookData />}>
+          <Route exact path="/EditBookData" element={<EditBookData />}>
             {" "}
-          </Route> */}
+          </Route>
           <Route exact path="/BookData" element={<BookData />}>
             {" "}
           </Route>
           <Route exact path="/ContactData" element={<ContactData />}>
+            {" "}
+          </Route>
+          <Route exact path="/FeedBack" element={<Feedback />}>
             {" "}
           </Route>
 
