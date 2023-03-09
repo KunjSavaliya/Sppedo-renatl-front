@@ -16,6 +16,13 @@ const useStyles = makeStyles((theme) => ({
     padding: "30px",
     fontWeight: "bold",
   },
+  copy: {
+    padding: "20px",
+    fontWeight: "bold",
+    backgroundColor: "black",
+    color: "white",
+    textAlign: "center",
+  },
   foo: {
     padding: "30px",
     fontWeight: "bold",
@@ -80,6 +87,9 @@ export default function Footer() {
             <Box className={classes.info1}> 24X7 Available</Box>
           </Grid>
         </Grid>
+      </Grid>
+      <Grid className={classes.copy}>
+        <Box>Copyright © 2023 - Speedo Car Rental</Box>
       </Grid>
     </>
   );
