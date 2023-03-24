@@ -8,7 +8,7 @@ import ThanksDrive from "./Thanks/ThankDriver";
 
 import Login from "./Componet/Login";
 import Forget from "./Componet/Forget";
-import OwnerNavbar from "./Ownar/OwnerNavbar";
+import OwnerNavbar from "./Ownar/Navbar/OwnerNavbar";
 import About from "./About/About";
 import EditBookData from "./Ownar/Editbook";
 import BookData from "./Ownar/BookData";
@@ -18,6 +18,7 @@ import Contact from "./Contact/Contact";
 import Home from "./Home/Home";
 import Populer from "./Populer/Populer";
 import Feedback from "./FeedBack/Feedback";
+import Dashboard from "./Ownar/Dashboard/Dashboard";
 
 function App() {
   var user = localStorage.getItem("user");
@@ -25,110 +26,31 @@ function App() {
   function RequireAuth({ children }) {
     return user ? children : <Navigate to="/Login" replace />;
   }
-
+  
   return (
     <>
       <Router>
         <Routes>
-          <Route exact path="/" element={<Home />}>
-            {" "}
-          </Route>
-          <Route exact path="/Thanks" element={<Thanks />}>
-            {" "}
-          </Route>
-          <Route exact path="/ThanksDrive" element={<ThanksDrive />}>
-            {" "}
-          </Route>
-          <Route exact path="/Login" element={<Login />}>
-            {" "}
-          </Route>
-
-          <Route exact path="/Register" element={<Register />}>
-            {" "}
-          </Route>
-          <Route exact path="/Forget" element={<Forget />}>
-            {" "}
-          </Route>
-          <Route exact path="/EditBookData" element={<EditBookData />}>
-            {" "}
-          </Route>
-          <Route exact path="/BookData" element={<BookData />}>
-            {" "}
-          </Route>
-          <Route exact path="/ContactData" element={<ContactData />}>
-            {" "}
-          </Route>
-          <Route exact path="/FeedBack" element={<Feedback />}>
-            {" "}
-          </Route>
-
-          <Route
-            exact
-            path="/OwnerNavbar"
-            element={
-              <RequireAuth>
-                <OwnerNavbar />
-              </RequireAuth>
-            }
-          >
-            {" "}
-          </Route>
-
-          <Route
-            exact
-            path="/About"
-            element={
-              <RequireAuth>
-                <About />
-              </RequireAuth>
-            }
-          >
-            {" "}
-          </Route>
-          <Route
-            exact
-            path="/Book"
-            element={
-              <RequireAuth>
-                <Book />
-              </RequireAuth>
-            }
-          >
-            {" "}
-          </Route>
-          <Route
-            exact
-            path="/Contact"
-            element={
-              <RequireAuth>
-                <Contact />
-              </RequireAuth>
-            }
-          >
-            {" "}
-          </Route>
-          <Route
-            exact
-            path="/Populer"
-            element={
-              <RequireAuth>
-                <Populer />
-              </RequireAuth>
-            }
-          >
-            {" "}
-          </Route>
-          <Route
-            exact
-            path="/Home"
-            element={
-              <RequireAuth>
-                <Home />
-              </RequireAuth>
-            }
-          >
-            {" "}
-          </Route>
+          <Route exact path="/" element={<Home />}></Route>
+          <Route exact path="/Thanks" element={<Thanks />}></Route>
+          <Route exact path="/ThanksDrive" element={<ThanksDrive />}></Route>
+          <Route exact path="/Login" element={<Login />}></Route>
+          <Route exact path="/Register" element={<Register />}></Route>
+          <Route exact path="/Forget" element={<Forget />}> </Route>
+          <Route exact path="/EditBookData" element={<EditBookData />}></Route>
+          <Route exact path="/BookData" element={<BookData />}></Route>
+          <Route exact path="/ContactData" element={<ContactData />}></Route>
+          <Route exact path="/Dashboard" element={<Dashboard/>}> </Route>
+           <Route exact path='/EditBookData/:index' element={< EditBookData />} ></Route>
+            
+          
+          <Route exact path="/FeedBack"element={ <RequireAuth> <Feedback /></RequireAuth>}></Route>
+          <Route exact path="/OwnerNavbar" element={<RequireAuth><OwnerNavbar /></RequireAuth>}></Route>
+          <Route exact path="/About"element={ <RequireAuth> <About /></RequireAuth>} ></Route>
+          <Route exact path="/Book" element={<RequireAuth><Book /> </RequireAuth>}></Route>
+          <Route exact path="/Contact" element={<RequireAuth><Contact/></RequireAuth>}></Route>
+          <Route exact path="/Populer" element={<RequireAuth><Populer /></RequireAuth>}></Route>
+          <Route exact path="/Home"element={<RequireAuth><Home /></RequireAuth>}></Route>
         </Routes>
       </Router>
     </>

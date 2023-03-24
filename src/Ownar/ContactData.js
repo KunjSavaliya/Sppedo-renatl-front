@@ -6,16 +6,13 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import OwnerNavbar from "./OwnerNavbar";
+import OwnerNavbar from "./Navbar/OwnerNavbar";
 import Footer from "../Dashboard/Footer";
 import axios from "axios";
+import { json } from "react-router-dom";
 
 export default function ContactData() {
-  const current = new Date();
-  const date = `${current.getFullYear()}-${
-    current.getMonth() + 1
-  }-${current.getDate()}`;
-
+  
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
@@ -27,14 +24,17 @@ export default function ContactData() {
       );
 
       setData(response);
-      console.log("==>", response);
+  
+     
     } catch (error) {}
     setLoading(false);
-  };
+  }
 
   useEffect(() => {
     fetchData();
   }, []);
+
+  // const value = {data.length};
   return (
     <>
       <title>Contact Data</title>
@@ -55,7 +55,7 @@ export default function ContactData() {
           <TableHead>
             <TableRow>
               <TableCell align="left">Name</TableCell>
-              <TableCell align="left">Today Date</TableCell>
+
               <TableCell align="left">Email Address</TableCell>
               <TableCell align="left">Phone Number</TableCell>
               <TableCell align="left">Message</TableCell>
@@ -69,12 +69,7 @@ export default function ContactData() {
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell align="left"> {row.name}</TableCell>
-                <TableCell
-                  align="left"
-                  style={{ color: "red", fontWeight: "bold" }}
-                >
-                  {date}
-                </TableCell>
+
                 <TableCell align="left">{row.email}</TableCell>
                 <TableCell align="left">{row.phone}</TableCell>
                 <TableCell align="left">{row.message}</TableCell>

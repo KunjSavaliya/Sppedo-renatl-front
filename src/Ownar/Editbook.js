@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Footer from "../Dashboard/Footer";
 import Navbar from "../Dashboard/Navbar";
 import Grid from "@mui/material/Grid";
@@ -9,7 +9,7 @@ import axios from "axios";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useParams } from "react-router-dom";
 import Button from "@mui/material/Button";
 import "../Book/Book.css";
 
@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Editbook() {
   const navigate = useNavigate();
 
+
   const classes = useStyles();
   const [book, setBook] = useState({
     name: "",
@@ -58,6 +59,27 @@ export default function Editbook() {
   });
   const [valid, setValid] = useState({});
   const [hide, setHide] = useState({});
+
+
+  const { index } = useParams();
+
+  const fetchEditedData = async (id) => {
+    const data = await axios.get(`http://localhost:8000/api/Gmailupdateid/${id}`);
+
+    setBook(data.data);
+    console.log("upadte", data);
+    console.log("book", book);
+  };
+  // console.log(user);
+
+  useEffect(() => {
+    if (index) {
+      fetchEditedData(index);
+    }
+  }, []);
+
+
+
 
   const onSubmit = () => {
     if (book.name === "") {
@@ -110,10 +132,11 @@ export default function Editbook() {
     }
 
     axios
-      .post("http://localhost:8000/api/mailsent", book)
+      .put(`http://localhost:8000/api/gupdate/${index}`, book)
 
       .then((res) => console.log("dtaa", res.data.message));
-
+      
+      
 
     
   };

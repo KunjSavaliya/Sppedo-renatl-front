@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Navbar from "../Dashboard/Navbar";
 import Footer from "../Dashboard/Footer";
 import Grid from "@mui/material/Grid";
@@ -35,15 +35,34 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 export default function Feedback() {
+
   const classes = useStyles();
   const navigate = useNavigate();
 
+
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+
+  const fetchData = async () => {
+    setLoading(true);
+    try {
+      const { data: response } = await axios.get(
+        "http://localhost:8000/api/feedbackdata"
+      );
+
+      setData(response);
+      console.log("==>", response);
+    } catch (error) {}
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
   const [comment, setComment] = useState({
     name: "",
     email: "",
-    state: "",
-    city: "",
-    message: "",
+     message: "",
   });
   const [valid, setValid] = useState({});
   const [hide, setHide] = useState({});
@@ -72,24 +91,20 @@ export default function Feedback() {
       setHide((...hide) => ({ ...hide, email: true }));
       return;
     }
-    if (comment.state === "") {
-      setValid((...valid) => ({ ...valid, state: true }));
-      return;
-    }
-    if (comment.city === "") {
-      setValid((...valid) => ({ ...valid, city: true }));
-      return;
-    }
+
     if (comment.message === "") {
       setValid((...valid) => ({ ...valid, message: true }));
       return;
     }
 
     axios
-      .post("http://localhost:8000/api/feedbacksent", comment)
+      .post("http://localhost:8000/api/feedback", comment)
 
       .then((res) => console.log(res.data.message));
+      
     // navigate("/Thanks");
+    const value = data.length
+      localStorage.setItem("feedbackdata",(value));
   };
 
   return (
@@ -97,6 +112,12 @@ export default function Feedback() {
       <title>Feed Back</title>
 
       <Navbar />
+      <Grid className={classes.color}>
+        <Box className={classes.us}>Feedback</Box>
+        <Box className={classes.we}>Get in Touch With Us</Box>
+      </Grid>
+      <Box className={classes.car}>Get In Touch With Us</Box>
+
       <Grid className={classes.form}>
         <Box style={{ fontWeight: "400", fontSize: "20px" }}> Full Name*</Box>
         <TextField
@@ -156,48 +177,7 @@ export default function Feedback() {
             Invlid Email Address
           </span>
         )}
-        <Box style={{ fontWeight: "400", fontSize: "20px" }}> State Name*</Box>
-        <TextField
-          name="state"
-          value={comment.state}
-          placeholder="State Name"
-          fullWidth
-          onChange={oninput}
-        />
-        {valid.state == true && (
-          <span
-            style={{
-              color: "red",
-              fontWeight: "bold",
-              fontSize: "15px",
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
-            Enter Your State Name
-          </span>
-        )}{" "}
-        <Box style={{ fontWeight: "400", fontSize: "20px" }}> City Name*</Box>
-        <TextField
-          name="city"
-          value={comment.city}
-          placeholder="City Name"
-          fullWidth
-          onChange={oninput}
-        />
-        {valid.city == true && (
-          <span
-            style={{
-              color: "red",
-              fontWeight: "bold",
-              fontSize: "15px",
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
-            Enter Your City Name
-          </span>
-        )}
+
         <Box style={{ fontWeight: "400", fontSize: "20px" }}>Message*</Box>
         <TextField
           name="message"

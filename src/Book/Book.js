@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Footer from "../Dashboard/Footer";
 import Navbar from "../Dashboard/Navbar";
 import Grid from "@mui/material/Grid";
@@ -42,6 +42,27 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Book() {
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+
+  const fetchData = async () => {
+    setLoading(true);
+    try {
+      const { data: response } = await axios.get(
+        "http://localhost:8000/api/Gmaildata"
+      );
+
+      setData(response);
+  
+     
+    } catch (error) {}
+    setLoading(false);
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   const navigate = useNavigate();
 
   const classes = useStyles();
@@ -114,8 +135,12 @@ export default function Book() {
 
       .then((res) => console.log("dtaa", res.data.message));
 
+      const value = data.length
+      localStorage.setItem("Bookingdata",(value));
+      
+    localStorage.setItem("Booking", JSON.stringify(book));
     if (book.drive === "Yes") {
-      navigate("/ThanksDrive");
+      navigate("/Thanks");
     } else if (book.drive === "No") {
       navigate("/Thanks");
     }

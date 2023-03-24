@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import "../Dashboard/Navbar.css";
-
+import "../../Dashboard/Navbar";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
@@ -13,7 +12,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { OwnerNavitem } from "./OwnerNavitem";
-import logo from "../Image/logoo.jpg";
+import logo from "../../Image/logoo.jpg";
 import { NavLink } from "react-router-dom";
 
 const drawerWidth = 240;
@@ -27,15 +26,6 @@ function DrawerAppBar(props) {
     setMobileOpen(!mobileOpen);
   };
 
-  const handleOnHome = () => {
-    navigate("/HomeBookData");
-  };
-  const handleOnBook = () => {
-    navigate("/BookData");
-  };
-  const handleOnContact = () => {
-    navigate("/ContactData");
-  };
 
   const handleOnLogout = () => {
     localStorage.removeItem("user");
@@ -110,7 +100,9 @@ function DrawerAppBar(props) {
               <NavLink to="/ContactData" className="btnactive">
                 Comment Data
               </NavLink>
-
+              <NavLink to="/Dashboard" className="btnactive">
+                Dashbaord
+              </NavLink>
               <button
                 key="Logout"
                 className="btnactive"

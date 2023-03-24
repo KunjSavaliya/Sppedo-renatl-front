@@ -83,6 +83,7 @@ export default function Register() {
     }
   };
   function Submit() {
+    
     if (user.name === "") {
       setValid((...valid) => ({ ...valid, name: true }));
       return;
@@ -135,8 +136,12 @@ export default function Register() {
       .then((res) => console.log(res.data.message));
 
     console.log(user);
+    const value = data.length
+    
+  localStorage.setItem("registerdata",(value));
     navigate("/login");
   }
+
 
   return (
     <>

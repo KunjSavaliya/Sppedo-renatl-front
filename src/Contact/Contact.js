@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Footer from "../Dashboard/Footer";
 import Navbar from "../Dashboard/Navbar";
 import Grid from "@mui/material/Grid";
@@ -37,6 +37,27 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 export default function Contact() {
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+
+  const fetchData = async () => {
+    setLoading(true);
+    try {
+      const { data: response } = await axios.get(
+        "http://localhost:8000/api/commentdata"
+      );
+
+      setData(response);
+  
+     
+    } catch (error) {}
+    setLoading(false);
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   const classes = useStyles();
   const navigate = useNavigate();
 
@@ -93,6 +114,9 @@ export default function Contact() {
       .post("http://localhost:8000/api/comment  ", comment)
 
       .then((res) => console.log(res.data.message));
+      const value = data.length
+    
+      localStorage.setItem("commentdata",(value));
     navigate("/Thanks");
   };
 

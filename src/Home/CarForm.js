@@ -1,8 +1,29 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function CarForm() {
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+
+  const fetchData = async () => {
+    setLoading(true);
+    try {
+      const { data: response } = await axios.get(
+        "http://localhost:8000/api/Gmaildata"
+      );
+
+      setData(response);
+  
+     
+    } catch (error) {}
+    setLoading(false);
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   const navigate = useNavigate();
 
   const [userRegistration, setUserRegistration] = useState({
@@ -83,15 +104,12 @@ function CarForm() {
 
       .then((res) => console.log("dtaa", res.data.message));
 
-    // const input = localStorage.getItem("home");
-    // const items = (() => {
-    //   return input === null ? [] : JSON.parse(input);
-    // })();
-    // items.push(userRegistration);
-    // localStorage.setItem("home", JSON.stringify(items));
+      const value = data.length
+      localStorage.setItem("Bookingdata",(value));
+    localStorage.setItem("Booking", JSON.stringify(userRegistration));
 
     if (userRegistration.drive === "Yes") {
-      navigate("/ThanksDrive");
+      navigate("/Thanks");
     } else if (userRegistration.drive === "No") {
       navigate("/Thanks");
     }
@@ -219,7 +237,7 @@ function CarForm() {
             <option> Hatchback</option>
             <option> Sedan</option>
             <option> SUV/MUV</option>
-            <option> Premium</option>
+            <option> Primium</option>
             <option> Luxury</option>
           </select>
           {valid.car == true && (

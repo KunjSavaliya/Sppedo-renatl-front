@@ -6,7 +6,9 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import OwnerNavbar from "./OwnerNavbar";
+import OwnerNavbar from "./Navbar/OwnerNavbar";
+import { useNavigate } from "react-router-dom";
+
 import axios from "axios";
 import Footer from "../Dashboard/Footer";
 
@@ -14,6 +16,8 @@ export default function BookData() {
   // var data = JSON.parse(localStorage.getItem("Book"));
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  const navigate = useNavigate();
+
 
   const fetchData = async () => {
     setLoading(true);
@@ -24,19 +28,30 @@ export default function BookData() {
 
       setData(response);
       console.log("==>", response);
+
     } catch (error) {}
     setLoading(false);
+    
   };
+  
 
   useEffect(() => {
     fetchData();
   }, []);
-
+    
   const DeleteUser = (id) => {
     console.log("id", id);
     //  axios.delete(`http://localhost:3030/student/delete/${id}`);
-    axios.delete(`http://localhost:8000/Gmailiddelete/${id}`);
+    axios.delete(`http://localhost:8000/api/Gdelete/${id}`);
+    const value = data.length
+      localStorage.setItem("Bookingdata",(value));
     fetchData();
+
+    console.log("..",data);
+  };
+
+  const UpdateUser = (index) => {
+    navigate(`/EditBookData/${index}`);
   };
   return (
     <>
@@ -92,7 +107,8 @@ export default function BookData() {
                 <TableCell align="left">
                   <button
                     style={{ width: "80px", borderRadius: "10px" }}
-                    // onClick={() => Ondelete(i)}
+                    onClick={() => UpdateUser(row._id)}
+
                   >
                     Edit
                   </button>
