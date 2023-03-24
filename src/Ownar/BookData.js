@@ -33,7 +33,9 @@ export default function BookData() {
     setLoading(false);
     
   };
-  
+  const value = data.length
+      localStorage.setItem("Bookingdata",(value));
+    console.log("..",value);
 
   useEffect(() => {
     fetchData();
@@ -43,11 +45,10 @@ export default function BookData() {
     console.log("id", id);
     //  axios.delete(`http://localhost:3030/student/delete/${id}`);
     axios.delete(`http://localhost:8000/api/Gdelete/${id}`);
-    const value = data.length
-      localStorage.setItem("Bookingdata",(value));
+    
+
     fetchData();
 
-    console.log("..",data);
   };
 
   const UpdateUser = (index) => {

@@ -106,6 +106,7 @@ function CarForm() {
 
       const value = data.length
       localStorage.setItem("Bookingdata",(value));
+      
     localStorage.setItem("Booking", JSON.stringify(userRegistration));
 
     if (userRegistration.drive === "Yes") {

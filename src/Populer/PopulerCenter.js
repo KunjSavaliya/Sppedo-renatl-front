@@ -1,5 +1,10 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import "./Populer.css";
+import axios from "axios";
+import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+
+import ReactPaginate from "react-paginate";
 import { makeStyles } from "@mui/styles";
 import Grid from "@mui/material/Grid";
 import { Box } from "@mui/system";
@@ -74,9 +79,57 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     fontWeight: "bold",
   },
+  color1: {
+    // backgroundColor: "#23809fc2",
+    textAlign: "center",
+    fontWeight: "bold",
+    color: "balck",
+    // padding: "30px",
+    // marginTop: "30px",
+  },
 }));
 export default function PopulerCenter() {
   const classes = useStyles();
+  const [currentpage, setCurrentpage] = useState(0);
+  const [postperpage] = useState(3);
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+  const navigate = useNavigate();
+  const Onpush = () => {
+    navigate("/FeedBack");
+  };
+  const postPerPage = 3;
+  const indexOfLastpost = currentpage * postperpage;
+  
+  const currentposts = data.slice(
+    indexOfLastpost,
+    indexOfLastpost + postPerPage
+  );
+  const pageNumber = [];
+  for (let i = 1; i <= Math.ceil(data.length / postPerPage); i++) {
+    pageNumber.push(i);
+  }
+  const pageCount = Math.ceil(data.length / postPerPage);
+  const changePage = ({ selected }) => {
+    setCurrentpage(selected);
+  };
+
+  const fetchData = async () => {
+    setLoading(true);
+    try {
+      const { data: response } = await axios.get(
+        "http://localhost:8000/api/feedbackdata"
+      );
+
+      setData(response);
+      console.log("==>", response);
+    } catch (error) {}
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -219,28 +272,47 @@ export default function PopulerCenter() {
             See What Our Customer Says About Us...
           </Box>
         </Grid>
+        {currentposts.map((row) => (
         
         <Grid className="textbc">
           {/* <Box className={classes.dot}>!!</Box> */}
           <Box className="text1">
-            I have booked one way cab from Speedo Car Rental. I have to go from
+            {/* I have booked one way cab from Speedo Car Rental. I have to go from
             Mumbai to Pune. They arranged a cab for me at very affordable
-            prices. I am really happy with their services.
+            prices. I am really happy with their services. */}
+            {row.message}
           </Box>
           <br></br>
-          <Box className="text2">Risi Singh</Box>
-          <Box className="text3">Surat, Gujarat</Box>
+          <Box className="text2">{row.name}</Box>
+          {/* <Box className="text3">Surat, Gujarat</Box> */}
         </Grid>
-        <Grid className="textbc">
-          <Box className="text1">
-            I need a cab in Jaipur, got Speedo Car Rental when searching online.
-            They provide me 50% off on my first ride. I booked my ride for just
-            Rs. 1,500 for 2 days trip.
-          </Box>
-          <br></br>
-          <Box className="text2">Narender Meena</Box>
-          <Box className="text3">Jaipur, Rajasthan</Box>
-        </Grid>
+            ))}
+<Grid>
+<ReactPaginate
+            className="page"
+            previousLabel={ <p className="pre">Previous</p>}
+            nextLabel={<p className="pre">Next</p>}
+            pageCount={pageCount}
+            onPageChange={changePage}
+            containerClassName={"paginationBttns"}
+            previousLinkClassName={"previousBttn"}
+            nextLinkClassName={"nextBttn"}
+            disabledClassName={"paginationDisabled"}
+            activeClassName={"paginationActive"}
+          />
+</Grid>
+<Grid className={classes.color1}>
+        
+
+        <Button
+          sx={{ mt: 2, backgroundColor: "#23809fc2", padding: "12px" }}
+          variant="contained"
+          onClick={Onpush}
+        >
+          FeedBack
+        </Button>
+      </Grid>
+        
       </Grid>
     </>
   );
