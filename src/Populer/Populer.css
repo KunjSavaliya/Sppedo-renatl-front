@@ -59,7 +59,7 @@
   .page{
     display: flex;
     justify-content: center;
-    column-gap: 20px;
+    column-gap: 10px;
     font-size: 20px;
     color: white;
     list-style-type: none;

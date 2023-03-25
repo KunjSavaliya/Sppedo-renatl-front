@@ -66,6 +66,8 @@ export default function Feedback() {
   });
   const [valid, setValid] = useState({});
   const [hide, setHide] = useState({});
+  const value = data.length
+      localStorage.setItem("feedbackdata",(value));
   const oninput = (e) => {
     const { name, value } = e.target;
 
@@ -102,9 +104,12 @@ export default function Feedback() {
 
       .then((res) => console.log(res.data.message));
       
-    // navigate("/Thanks");
-    const value = data.length
-      localStorage.setItem("feedbackdata",(value));
+    
+
+    localStorage.setItem("Feedback", JSON.stringify(comment));
+
+    navigate("/Feedbackrconform");
+
   };
 
   return (

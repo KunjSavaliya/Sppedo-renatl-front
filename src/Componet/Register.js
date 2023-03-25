@@ -63,6 +63,9 @@ export default function Register() {
   const [valid, setValid] = useState({});
   const [type, setType] = useState("password");
   // const [icon, setIcon] = useState(eyeOff);
+  const value = data.length
+    
+  localStorage.setItem("registerdata",(value));
 
   function pagehandler(e) {
     setuser({
@@ -136,9 +139,7 @@ export default function Register() {
       .then((res) => console.log(res.data.message));
 
     console.log(user);
-    const value = data.length
     
-  localStorage.setItem("registerdata",(value));
     navigate("/login");
   }
 

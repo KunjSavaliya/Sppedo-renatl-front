@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import { makeStyles } from "@mui/styles";
@@ -31,9 +31,14 @@ const useStyles = makeStyles((theme) => ({
 export default function Thanks() {
   const classes = useStyles();
   const navigate = useNavigate();
-
+  const [name, setname] = useState("");
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("Feedback"));
+    setname(data);
+    console.log("name", name);
+  }, []);
   const onView = () => {
-    navigate("/");
+    navigate("/Feedback");
   };
   return (
     <>
@@ -42,30 +47,29 @@ export default function Thanks() {
         <Card
           sx={{
             width: 600,
-            alignItems: "center",
+           
             backgroundColor: "rgba(119, 204, 255, 0.22)",
           }}
           className={classes.words}
         >
-          <Box className={classes.eqv}>Thanks For Your Booking</Box>
-          <Box className={classes.eqv1}>
-            We have recieved your Booking,we will get back to soon with Driver...
-          </Box>
-          <Box className={classes.eqv1}>
-          we will send message  with driver name,vehicle name, Driver phone number in gmail
-          </Box>
+          <Box className={classes.eqv}>Thanks For Your Enquiry</Box>
+          
+          <Box className={classes.eqv1}>Name: {name.name}</Box>
+          <Box className={classes.eqv1}>Email: {name.email}</Box>
+          <Box className={classes.eqv1}>Phone no: {name.message}</Box>
+          
 
           <Button
             style={{
               backgroundColor: "rgba(35, 128, 159, 0.76)",
               padding: "10px 30px 10px 30px",
-
+              textAlign: "center",
               marginTop: "20px",
               color: "black",
             }}
             onClick={onView}
           >
-            GO BACK TO HOME 
+            GO BACK TO HOME
           </Button>
         </Card>
       </div>

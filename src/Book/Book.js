@@ -79,7 +79,8 @@ export default function Book() {
   });
   const [valid, setValid] = useState({});
   const [hide, setHide] = useState({});
-
+  const value = data.length
+  localStorage.setItem("Bookingdata",(value));
   const onSubmit = () => {
     if (book.name === "") {
       setValid((...valid) => ({ ...valid, name: true }));
@@ -135,15 +136,12 @@ export default function Book() {
 
       .then((res) => console.log("dtaa", res.data.message));
 
-      const value = data.length
-      localStorage.setItem("Bookingdata",(value));
+     
       
     localStorage.setItem("Booking", JSON.stringify(book));
-    if (book.drive === "Yes") {
-      navigate("/Thanks");
-    } else if (book.drive === "No") {
-      navigate("/Thanks");
-    }
+   
+      navigate("/Bookingconform");
+    
   };
   const OnBook = (e) => {
     const { value, name } = e.target;

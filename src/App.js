@@ -3,8 +3,8 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navigate } from "react-router";
 import Register from "./Componet/Register";
-import Thanks from "./Thanks/Thanks";
-import ThanksDrive from "./Thanks/ThankDriver";
+import Bookingconform from "./Thanks/Bookingconform";
+import Feedbackrconform from "./Thanks/Feedbackrconform";
 
 import Login from "./Componet/Login";
 import Forget from "./Componet/Forget";
@@ -32,8 +32,8 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
-          <Route exact path="/Thanks" element={<Thanks />}></Route>
-          <Route exact path="/ThanksDrive" element={<ThanksDrive />}></Route>
+          <Route exact path="/Bookingconform" element={<Bookingconform />}></Route>
+          <Route exact path="/Feedbackrconform" element={<Feedbackrconform />}></Route>
           <Route exact path="/Login" element={<Login />}></Route>
           <Route exact path="/Register" element={<Register />}></Route>
           <Route exact path="/Forget" element={<Forget />}> </Route>

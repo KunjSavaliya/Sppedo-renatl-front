@@ -1,17 +1,56 @@
 import React, { useEffect, useState } from "react";
 import "./Feedback.css";
+import "../Populer/Populer.css";
 import axios from "axios";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
+import ReactPaginate from "react-paginate";
+import { makeStyles } from "@mui/styles";
+import Grid from "@mui/material/Grid";
+import { Box } from "@mui/system";
+
+
+const useStyles = makeStyles((theme) => ({
+  colorbc: {
+    textAlign: "center",
+    fontWeight: "bold",
+    color: "white",
+    padding: "30px",
+  },
+  us: {
+    fontSize: "35px",
+  },
+  we: {
+    padding: "20px",
+  },
+}))
+
+
+
+
+
+
 
 export default function FeedbackTabel() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  const classes = useStyles();
+  const [currentpage, setCurrentpage] = useState(0);
+  const [postperpage] = useState(5);
+  const postPerPage = 5;
+  const indexOfLastpost = currentpage * postperpage;
+  
+  const currentposts = data.slice(
+    indexOfLastpost,
+    indexOfLastpost + postPerPage
+  );
+  const pageNumber = [];
+  for (let i = 1; i <= Math.ceil(data.length / postPerPage); i++) {
+    pageNumber.push(i);
+  }
+  const pageCount = Math.ceil(data.length / postPerPage);
+  const changePage = ({ selected }) => {
+    setCurrentpage(selected);
+  };
+
 
   const fetchData = async () => {
     setLoading(true);
@@ -29,54 +68,48 @@ export default function FeedbackTabel() {
   useEffect(() => {
     fetchData();
   }, []);
+  
   return (
     <>
-      <h3
-        style={{
-          textAlign: "center",
-          color: "#23809fc2",
-          padding: "10px 10px 10px 10px",
-        }}
-      >
-        {" "}
-        Customer Feedback
-      </h3>
 
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 100, color: "red" }} aria-label="simple table">
-          {/* <TableHead>
-            <TableRow>
-              <TableCell align="left">Name</TableCell>
-            </TableRow>
-          </TableHead> */}
-          <TableBody>
-            {data.map((row) => (
-              <TableRow
-                // key={row.drive}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell
-                  style={{
-                    fontSize: "15px",
-                    fontWeight: 600,
-                    padding: "0px 10pc",
-                  }}
-                >
-                  Name: {row.name}
-                </TableCell>
-                <TableCell
-                  style={{
-                    fontSize: "15px",
-                    fontWeight: 600,
-                  }}
-                >
-                  Message: {row.message}
-                </TableCell>
-              </TableRow>
+      <Grid className="bcimg">
+        
+        <Grid className={classes.colorbc}>
+          <Box className={classes.us}>Customer Reviews</Box>
+          <Box className={classes.we}>
+            See What Our Customer Says About Us...
+          </Box>
+        </Grid>
+        {currentposts.map((row) => (
+        
+        <Grid className="textbc">
+         
+          <Box className="text1">
+            
+            {row.message}
+          </Box>
+        
+          <Box className="text2">{row.name}</Box>
+          
+        </Grid>
             ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+<Grid>
+<ReactPaginate
+            className="page"
+            previousLabel={ <p className="pre">Previous</p>}
+            nextLabel={<p className="pre">Next</p>}
+            pageCount={pageCount}
+            onPageChange={changePage}
+            containerClassName={"paginationBttns"}
+            previousLinkClassName={"previousBttn"}
+            nextLinkClassName={"nextBttn"}
+            disabledClassName={"paginationDisabled"}
+            activeClassName={"paginationActive"}
+          />
+</Grid>
+
+        
+      </Grid>
     </>
   );
 }

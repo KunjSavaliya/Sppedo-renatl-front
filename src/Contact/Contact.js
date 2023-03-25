@@ -70,7 +70,8 @@ export default function Contact() {
 
   const [valid, setValid] = useState({});
   const [hide, setHide] = useState({});
-
+  const value = data.length
+  localStorage.setItem("commentdata",(value));
   const oninput = (e) => {
     const { name, value } = e.target;
 
@@ -114,9 +115,7 @@ export default function Contact() {
       .post("http://localhost:8000/api/comment  ", comment)
 
       .then((res) => console.log(res.data.message));
-      const value = data.length
-    
-      localStorage.setItem("commentdata",(value));
+      
     navigate("/Thanks");
   };
 

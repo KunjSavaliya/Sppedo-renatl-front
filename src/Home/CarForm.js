@@ -39,7 +39,8 @@ function CarForm() {
   });
   const [valid, setValid] = useState({});
   const [hide, setHide] = useState({});
-
+  const value = data.length
+  localStorage.setItem("Bookingdata",(value));
   const handleinput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -104,16 +105,14 @@ function CarForm() {
 
       .then((res) => console.log("dtaa", res.data.message));
 
-      const value = data.length
-      localStorage.setItem("Bookingdata",(value));
+      
       
     localStorage.setItem("Booking", JSON.stringify(userRegistration));
 
-    if (userRegistration.drive === "Yes") {
-      navigate("/Thanks");
-    } else if (userRegistration.drive === "No") {
-      navigate("/Thanks");
-    }
+    
+      navigate("/Bookingconform");
+    
+    
   };
   return (
     <div className="card" style={{ margin: "7vw 4vw 7vw" }}>
