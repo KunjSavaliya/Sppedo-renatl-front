@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Footer from "../Dashboard/Footer";
 import Navbar from "../Dashboard/Navbar";
 import Grid from "@mui/material/Grid";
@@ -42,26 +42,56 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Book() {
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState([]);
 
-  const fetchData = async () => {
-    setLoading(true);
-    try {
-      const { data: response } = await axios.get(
-        "http://localhost:8000/api/Gmaildata"
-      );
 
-      setData(response);
-  
-     
-    } catch (error) {}
-    setLoading(false);
-  }
+  const [data1, setData1] = useState([]);
+  const [data2, setData2] = useState([]);
 
   useEffect(() => {
+    const fetchData = async () => {
+      const [response1, response2] = await Promise.all([
+        axios.get("http://localhost:8000/api/Addcardata"),
+        axios.get("http://localhost:8000/api/Statedata"),
+        // axios.get("http://localhost:8000/api/Addcardata")
+
+      ]);
+      setData1(response1.data);
+      setData2(response2.data);
+    };
     fetchData();
   }, []);
+
+
+  let iterator = data1.values();
+  let array1 = []
+  for (let value of iterator) {
+    var carname = value.carname;
+    console.log("carname", carname);
+    array1.push(carname)
+  }
+
+  function getOccurrence(array, value) {
+    var count = 0;
+    array.forEach((v) => (v === value && count++));
+    return count;
+  }
+
+
+  var HatchBack = getOccurrence(array1, "HatchBack");
+  var Sedan = getOccurrence(array1, "Sedan")
+  var Suv = getOccurrence(array1, "SUV/MUV")
+  var Premium = getOccurrence(array1, "Primium")
+  var Luxury = getOccurrence(array1, "Luxury")
+
+
+
+
+
+
+
+
+
+
 
   const navigate = useNavigate();
 
@@ -79,9 +109,14 @@ export default function Book() {
   });
   const [valid, setValid] = useState({});
   const [hide, setHide] = useState({});
-  const value = data.length
-  localStorage.setItem("Bookingdata",(value));
+
+
+
+
+
+
   const onSubmit = () => {
+
     if (book.name === "") {
       setValid((...valid) => ({ ...valid, name: true }));
       return;
@@ -95,7 +130,12 @@ export default function Book() {
       setValid((...valid) => ({ ...valid, phone: true }));
       return;
     }
+    // debugger
 
+    const items = JSON.parse(localStorage.getItem('user'));
+    var names = items.map(function (val) {
+      return val.email;
+    });
     var filter =
       /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     if (book.email === "") {
@@ -104,15 +144,38 @@ export default function Book() {
     } else if (!filter.test(book.email)) {
       setHide((...hide) => ({ ...hide, email: true }));
       return;
-    }
-    if (book.car === "") {
-      setValid((...valid) => ({ ...valid, car: true }));
+    } else if (book.email !== names[0]) {
+      setValid((...valid) => ({ ...valid, email: true }));
       return;
     }
+    // debugger
+    // const Seda = JSON.parse(localStorage.getItem('Sedan'));
+    // if (Seda === 0) {
+    //   setHide((...hide) => ({ ...hide, car: true }));
+    //   return;
+    // } else if (book.car === "Sedan") {
+    //   const num = Seda
+    //   const num1 = 1
+    //   const sum = num - num1
+    //   localStorage.setItem('Sedan', JSON.stringify(sum));
+    // }
+
+    // if (book.car === "") {
+    //   setValid((...valid) => ({ ...valid, car: true }));
+    //   return;
+    // } else if (HatchBack === 0) {
+    //   setValid((...valid) => ({ ...valid, car: true }));
+    //   // localStorage.setItem('HatchBack', JSON.stringify(sum));
+
+    //   return;
+    // }
+
+
     if (book.drive === "") {
       setValid((...valid) => ({ ...valid, drive: true }));
       return;
     }
+
     if (book.state === "") {
       setValid((...valid) => ({ ...valid, state: true }));
       return;
@@ -136,12 +199,14 @@ export default function Book() {
 
       .then((res) => console.log("dtaa", res.data.message));
 
-     
-      
-    localStorage.setItem("Booking", JSON.stringify(book));
-   
-      navigate("/Bookingconform");
-    
+
+
+
+
+
+
+    navigate("/Bookingconform");
+
   };
   const OnBook = (e) => {
     const { value, name } = e.target;
@@ -231,7 +296,7 @@ export default function Book() {
                 justifyContent: "center",
               }}
             >
-              Enter Valid email
+              Use Register Email Address
             </span>
           )}
           {hide.email == true && (
@@ -251,9 +316,9 @@ export default function Book() {
             <Box style={{ fontWeight: "400", fontSize: "20px" }}>
               Select Car*
             </Box>
-            <Select onChange={OnBook} name="car" value={book.car}>
+            <Select onChange={OnBook} name="car" value={book.car} >
               <MenuItem value="Choose Option">Choose Option</MenuItem>
-              <MenuItem value="HatchBack">HatchBack</MenuItem>
+              <MenuItem value="HatchBack" >HatchBack</MenuItem>
               <MenuItem value="Sedan">Sedan</MenuItem>
               <MenuItem value="SUV/MUV">SUV/MUV</MenuItem>
               <MenuItem value="Primium">Primium</MenuItem>
@@ -271,6 +336,19 @@ export default function Book() {
               }}
             >
               Choose Car Name*
+            </span>
+          )}
+          {hide.car == true && (
+            <span
+              style={{
+                color: "red",
+                fontWeight: "bold",
+                fontSize: "15px",
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              Car not available
             </span>
           )}
 
@@ -313,10 +391,16 @@ export default function Book() {
               onChange={OnBook}
               value={book.state}
             >
-              <MenuItem value="Choose Option">Choose Option</MenuItem>
+              {/* <MenuItem value="Choose Option">Choose Option</MenuItem>
               <MenuItem value="Gujarat">Gujarat</MenuItem>
               <MenuItem value="Maharashtra">Maharashtra</MenuItem>
-              <MenuItem value="Rajasthan">Rajasthan</MenuItem>
+              <MenuItem value="Rajasthan">Rajasthan</MenuItem> */}
+
+              {(data2 || []).map((u) => (
+                <MenuItem value={u.state} >{u.state}
+
+                </MenuItem>
+              ))}
             </Select>
           </FormControl>
           {valid.state == true && (

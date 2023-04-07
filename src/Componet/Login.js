@@ -41,7 +41,7 @@ export default function Register() {
 
       setData(response);
       console.log("==>", response);
-    } catch (error) {}
+    } catch (error) { }
     setLoading(false);
   };
 
@@ -82,7 +82,7 @@ export default function Register() {
         } else {
           navigate("/");
         }
-        localStorage.setItem("user", JSON.stringify(data[index]));
+        localStorage.setItem("user", JSON.stringify([data[index]]));
         // setinput({ email: "", password: "" });
       }
       if (index === -1) {
@@ -210,7 +210,7 @@ export default function Register() {
             </Box>
           </Container>
         </ThemeProvider>
-        
+
       </div>
     </>
   );

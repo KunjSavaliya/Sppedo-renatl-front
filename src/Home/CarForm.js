@@ -1,29 +1,24 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function CarForm() {
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState([]);
 
-  const fetchData = async () => {
-    setLoading(true);
-    try {
-      const { data: response } = await axios.get(
-        "http://localhost:8000/api/Gmaildata"
-      );
-
-      setData(response);
-  
-     
-    } catch (error) {}
-    setLoading(false);
-  }
+  const [data1, setData1] = useState([]);
+  const [data2, setData2] = useState([]);
 
   useEffect(() => {
+    const fetchData = async () => {
+      const [response1, response2] = await Promise.all([
+        axios.get("http://localhost:8000/api/Gmaildata"),
+        axios.get("http://localhost:8000/api/Statedata"),
+
+      ]);
+      setData1(response1.data);
+      setData2(response2.data);
+    };
     fetchData();
   }, []);
-
   const navigate = useNavigate();
 
   const [userRegistration, setUserRegistration] = useState({
@@ -39,8 +34,8 @@ function CarForm() {
   });
   const [valid, setValid] = useState({});
   const [hide, setHide] = useState({});
-  const value = data.length
-  localStorage.setItem("Bookingdata",(value));
+  const value = data1.length
+  localStorage.setItem("Bookingdata", (value));
   const handleinput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -64,7 +59,10 @@ function CarForm() {
       setValid((...valid) => ({ ...valid, phone: true }));
       return;
     }
-
+    const items = JSON.parse(localStorage.getItem('user'));
+    var names = items.map(function (val) {
+      return val.email;
+    });
     var filter =
       /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     if (userRegistration.email === "") {
@@ -72,6 +70,9 @@ function CarForm() {
       return;
     } else if (!filter.test(userRegistration.email)) {
       setHide((...hide) => ({ ...hide, email: true }));
+      return;
+    } else if (userRegistration.email !== names[0]) {
+      setValid((...valid) => ({ ...valid, email: true }));
       return;
     }
     if (userRegistration.car === "") {
@@ -105,14 +106,14 @@ function CarForm() {
 
       .then((res) => console.log("dtaa", res.data.message));
 
-      
-      
-    localStorage.setItem("Booking", JSON.stringify(userRegistration));
 
-    
-      navigate("/Bookingconform");
-    
-    
+
+
+
+
+    navigate("/Bookingconform");
+
+
   };
   return (
     <div className="card" style={{ margin: "7vw 4vw 7vw" }}>
@@ -293,11 +294,18 @@ function CarForm() {
             value={userRegistration.State}
             onChange={handleinput}
             aria-describedby="state"
+
+
           >
-            <option> Chose your Option </option>
+            {/* <option> Chose your Option </option>
             <option> Gujarat</option>
             <option> Maharashtra</option>
-            <option> Rajasthan</option>
+            <option> Rajasthan</option> */}
+            {(data2 || []).map((u) => (
+              <option value={u.state} >{u.state}
+
+              </option>
+            ))}
           </select>
           {valid.state == true && (
             <span

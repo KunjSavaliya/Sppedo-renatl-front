@@ -39,7 +39,7 @@ export default function AboutCenter() {
   const navigate = useNavigate();
 
   const Onpush = () => {
-    navigate("/About");
+    navigate("/Populer  ");
   };
 
   return (

@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Footer from "../Dashboard/Footer";
 import Navbar from "../Dashboard/Navbar";
 import Grid from "@mui/material/Grid";
@@ -9,9 +9,10 @@ import axios from "axios";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { useNavigate,useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Button from "@mui/material/Button";
 import "../Book/Book.css";
+import OwnerNavbar from "./Navbar/OwnerNavbar";
 
 const useStyles = makeStyles((theme) => ({
   us: {
@@ -62,7 +63,22 @@ export default function Editbook() {
 
 
   const { index } = useParams();
+  // const [data1, setData1] = useState([]);
+  const [data2, setData2] = useState([]);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const [response2] = await Promise.all([
+        // axios.get("http://localhost:8000/api/Gmaildata"),
+        axios.get("http://localhost:8000/api/Statedata"),
+
+      ]);
+      // setData1(response1.data);
+      setData2(response2.data);
+    };
+    fetchData();
+  }, []);
+  console.log('s', data2);
   const fetchEditedData = async (id) => {
     const data = await axios.get(`http://localhost:8000/api/Gmailupdateid/${id}`);
 
@@ -77,6 +93,9 @@ export default function Editbook() {
       fetchEditedData(index);
     }
   }, []);
+
+
+  // const [data1, setData1] = useState([]);
 
 
 
@@ -135,10 +154,10 @@ export default function Editbook() {
       .put(`http://localhost:8000/api/gupdate/${index}`, book)
 
       .then((res) => console.log("dtaa", res.data.message));
-      
-      
 
-    
+
+    navigate("/BookData")
+
   };
   const OnBook = (e) => {
     const { value, name } = e.target;
@@ -151,10 +170,11 @@ export default function Editbook() {
     <>
       <title>Book Now</title>
 
-      <Navbar />
+      <OwnerNavbar />
+
       <Grid>
         <Grid className={classes.color}>
-          <Box className={classes.us}>Book Now</Box>
+          <Box className={classes.us}>Edit Book Data</Box>
           <Box className={classes.we}>Book Your Ride Now</Box>
         </Grid>
         <Box className={classes.car}>Rent A Car Online</Box>
@@ -310,10 +330,12 @@ export default function Editbook() {
               onChange={OnBook}
               value={book.state}
             >
-              <MenuItem value="Choose Option">Choose Option</MenuItem>
-              <MenuItem value="Gujarat">Gujarat</MenuItem>
-              <MenuItem value="Maharashtra">Maharashtra</MenuItem>
-              <MenuItem value="Rajasthan">Rajasthan</MenuItem>
+
+              {(data2 || []).map((u) => (
+                <MenuItem value={u.state} >{u.state}
+
+                </MenuItem>
+              ))}
             </Select>
           </FormControl>
           {valid.state == true && (

@@ -56,7 +56,7 @@ export default function Thanks() {
           
           <Box className={classes.eqv1}>Name: {name.name}</Box>
           <Box className={classes.eqv1}>Email: {name.email}</Box>
-          <Box className={classes.eqv1}>Phone no: {name.message}</Box>
+          <Box className={classes.eqv1}>Message: {name.message}</Box>
           
 
           <Button

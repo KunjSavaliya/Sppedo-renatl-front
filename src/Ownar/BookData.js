@@ -9,6 +9,7 @@ import Paper from "@mui/material/Paper";
 import OwnerNavbar from "./Navbar/OwnerNavbar";
 import { useNavigate } from "react-router-dom";
 
+
 import axios from "axios";
 import Footer from "../Dashboard/Footer";
 
@@ -29,23 +30,56 @@ export default function BookData() {
       setData(response);
       console.log("==>", response);
 
-    } catch (error) {}
+    } catch (error) { }
     setLoading(false);
-    
+
   };
-  const value = data.length
-      localStorage.setItem("Bookingdata",(value));
-    console.log("..",value);
+
 
   useEffect(() => {
     fetchData();
   }, []);
-    
+
+
+  let iterator = data.values();
+  let array1 = []
+  for (let value of iterator) {
+    var car = value.car;
+    console.log("car", car);
+    array1.push(car)
+  }
+
+  function getOccurrence(array, value) {
+    var count = 0;
+    array.forEach((v) => (v === value && count++));
+    return count;
+  }
+
+
+  var HatchBack = getOccurrence(array1, "HatchBack");
+  localStorage.setItem('HatchBack', JSON.stringify(HatchBack));
+
+  var Sedan = getOccurrence(array1, "Sedan");
+  localStorage.setItem('Sedan', JSON.stringify(Sedan));
+
+  var Suv = getOccurrence(array1, "SUV/MUV");
+  localStorage.setItem('Suv', JSON.stringify(Suv));
+
+  var Premium = getOccurrence(array1, "Primium");
+  localStorage.setItem('Premium', JSON.stringify(Premium));
+
+  var Luxury = getOccurrence(array1, "Luxury")
+  localStorage.setItem('Luxury', JSON.stringify(Luxury));
+
+  console.log("w=>", Sedan);
+
+
+
   const DeleteUser = (id) => {
     console.log("id", id);
     //  axios.delete(`http://localhost:3030/student/delete/${id}`);
     axios.delete(`http://localhost:8000/api/Gdelete/${id}`);
-    
+
 
     fetchData();
 
@@ -59,7 +93,7 @@ export default function BookData() {
       <title>Booking Data</title>
 
       <OwnerNavbar />
-      <h3
+      {/* <h3
         style={{
           textAlign: "center",
           color: "#23809fc2",
@@ -68,24 +102,24 @@ export default function BookData() {
       >
         {" "}
         Speedo Car Rental Booking Data
-      </h3>
+      </h3> */}
 
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 300 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell align="left">Name</TableCell>
+              <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Name</TableCell>
 
-              <TableCell align="left">Booking Date</TableCell>
-              <TableCell align="left">Email Address</TableCell>
-              <TableCell align="left">Phone Number</TableCell>
-              <TableCell align="left">Car Name</TableCell>
-              <TableCell align="left">Pickup Point</TableCell>
-              <TableCell align="left">Drop Point</TableCell>
-              <TableCell align="left">State</TableCell>
-              <TableCell align="left">Driver Option</TableCell>
-              <TableCell align="left">Edit</TableCell>
-              <TableCell align="left">Delete</TableCell>
+              <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Booking Date</TableCell>
+              <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Email Address</TableCell>
+              <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Phone Number</TableCell>
+              <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Car Name</TableCell>
+              <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Pickup Point</TableCell>
+              <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Drop Point</TableCell>
+              <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >State Name</TableCell>
+              <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Driver Option</TableCell>
+              <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Edit</TableCell>
+              <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Delete</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

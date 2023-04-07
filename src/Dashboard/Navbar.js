@@ -11,6 +11,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 // import button from "@mui/material/button";
+import Button from "@mui/material/Button";
+
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../Image/logoo.jpg";
 import { Navitem } from "./Navitem";
@@ -93,27 +95,97 @@ function DrawerAppBar(props) {
             ></Typography>
 
             <Box sx={{ display: "flex", flexDirection: "row", gap: "7px" }}>
-              <NavLink to="/home" className="btnactive">
+              
+              <Button
+                key="Home"
+                className="hover"
+                sx={{
+                  color: "black",
+                  textTransform: "none",
+                  display: { xs: "none", sm: "block" },
+                }}
+                >
+               <NavLink to="/home" className="btnactive">
                 Home
               </NavLink>
-              <NavLink to="/About" className="btnactive">
+              </Button>
+              <Button
+                key="About"
+                className="hover"
+                sx={{
+                  color: "black",
+                  textTransform: "none",
+                  display: { xs: "none", sm: "block" },
+                }}
+                >
+                <NavLink to="/About" className="btnactive">
                 About
               </NavLink>
-              <NavLink to="/Populer" className="btnactive">
+              </Button> <Button
+                key="Populer"
+                className="hover"
+                sx={{
+                  color: "black",
+                  textTransform: "none",
+                  display: { xs: "none", sm: "block" },
+                }}
+                >
+                <NavLink to="/Populer" className="btnactive">
                 Popular Fleets
               </NavLink>
-              <NavLink to="/Book" className="btnactive">
+              </Button> <Button
+                key="Book"
+                className="hover"
+                sx={{
+                  color: "black",
+                  textTransform: "none",
+                  display: { xs: "none", sm: "block" },
+                }}
+                >
+                    <NavLink to="/Book" className="btnactive">
                 Book Now
               </NavLink>
-              <NavLink to="/Contact" className="btnactive">
+                
+              </Button>
+              <Button
+                key="Contact"
+                className="hover"
+                sx={{
+                  color: "black",
+                  textTransform: "none",
+                  display: { xs: "none", sm: "block" },
+                }}
+                >
+                    <NavLink to="/Contact" className="btnactive">
                 Contact us
               </NavLink>
-              <NavLink to="/FeedBack" className="btnactive">
+                
+              </Button>
+              <Button
+                key="Feedback"
+                className="hover"
+                sx={{
+                  color: "black",
+                  textTransform: "none",
+                  display: { xs: "none", sm: "block" },
+                }}
+                >
+                    <NavLink to="/FeedBack" className="btnactive">
                 Feedback
               </NavLink>
-              <button onClick={handleOnLogout} className="logouts">
+                
+              </Button>
+              
+            
+              
+              
+              <Button onClick={handleOnLogout} className="hover" style={{fontWeight:"bold"}} sx={{
+                  color: "black",
+                  textTransform: "none",
+                  display: { xs: "none", sm: "block" },
+                }}>
                 Logout
-              </button>
+              </Button>
             </Box>
 
             <IconButton

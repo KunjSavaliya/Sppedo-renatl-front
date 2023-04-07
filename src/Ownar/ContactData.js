@@ -12,7 +12,7 @@ import axios from "axios";
 import { json } from "react-router-dom";
 
 export default function ContactData() {
-  
+
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
@@ -24,9 +24,9 @@ export default function ContactData() {
       );
 
       setData(response);
-  
-     
-    } catch (error) {}
+
+
+    } catch (error) { }
     setLoading(false);
   }
 
@@ -34,12 +34,26 @@ export default function ContactData() {
     fetchData();
   }, []);
 
+
+
+
+  const DeleteUser = (id) => {
+    console.log("id", id);
+    //  axios.delete(`http://localhost:3030/student/delete/${id}`);
+    axios.delete(`http://localhost:8000/api/cdelete/${id}`);
+    fetchData();
+
+  };
+
+
+
+
   // const value = {data.length};
   return (
     <>
       <title>Contact Data</title>
       <OwnerNavbar />
-      <h3
+      {/* <h3
         style={{
           textAlign: "center",
           color: "#23809fc2",
@@ -48,18 +62,18 @@ export default function ContactData() {
       >
         {" "}
         Speedo Car Rental Contact Comment Data
-      </h3>
+      </h3> */}
 
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 100, color: "red" }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell align="left">Name</TableCell>
+              <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Name</TableCell>
 
-              <TableCell align="left">Email Address</TableCell>
-              <TableCell align="left">Phone Number</TableCell>
-              <TableCell align="left">Message</TableCell>
-              <TableCell align="left">Delete</TableCell>
+              <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Email Address</TableCell>
+              <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Phone Number</TableCell>
+              <TableCell align="left" style={{ backgroundColor: "#23809fc2" }}  >Message</TableCell>
+              <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Delete</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -76,7 +90,7 @@ export default function ContactData() {
                 <TableCell align="left">
                   <button
                     style={{ width: "80px", borderRadius: "10px" }}
-                    // onClick={() => Ondelete(i)}
+                    onClick={() => DeleteUser(row._id)}
                   >
                     Delete
                   </button>

@@ -94,22 +94,102 @@ function DrawerAppBar(props) {
             ></Typography>
 
             <Box sx={{ display: "flex", flexDirection: "row", gap: "7px" }}>
-              <NavLink to="/BookData" className="btnactive">
-                BookData
-              </NavLink>
-              <NavLink to="/ContactData" className="btnactive">
-                Comment Data
-              </NavLink>
-              <NavLink to="/Dashboard" className="btnactive">
-                Dashbaord
-              </NavLink>
-              <button
-                key="Logout"
-                className="btnactive"
-                onClick={handleOnLogout}
+
+
+
+
+              <Button
+                key="Dashbaord"
+                className="hover"
+                sx={{
+                  color: "black",
+                  textTransform: "none",
+                  display: { xs: "none", sm: "block" },
+                }}
               >
-                <p>Logout</p>
-              </button>
+                <NavLink to="/Dashboard" className="btnactive">
+                  Dashbaord
+                </NavLink>
+
+              </Button>
+              <Button
+                key="Feedback"
+                className="AddCar"
+                sx={{
+                  color: "black",
+                  textTransform: "none",
+                  display: { xs: "none", sm: "block" },
+                }}
+              >
+                <NavLink to="/CarTabel" className="btnactive">
+                  AddCar
+                </NavLink>
+
+              </Button>
+              <Button
+                key="Feedback"
+                className="BookData"
+                sx={{
+                  color: "black",
+                  textTransform: "none",
+                  display: { xs: "none", sm: "block" },
+                }}
+              >
+                <NavLink to="/BookData" className="btnactive">
+                  BookData
+                </NavLink>
+
+              </Button>
+              <Button
+                key="Data"
+                className="hover"
+                sx={{
+                  color: "black",
+                  textTransform: "none",
+                  display: { xs: "none", sm: "block" },
+                }}
+              >
+                <NavLink to="/ContactData" className="btnactive">
+                  Contact Data
+                </NavLink>
+
+              </Button>
+              <Button
+                key="State"
+                className="hover"
+                sx={{
+                  color: "black",
+                  textTransform: "none",
+                  display: { xs: "none", sm: "block" },
+                }}
+              >
+                <NavLink to="/StateTabel" className="btnactive">
+                  State Data
+                </NavLink>
+
+              </Button>
+              <Button
+                key="Stated"
+                className="hover"
+                sx={{
+                  color: "black",
+                  textTransform: "none",
+                  display: { xs: "none", sm: "block" },
+                }}
+              >
+                <NavLink to="/DriverTabel" className="btnactive">
+                  Driver Data
+                </NavLink>
+
+              </Button>
+
+              <Button onClick={handleOnLogout} className="hover" style={{ fontWeight: "bold" }} sx={{
+                color: "black",
+                textTransform: "none",
+                display: { xs: "none", sm: "block" },
+              }}>
+                Logout
+              </Button>
             </Box>
 
             <IconButton

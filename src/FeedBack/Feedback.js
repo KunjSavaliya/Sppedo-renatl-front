@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../Dashboard/Navbar";
 import Footer from "../Dashboard/Footer";
 import Grid from "@mui/material/Grid";
@@ -52,7 +52,7 @@ export default function Feedback() {
 
       setData(response);
       console.log("==>", response);
-    } catch (error) {}
+    } catch (error) { }
     setLoading(false);
   };
 
@@ -62,12 +62,11 @@ export default function Feedback() {
   const [comment, setComment] = useState({
     name: "",
     email: "",
-     message: "",
+    message: "",
   });
   const [valid, setValid] = useState({});
   const [hide, setHide] = useState({});
-  const value = data.length
-      localStorage.setItem("feedbackdata",(value));
+
   const oninput = (e) => {
     const { name, value } = e.target;
 
@@ -103,8 +102,8 @@ export default function Feedback() {
       .post("http://localhost:8000/api/feedback", comment)
 
       .then((res) => console.log(res.data.message));
-      
-    
+
+
 
     localStorage.setItem("Feedback", JSON.stringify(comment));
 

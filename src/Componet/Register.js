@@ -40,7 +40,7 @@ export default function Register() {
 
       setData(response);
       console.log("==>", response);
-    } catch (error) {}
+    } catch (error) { }
     setLoading(false);
   };
 
@@ -64,8 +64,8 @@ export default function Register() {
   const [type, setType] = useState("password");
   // const [icon, setIcon] = useState(eyeOff);
   const value = data.length
-    
-  localStorage.setItem("registerdata",(value));
+
+  localStorage.setItem("registerdata", (value));
 
   function pagehandler(e) {
     setuser({
@@ -86,7 +86,7 @@ export default function Register() {
     }
   };
   function Submit() {
-    
+
     if (user.name === "") {
       setValid((...valid) => ({ ...valid, name: true }));
       return;
@@ -139,7 +139,7 @@ export default function Register() {
       .then((res) => console.log(res.data.message));
 
     console.log(user);
-    
+
     navigate("/login");
   }
 
