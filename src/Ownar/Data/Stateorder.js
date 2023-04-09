@@ -50,7 +50,7 @@ const AddcarData = () => {
     var Maharashtra = getOccurrence(array1, "Maharashtra")
     var Rajasthan = getOccurrence(array1, "Rajasthan")
     var Gujarat = getOccurrence(array1, "Gujarat")
-    
+
 
 
 

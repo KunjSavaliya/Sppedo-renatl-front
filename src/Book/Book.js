@@ -66,7 +66,7 @@ export default function Book() {
   let array1 = []
   for (let value of iterator) {
     var carname = value.carname;
-    console.log("carname", carname);
+
     array1.push(carname)
   }
 
@@ -78,10 +78,20 @@ export default function Book() {
 
 
   var HatchBack = getOccurrence(array1, "HatchBack");
-  var Sedan = getOccurrence(array1, "Sedan")
-  var Suv = getOccurrence(array1, "SUV/MUV")
-  var Premium = getOccurrence(array1, "Primium")
-  var Luxury = getOccurrence(array1, "Luxury")
+  // localStorage.setItem('HatchBack', JSON.stringify(HatchBack));
+
+  var Sedan = getOccurrence(array1, "Sedan");
+  // localStorage.setItem('Sedan', JSON.stringify(Sedan));
+
+  var Suv = getOccurrence(array1, "SUV/MUV");
+  // localStorage.setItem('Suv', JSON.stringify(Suv));
+
+  var Premium = getOccurrence(array1, "Primium");
+  // localStorage.setItem('Premium', JSON.stringify(Premium));
+
+  var Luxury = getOccurrence(array1, "Luxury");
+  // localStorage.setItem('Luxury', JSON.stringify(Luxury));
+
 
 
 
@@ -110,82 +120,76 @@ export default function Book() {
 
   const onSubmit = () => {
 
-    if (book.name === "") {
-      setValid((...valid) => ({ ...valid, name: true }));
-      return;
-    }
-
-    var IndNum = /^[0]?[789]\d{9}$/;
-    if (book.phone === "") {
-      setValid((...valid) => ({ ...valid, phone: true }));
-      return;
-    } else if (!IndNum.test(book.phone)) {
-      setValid((...valid) => ({ ...valid, phone: true }));
-      return;
-    }
-    // debugger
-
-    const items = JSON.parse(localStorage.getItem('user'));
-    var names = items.map(function (val) {
-      return val.email;
-    });
-    var filter =
-      /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    if (book.email === "") {
-      setValid((...valid) => ({ ...valid, email: true }));
-      return;
-    } else if (!filter.test(book.email)) {
-      setHide((...hide) => ({ ...hide, email: true }));
-      return;
-    } else if (book.email !== names[0]) {
-      setValid((...valid) => ({ ...valid, email: true }));
-      return;
-    }
-    // debugger
-    // const Seda = JSON.parse(localStorage.getItem('Sedan'));
-    // if (Seda === 0) {
-    //   setHide((...hide) => ({ ...hide, car: true }));
-    //   return;
-    // } else if (book.car === "Sedan") {
-    //   const num = Seda
-    //   const num1 = 1
-    //   const sum = num - num1
-    //   localStorage.setItem('Sedan', JSON.stringify(sum));
-    // }
-
-    // if (book.car === "") {
-    //   setValid((...valid) => ({ ...valid, car: true }));
-    //   return;
-    // } else if (HatchBack === 0) {
-    //   setValid((...valid) => ({ ...valid, car: true }));
-    //   // localStorage.setItem('HatchBack', JSON.stringify(sum));
-
+    // if (book.name === "") {
+    //   setValid((...valid) => ({ ...valid, name: true }));
     //   return;
     // }
 
+    // var IndNum = /^[0]?[789]\d{9}$/;
+    // if (book.phone === "") {
+    //   setValid((...valid) => ({ ...valid, phone: true }));
+    //   return;
+    // } else if (!IndNum.test(book.phone)) {
+    //   setValid((...valid) => ({ ...valid, phone: true }));
+    //   return;
+    // }
+    // // debugger
 
-    if (book.drive === "") {
-      setValid((...valid) => ({ ...valid, drive: true }));
+    // const items = JSON.parse(localStorage.getItem('user'));
+    // var names = items.map(function (val) {
+    //   return val.email;
+    // });
+    // var filter =
+    //   /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    // if (book.email === "") {
+    //   setValid((...valid) => ({ ...valid, email: true }));
+    //   return;
+    // } else if (!filter.test(book.email)) {
+    //   setHide((...hide) => ({ ...hide, email: true }));
+    //   return;
+    // } else if (book.email !== names[0]) {
+    //   setValid((...valid) => ({ ...valid, email: true }));
+    //   return;
+    // }
+    debugger
+    const Hatch = JSON.parse(localStorage.getItem('HatchBack'));
+
+    if (HatchBack === Hatch) {
+      setHide((...hide) => ({ ...hide, car: true }));
       return;
+    }
+    if (book.car === "HatchBack") {
+      const num = Hatch
+      const num1 = 1
+      let sum = num + num1
+      localStorage.setItem('HatchBack', JSON.stringify(sum));
     }
 
-    if (book.state === "") {
-      setValid((...valid) => ({ ...valid, state: true }));
-      return;
-    }
-    if (book.pickup === "") {
-      setValid((...valid) => ({ ...valid, pickup: true }));
-      return;
-    }
-    if (book.drop === "") {
-      setValid((...valid) => ({ ...valid, drop: true }));
-      return;
-    }
 
-    if (book.date === "") {
-      setValid((...valid) => ({ ...valid, date: true }));
-      return;
-    }
+
+
+    // if (book.drive === "") {
+    //   setValid((...valid) => ({ ...valid, drive: true }));
+    //   return;
+    // }
+
+    // if (book.state === "") {
+    //   setValid((...valid) => ({ ...valid, state: true }));
+    //   return;
+    // }
+    // if (book.pickup === "") {
+    //   setValid((...valid) => ({ ...valid, pickup: true }));
+    //   return;
+    // }
+    // if (book.drop === "") {
+    //   setValid((...valid) => ({ ...valid, drop: true }));
+    //   return;
+    // }
+
+    // if (book.date === "") {
+    //   setValid((...valid) => ({ ...valid, date: true }));
+    //   return;
+    // }
 
     axios
       .post("http://localhost:8000/api/mailsent", book)

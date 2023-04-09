@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./Feedback.css";
+<<<<<<< HEAD
 // import "..Populer/Popular.css";
+=======
+import "../Popular/Populer.css";
+>>>>>>> 2a549d793e570d8177ff9806a144ed7a9a855a56
 import axios from "axios";
 import ReactPaginate from "react-paginate";
 import { makeStyles } from "@mui/styles";
@@ -31,7 +35,7 @@ export default function FeedbackTabel() {
   const [postperpage] = useState(5);
   const postPerPage = 5;
   const indexOfLastpost = currentpage * postperpage;
-  
+
   const currentposts = data.slice(
     indexOfLastpost,
     indexOfLastpost + postPerPage
@@ -55,19 +59,19 @@ export default function FeedbackTabel() {
 
       setData(response);
       console.log("==>", response);
-    } catch (error) {}
+    } catch (error) { }
     setLoading(false);
   };
 
   useEffect(() => {
     fetchData();
   }, []);
-  
+
   return (
     <>
 
       <Grid className="bcimg">
-        
+
         <Grid className={classes.colorbc}>
           <Box className={classes.us}>Customer Reviews</Box>
           <Box className={classes.we}>
@@ -75,22 +79,22 @@ export default function FeedbackTabel() {
           </Box>
         </Grid>
         {currentposts.map((row) => (
-        
-        <Grid className="textbc">
-         
-          <Box className="text1">
-            
-            {row.message}
-          </Box>
-        
-          <Box className="text2">{row.name}</Box>
-          
-        </Grid>
-            ))}
-<Grid>
-<ReactPaginate
+
+          <Grid className="textbc">
+
+            <Box className="text1">
+
+              {row.message}
+            </Box>
+
+            <Box className="text2">{row.name}</Box>
+
+          </Grid>
+        ))}
+        <Grid>
+          <ReactPaginate
             className="page"
-            previousLabel={ <p className="pre">Previous</p>}
+            previousLabel={<p className="pre">Previous</p>}
             nextLabel={<p className="pre">Next</p>}
             pageCount={pageCount}
             onPageChange={changePage}
@@ -100,9 +104,9 @@ export default function FeedbackTabel() {
             disabledClassName={"paginationDisabled"}
             activeClassName={"paginationActive"}
           />
-</Grid>
+        </Grid>
 
-        
+
       </Grid>
     </>
   );

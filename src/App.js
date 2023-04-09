@@ -17,7 +17,11 @@ import ContactData from "./Ownar/ContactData";
 import Book from "./Book/Book";
 import Contact from "./Contact/Contact";
 import Home from "./Home/Home";
+<<<<<<< HEAD
 import Populer from "./Populer/Popular";
+=======
+import Populer from "./Popular/Populer";
+>>>>>>> 2a549d793e570d8177ff9806a144ed7a9a855a56
 import Feedback from "./FeedBack/Feedback";
 import Dashboard from "./Ownar/Dashboard/Dashboard";
 import Car from "./Ownar/Car/Car";
