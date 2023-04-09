@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../Dashboard/Navbar";
 
 import Footer from "../Dashboard/Footer";
-import PopulerCenter from "../Populer/PopulerCenter";
+import PopulerCenter from "../Popular/PopulerCenter";
 import AboutCenter from "../About/AboutCenter";
 import ContactCenter from "../Contact/ContactCenter";
 import GetInTouch from "./GetInTouch";
@@ -46,7 +46,7 @@ export default function Home() {
       <title>Home</title>
 
       <Navbar />
-     
+
       <div className="row text-bg-dark ">
         <div className="col-12 col-lg-8 col-sm-6" style={{ marginTop: "7vw" }}>
           <GetInTouch />

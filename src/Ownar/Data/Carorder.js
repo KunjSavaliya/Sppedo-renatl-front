@@ -43,7 +43,7 @@ export default function Totalcar() {
   }
 
 
-  var Hatchback = getOccurrence(array1, "Hatchback")
+  var Hatchback = getOccurrence(array1, "HatchBack")
   var Sedan = getOccurrence(array1, "Sedan")
   var Suv = getOccurrence(array1, "SUV/MUV")
   var Premium = getOccurrence(array1, "Primium")
@@ -89,8 +89,8 @@ export default function Totalcar() {
     <>
       <ResponsiveContainer width="100%">
         <BarChart data={mileStaticsData}>
-          <XAxis dataKey="name" stroke="#2884ff" />
-          <Bar dataKey="Gaditype" stroke="#2884ff" fill="#2884ff" barSize={30} />
+          <XAxis dataKey="name" stroke="#0a6d94" />
+          <Bar dataKey="Gaditype" stroke="#0a6d94" fill="#0a6d94" barSize={30} />
 
           <Tooltip wrapperClassName="tooltip__style" cursor={false} />
         </BarChart>
