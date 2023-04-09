@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from "react";
-import "./Populer.css";
+import "./Popular.css"
 import axios from "axios";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
@@ -88,7 +88,7 @@ const useStyles = makeStyles((theme) => ({
     // marginTop: "30px",
   },
 }));
-export default function PopulerCenter() {
+export default function PopularCenter() {
   const classes = useStyles();
   
   const [loading, setLoading] = useState(true);

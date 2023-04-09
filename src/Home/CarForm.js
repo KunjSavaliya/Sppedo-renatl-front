@@ -108,6 +108,7 @@ function CarForm() {
 
 
 
+      localStorage.setItem("bookingdata", JSON.stringify(userRegistration));
 
 
 

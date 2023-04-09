@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../Dashboard/Navbar";
 
 import Footer from "../Dashboard/Footer";
-import PopulerCenter from "../Populer/PopulerCenter";
+import PopularCenter from "../Populer/PopularCenter";
 import AboutCenter from "../About/AboutCenter";
 import ContactCenter from "../Contact/ContactCenter";
 import GetInTouch from "./GetInTouch";
@@ -70,7 +70,7 @@ export default function Home() {
         </Button>
       </Grid>
       <AboutCenter />
-      <PopulerCenter />
+      <PopularCenter />
 
       <Footer />
     </>

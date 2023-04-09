@@ -1,12 +1,11 @@
 import React from "react";
-import "./Populer.css";
+import "./Popular.css";
 import Grid from "@mui/material/Grid";
 import { Box } from "@mui/system";
 import { makeStyles } from "@mui/styles";
 import Navbar from "../Dashboard/Navbar";
-
 import Footer from "../Dashboard/Footer";
-import PopulerCenter from "./PopulerCenter";
+import PopularCenter from "./PopularCenter";
 
 const useStyles = makeStyles((theme) => ({
   color: {
@@ -40,7 +39,7 @@ export default function Populer() {
             fleets
           </Box>
         </Grid>
-        <PopulerCenter />
+        <PopularCenter />
 
         <Footer />
       </Grid>

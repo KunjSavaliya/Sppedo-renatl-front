@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React,{useEffect,useState} from "react";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import { makeStyles } from "@mui/styles";
@@ -21,28 +21,24 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bolder",
     padding: "5px ",
     color: "balck",
-    textAlign: "center",
   },
   eqv1: {
     fontSize: "18px",
     // padding: "5px",
     marginTop: "10px",
-    textAlign: "initial",
   },
 }));
 export default function Thanks() {
   const classes = useStyles();
-  const [name, setname] = useState("");
   const navigate = useNavigate();
-
+  const [name, setname] = useState("");
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("Booking"));
+    const data = JSON.parse(localStorage.getItem("Contact"));
     setname(data);
     console.log("name", name);
   }, []);
-
   const onView = () => {
-    navigate("/");
+    navigate("/Contact");
   };
   return (
     <>
@@ -51,25 +47,17 @@ export default function Thanks() {
         <Card
           sx={{
             width: 600,
-            // alignItems: "center",
+           
             backgroundColor: "rgba(119, 204, 255, 0.22)",
           }}
           className={classes.words}
         >
           <Box className={classes.eqv}>Thanks For Your Enquiry</Box>
-          {/* <Box className={classes.eqv1}>
-            We have recieved your enquiry,we will get back to soon...
-          </Box> */}
-
+          
           <Box className={classes.eqv1}>Name: {name.name}</Box>
           <Box className={classes.eqv1}>Email: {name.email}</Box>
-          <Box className={classes.eqv1}>Phone no: {name.phone}</Box>
-          <Box className={classes.eqv1}>Car Name: {name.car}</Box>
-          <Box className={classes.eqv1}>Driver Opestion: {name.drive}</Box>
-          <Box className={classes.eqv1}>State: {name.state}</Box>
-          <Box className={classes.eqv1}>Pickup Point: {name.pickup}</Box>
-          <Box className={classes.eqv1}>Drop Point: {name.drop}</Box>
-          <Box className={classes.eqv1}>Date: {name.date}</Box>
+          <Box className={classes.eqv1}>Message: {name.message}</Box>
+          
 
           <Button
             style={{
