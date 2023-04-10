@@ -5,9 +5,11 @@ import { Navigate } from "react-router";
 import Register from "./Componet/Register";
 import Bookingconform from "./Thanks/Bookingconform";
 import Feedbackrconform from "./Thanks/Feedbackrconform";
-// import nav from "./Dashboard/Nav";
 import Login from "./Componet/Login";
-import Forget from "./Componet/Forget";
+import Forget from "./Componet/Forget/Forget";
+import Otp from "./Componet/Forget/Otp";
+import Password from "./Componet/Forget/Password";
+
 import OwnerNavbar from "./Ownar/Navbar/OwnerNavbar";
 import About from "./About/About";
 import EditBookData from "./Ownar/Editbook";
@@ -26,6 +28,7 @@ import StateTabel from "./Ownar/State/StateTabel";
 import Driver from "./Ownar/Driver/Driver";
 import DriverTabel from "./Ownar/Driver/DriverTabel";
 
+
 function App() {
   var user = localStorage.getItem("user");
 
@@ -43,6 +46,10 @@ function App() {
           <Route exact path="/Login" element={<Login />}></Route>
           <Route exact path="/Register" element={<Register />}></Route>
           <Route exact path="/Forget" element={<Forget />}> </Route>
+          <Route exact path="/Otp" element={<Otp />}> </Route>
+          <Route exact path="/Password" element={<Password />}> </Route>
+
+
           <Route exact path="/EditBookData" element={<EditBookData />}></Route>
           <Route exact path="/BookData" element={<BookData />}></Route>
           <Route exact path="/ContactData" element={<ContactData />}></Route>

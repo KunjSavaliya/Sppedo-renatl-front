@@ -24,11 +24,26 @@ export default function Register() {
   const navigate = useNavigate();
   const classes = useStyles();
 
+  const generateOTP = () => {
+    const digits = '0123456789';
+    let OTP = '';
+    for (let i = 0; i < 4; i++) {
+      OTP += digits[Math.floor(Math.random() * 10)];
+    }
+    return OTP;
+  };
+
+  const otp = generateOTP();
+
+  const [otpp, setOtpp] = useState({ otp })
   const [user, setuser] = useState({
     email: "",
-    password: "",
-    Cpassword: "",
+
+
   });
+  const mergedState = { ...user, ...otpp };
+  console.log("gg", mergedState);
+
   const [hide, sethide] = useState(false);
   const [valid, setValid] = useState({});
 
@@ -44,7 +59,7 @@ export default function Register() {
 
       setData(response);
       console.log("==>", response);
-    } catch (error) {}
+    } catch (error) { }
     setLoading(false);
   };
 
@@ -57,6 +72,11 @@ export default function Register() {
     setValid(true);
     sethide(true);
   }
+
+
+
+
+
   function Submit() {
     console.log("data", data);
     var index = data.findIndex((element) => element.email === user.email);
@@ -66,57 +86,26 @@ export default function Register() {
       return;
     } else if (data[index]?.email !== user.email) {
       sethide((...hide) => ({ ...hide, email: true }));
-      // setValid((...valid) => ({ ...valid, email: true }));
-      return;
-    }
-
-    const pattern = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g;
-    const patterns = /[A-Z]/;
-
-    const patternss = /[0-9]/;
-    if (user.password === "") {
-      setValid((...valid) => ({ ...valid, password: true }));
-      return;
-    } else if (!pattern.test(user.password)) {
-      sethide((...hide) => ({ ...hide, password: true }));
-      return;
-    } else if (!patterns.test(user.password)) {
-      sethide((...hide) => ({ ...hide, password: true }));
-      return;
-    } else if (!patternss.test(user.password)) {
-      sethide((...hide) => ({ ...hide, password: true }));
 
       return;
     }
 
-    if (user.Cpassword === "") {
-      setValid((...valid) => ({ ...valid, Cpassword: true }));
 
-      return;
-    } else if (user.password !== user.Cpassword) {
-      sethide((...hide) => ({ ...hide, Cpassword: true }));
-
-      return;
-      // console.log("password",user.password !== user.cpass);
-    }
 
     axios
-      .post("http://localhost:8000/api/forget", user)
+      .post("http://localhost:8000/api/otp", mergedState)
 
       .then((res) => console.log(res.data.message));
+    localStorage.setItem("otp", JSON.stringify(mergedState));
+    localStorage.setItem("femail", JSON.stringify(mergedState.email));
 
+
+
+
+    navigate("/Otp")
     console.log(user);
   }
-  const [type, setType] = useState("password");
-  const handelpass = () => {
-    if (type === "password") {
-      // setIcon(eye);
-      setType("text");
-    } else {
-      // setIcon(eyeOff);
-      setType("password");
-    }
-  };
+
   return (
     <>
       <title>Forget Password</title>
@@ -135,7 +124,7 @@ export default function Register() {
           component="main"
           maxWidth="xs"
           style={{ backgroundColor: "white", borderRadius: "20px" }}
-          // style={{ backgroundColor: "white", borderRadius: "20px" }}
+        // style={{ backgroundColor: "white", borderRadius: "20px" }}
         >
           <Box
             sx={{
@@ -177,72 +166,7 @@ export default function Register() {
                 Email Address is Not Register
               </span>
             )}
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="password"
-              type="Password"
-              label="New Password"
-              name="password"
-              autoComplete="Password"
-              autoFocus
-              onChange={pagehandler}
-              value={user.password}
-            />
 
-            {valid.password == true && (
-              <span
-                style={{ color: "red", fontWeight: "bold", fontSize: "15px" }}
-              >
-                Enter New Password
-              </span>
-            )}
-            {hide.password == true && (
-              <span style={{ color: "red" }}>
-                Enter Symbols,Uppercase,Numbers Characters
-              </span>
-            )}
-
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="Cpassword"
-              type={type}
-              label="Reenter New Password"
-              name="Cpassword"
-              autoComplete="Password"
-              autoFocus
-              onChange={pagehandler}
-              value={user.Cpassword}
-            />
-
-            {valid.Cpassword == true && (
-              <span
-                style={{ color: "red", fontWeight: "bold", fontSize: "15px" }}
-              >
-                Enter Your Password
-              </span>
-            )}
-            {hide.Cpassword == true && (
-              <span
-                style={{ color: "red", fontWeight: "bold", fontSize: "15px" }}
-              >
-                Password And Confirm Password Does Not Match
-              </span>
-            )}
-            <FormControlLabel
-              style={{ marginRight: "230px" }}
-              control={
-                <Checkbox
-                  value="remember"
-                  color="primary"
-                  onClick={handelpass}
-                />
-              }
-              label="Show Password"
-            />
             <Button
               type="submit"
               fullWidth
@@ -250,7 +174,7 @@ export default function Register() {
               sx={{ mt: 3, mb: 2, bgcolor: "#23809fc2" }}
               onClick={Submit}
             >
-              Forget Password
+              SEND OTP
             </Button>
             <Grid container style={{ margin: 5 }}>
               <Grid item>

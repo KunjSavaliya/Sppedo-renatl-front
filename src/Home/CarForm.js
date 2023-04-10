@@ -34,8 +34,7 @@ function CarForm() {
   });
   const [valid, setValid] = useState({});
   const [hide, setHide] = useState({});
-  const value = data1.length
-  localStorage.setItem("Bookingdata", (value));
+
   const handleinput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -107,6 +106,7 @@ function CarForm() {
       .then((res) => console.log("dtaa", res.data.message));
 
 
+    localStorage.setItem("bookingData", JSON.stringify(userRegistration));
 
 
 

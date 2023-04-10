@@ -204,6 +204,7 @@ export default function Book() {
       .then((res) => console.log("dtaa", res.data.message));
 
 
+    localStorage.setItem("bookingData", JSON.stringify(book));
 
 
 
