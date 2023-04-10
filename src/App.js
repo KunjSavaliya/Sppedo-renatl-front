@@ -3,8 +3,15 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navigate } from "react-router";
 import Register from "./Componet/Register";
+<<<<<<< HEAD
 import Bookingconform from "./Thanks/Bookingconform";
 import Feedbackrconform from "./Thanks/Feedbackrconform";
+=======
+import Bookingconform from "./Thanks/Bookingconfirm";
+import Feedbackrconform from "./Thanks/Feedbackrconfirm";
+import Getintouchconfirm from "./Thanks/GetintouchConfirm";
+// import nav from "./Dashboard/Nav";
+>>>>>>> 1db04bb875181b30d7351169c70ec3262caf7eec
 import Login from "./Componet/Login";
 import Forget from "./Componet/Forget/Forget";
 import Otp from "./Componet/Forget/Otp";
@@ -18,7 +25,11 @@ import ContactData from "./Ownar/ContactData";
 import Book from "./Book/Book";
 import Contact from "./Contact/Contact";
 import Home from "./Home/Home";
+<<<<<<< HEAD
+import Populer from "./Populer/Popular";
+=======
 import Populer from "./Popular/Populer";
+>>>>>>> 2a549d793e570d8177ff9806a144ed7a9a855a56
 import Feedback from "./FeedBack/Feedback";
 import Dashboard from "./Ownar/Dashboard/Dashboard";
 import Car from "./Ownar/Car/Car";
@@ -43,6 +54,7 @@ function App() {
           <Route exact path="/" element={<Home />}></Route>
           <Route exact path="/Bookingconform" element={<Bookingconform />}></Route>
           <Route exact path="/Feedbackrconform" element={<Feedbackrconform />}></Route>
+          <Route exact path="/GetintouchConfirm" element={<Getintouchconfirm />}></Route>
           <Route exact path="/Login" element={<Login />}></Route>
           <Route exact path="/Register" element={<Register />}></Route>
           <Route exact path="/Forget" element={<Forget />}> </Route>
@@ -59,15 +71,13 @@ function App() {
           <Route exact path="/State" element={<State />}> </Route>
           <Route exact path="/StateTabel" element={<StateTabel />}> </Route>
           <Route exact path="/Driver" element={<Driver />}> </Route>
-
+          
           <Route exact path="/DriverTabel" element={<DriverTabel />}> </Route>
           {/* <Route exact path="/nav" element={<nav/>}> </Route> */}
 
 
-
           <Route exact path='/EditBookData/:index' element={< EditBookData />} ></Route>
           <Route exact path='/Car/:index' element={< Car />} ></Route>
-
 
 
           <Route exact path="/FeedBack" element={<RequireAuth> <Feedback /></RequireAuth>}></Route>

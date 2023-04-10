@@ -96,13 +96,6 @@ export default function Book() {
 
 
 
-
-
-
-
-
-
-
   const navigate = useNavigate();
 
   const classes = useStyles();
@@ -207,6 +200,7 @@ export default function Book() {
     localStorage.setItem("bookingData", JSON.stringify(book));
 
 
+      localStorage.setItem("bookingdata", JSON.stringify(book));
 
 
 

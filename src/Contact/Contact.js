@@ -116,7 +116,10 @@ export default function Contact() {
 
       .then((res) => console.log(res.data.message));
       
-    navigate("/Thanks");
+   
+      localStorage.setItem("Contact", JSON.stringify(comment));
+
+      navigate("/GetintouchConfirm");
   };
 
   return (

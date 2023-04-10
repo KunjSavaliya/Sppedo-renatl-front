@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./Feedback.css";
+<<<<<<< HEAD
+// import "..Populer/Popular.css";
+=======
 import "../Popular/Populer.css";
+>>>>>>> 2a549d793e570d8177ff9806a144ed7a9a855a56
 import axios from "axios";
 import ReactPaginate from "react-paginate";
 import { makeStyles } from "@mui/styles";
@@ -22,12 +26,6 @@ const useStyles = makeStyles((theme) => ({
     padding: "20px",
   },
 }))
-
-
-
-
-
-
 
 export default function FeedbackTabel() {
   const [loading, setLoading] = useState(true);

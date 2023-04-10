@@ -118,9 +118,9 @@ export default function Feedback() {
       <Navbar />
       <Grid className={classes.color}>
         <Box className={classes.us}>Feedback</Box>
-        <Box className={classes.we}>Get in Touch With Us</Box>
+        <Box className={classes.we}>FeedBack</Box>
       </Grid>
-      <Box className={classes.car}>Get In Touch With Us</Box>
+      <Box className={classes.car}>FeedBack</Box>
 
       <Grid className={classes.form}>
         <Box style={{ fontWeight: "400", fontSize: "20px" }}> Full Name*</Box>

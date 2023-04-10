@@ -2,7 +2,11 @@ import React from "react";
 import Navbar from "../Dashboard/Navbar";
 
 import Footer from "../Dashboard/Footer";
+<<<<<<< HEAD
+import PopularCenter from "../Populer/PopularCenter";
+=======
 import PopulerCenter from "../Popular/PopulerCenter";
+>>>>>>> 2a549d793e570d8177ff9806a144ed7a9a855a56
 import AboutCenter from "../About/AboutCenter";
 import ContactCenter from "../Contact/ContactCenter";
 import GetInTouch from "./GetInTouch";
@@ -70,7 +74,7 @@ export default function Home() {
         </Button>
       </Grid>
       <AboutCenter />
-      <PopulerCenter />
+      <PopularCenter />
 
       <Footer />
     </>
