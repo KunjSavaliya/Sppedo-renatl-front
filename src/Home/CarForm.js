@@ -21,6 +21,35 @@ function CarForm() {
   }, []);
   const navigate = useNavigate();
 
+  let iterator = data1.values();
+  let array1 = []
+  for (let value of iterator) {
+    var carname = value.carname;
+
+    array1.push(carname)
+  }
+
+  function getOccurrence(array, value) {
+    var count = 0;
+    array.forEach((v) => (v === value && count++));
+    return count;
+  }
+
+
+  var HatchBack = getOccurrence(array1, "HatchBack");
+
+
+  var Sedan = getOccurrence(array1, "Sedan");
+
+
+  var Suv = getOccurrence(array1, "SUV/MUV");
+
+
+  var Premium = getOccurrence(array1, "Primium");
+
+
+  var Luxury = getOccurrence(array1, "Luxury");
+
   const [userRegistration, setUserRegistration] = useState({
     name: "",
     phone: "",
@@ -78,6 +107,88 @@ function CarForm() {
       setValid((...valid) => ({ ...valid, car: true }));
       return;
     }
+
+    const Hatch = JSON.parse(localStorage.getItem('HatchBack'));
+    const sed = JSON.parse(localStorage.getItem('Sedan'));
+    const su = JSON.parse(localStorage.getItem('Suv'));
+    const lux = JSON.parse(localStorage.getItem('Luxury'));
+    const pre = JSON.parse(localStorage.getItem('Premium'));
+
+
+    if (userRegistration.car === "") {
+      setValid((...valid) => ({ ...valid, car: true }));
+      return;
+    }
+    if (userRegistration.car === "HatchBack") {
+      // HatchBack
+      if (HatchBack === Hatch) {
+        setHide((...hide) => ({ ...hide, car: true }));
+        return;
+      }
+      if (userRegistration.car === "HatchBack") {
+        const num = sed
+        const num1 = 1
+        let sum = num + num1
+        localStorage.setItem('HatchBack', JSON.stringify(sum));
+      }
+    } else if (userRegistration.car === "Sedan") {
+      // Sedan
+      if (Sedan === sed) {
+        setHide((...hide) => ({ ...hide, car: true }));
+        return;
+      }
+      if (userRegistration.car === "Sedan") {
+        const num = sed
+        const num1 = 1
+        let sum = num + num1
+        localStorage.setItem('Sedan', JSON.stringify(sum));
+      }
+    } else if (userRegistration.car === "SUV/MUV") {
+      // Suv
+      if (Suv === su) {
+        setHide((...hide) => ({ ...hide, car: true }));
+        return;
+      }
+      if (userRegistration.car === "SUV/MUV") {
+        const num = su
+        const num1 = 1
+        let sum = num + num1
+        localStorage.setItem('Suv', JSON.stringify(sum));
+      }
+    } else if (userRegistration.car === "Premium") {
+      // Premium
+      if (Premium === pre) {
+        setHide((...hide) => ({ ...hide, car: true }));
+        return;
+      }
+      if (userRegistration.car === "Premium") {
+        const num = pre
+        const num1 = 1
+        let sum = num + num1
+        localStorage.setItem('Premium', JSON.stringify(sum));
+      }
+    } else if (userRegistration.car === "Luxury") {
+      // Luxury
+      if (Luxury === lux) {
+        setHide((...hide) => ({ ...hide, car: true }));
+        return;
+      }
+      if (userRegistration.car === "Luxury") {
+        const num = lux
+        const num1 = 1
+        let sum = num + num1
+        localStorage.setItem('Luxury', JSON.stringify(sum));
+      }
+    }
+
+
+
+
+
+
+
+
+
     if (userRegistration.drive === "") {
       setValid((...valid) => ({ ...valid, drive: true }));
       return;
@@ -106,9 +217,9 @@ function CarForm() {
       .then((res) => console.log("dtaa", res.data.message));
 
 
-    localStorage.setItem("bookingData", JSON.stringify(userRegistration));
 
-      localStorage.setItem("bookingdata", JSON.stringify(userRegistration));
+
+    localStorage.setItem("bookingdata", JSON.stringify(userRegistration));
 
 
 

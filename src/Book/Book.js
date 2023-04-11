@@ -78,19 +78,19 @@ export default function Book() {
 
 
   var HatchBack = getOccurrence(array1, "HatchBack");
-  // localStorage.setItem('HatchBack', JSON.stringify(HatchBack));
+
 
   var Sedan = getOccurrence(array1, "Sedan");
-  // localStorage.setItem('Sedan', JSON.stringify(Sedan));
+
 
   var Suv = getOccurrence(array1, "SUV/MUV");
-  // localStorage.setItem('Suv', JSON.stringify(Suv));
+
 
   var Premium = getOccurrence(array1, "Primium");
-  // localStorage.setItem('Premium', JSON.stringify(Premium));
+
 
   var Luxury = getOccurrence(array1, "Luxury");
-  // localStorage.setItem('Luxury', JSON.stringify(Luxury));
+
 
 
 
@@ -151,19 +151,81 @@ export default function Book() {
     //   setValid((...valid) => ({ ...valid, email: true }));
     //   return;
     // }
-    debugger
-    const Hatch = JSON.parse(localStorage.getItem('HatchBack'));
 
-    if (HatchBack === Hatch) {
-      setHide((...hide) => ({ ...hide, car: true }));
+    const Hatch = JSON.parse(localStorage.getItem('HatchBack'));
+    const sed = JSON.parse(localStorage.getItem('Sedan'));
+    const su = JSON.parse(localStorage.getItem('Suv'));
+    const lux = JSON.parse(localStorage.getItem('Luxury'));
+    const pre = JSON.parse(localStorage.getItem('Premium'));
+
+
+    if (book.car === "") {
+      setValid((...valid) => ({ ...valid, car: true }));
       return;
     }
     if (book.car === "HatchBack") {
-      const num = Hatch
-      const num1 = 1
-      let sum = num + num1
-      localStorage.setItem('HatchBack', JSON.stringify(sum));
+      // HatchBack
+      if (HatchBack === Hatch) {
+        setHide((...hide) => ({ ...hide, car: true }));
+        return;
+      }
+      if (book.car === "HatchBack") {
+        const num = sed
+        const num1 = 1
+        let sum = num + num1
+        localStorage.setItem('HatchBack', JSON.stringify(sum));
+      }
+    } else if (book.car === "Sedan") {
+      // Sedan
+      if (Sedan === sed) {
+        setHide((...hide) => ({ ...hide, car: true }));
+        return;
+      }
+      if (book.car === "Sedan") {
+        const num = sed
+        const num1 = 1
+        let sum = num + num1
+        localStorage.setItem('Sedan', JSON.stringify(sum));
+      }
+    } else if (book.car === "SUV/MUV") {
+      // Suv
+      if (Suv === su) {
+        setHide((...hide) => ({ ...hide, car: true }));
+        return;
+      }
+      if (book.car === "SUV/MUV") {
+        const num = su
+        const num1 = 1
+        let sum = num + num1
+        localStorage.setItem('Suv', JSON.stringify(sum));
+      }
+    } else if (book.car === "Premium") {
+      // Premium
+      if (Premium === pre) {
+        setHide((...hide) => ({ ...hide, car: true }));
+        return;
+      }
+      if (book.car === "Premium") {
+        const num = pre
+        const num1 = 1
+        let sum = num + num1
+        localStorage.setItem('Premium', JSON.stringify(sum));
+      }
+    } else if (book.car === "Luxury") {
+      // Luxury
+      if (Luxury === lux) {
+        setHide((...hide) => ({ ...hide, car: true }));
+        return;
+      }
+      if (book.car === "Luxury") {
+        const num = lux
+        const num1 = 1
+        let sum = num + num1
+        localStorage.setItem('Luxury', JSON.stringify(sum));
+      }
     }
+
+
 
 
 
@@ -197,10 +259,10 @@ export default function Book() {
       .then((res) => console.log("dtaa", res.data.message));
 
 
-    localStorage.setItem("bookingData", JSON.stringify(book));
 
 
-      localStorage.setItem("bookingdata", JSON.stringify(book));
+
+    localStorage.setItem("bookingdata", JSON.stringify(book));
 
 
 

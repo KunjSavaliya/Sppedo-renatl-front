@@ -41,7 +41,7 @@ export default function Register() {
 
     function Submit() {
         const oTp = JSON.parse(localStorage.getItem('otp'));
-        debugger
+
 
 
         if (otp === "") {

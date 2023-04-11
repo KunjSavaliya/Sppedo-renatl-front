@@ -96,7 +96,7 @@ export default function Register() {
       .post("http://localhost:8000/api/otp", mergedState)
 
       .then((res) => console.log(res.data.message));
-    localStorage.setItem("otp", JSON.stringify(mergedState));
+    localStorage.setItem("otp", JSON.stringify(mergedState.otp));
     localStorage.setItem("femail", JSON.stringify(mergedState.email));
 
 

@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from "react";
+import React, { useEffect, useState } from "react";
 import "./Popular.css"
 import axios from "axios";
 import { Button } from "@mui/material";
@@ -18,8 +18,8 @@ import img6 from "../Image/Innova.jpg";
 import img7 from "../Image/benz.jpg";
 import img8 from "../Image/kiacarnival.jpg";
 import img9 from "../Image/Safari.jpg";
-import img10 from "../Image/wingar.jpg";
-import img11 from "../Image/multivan.jpg";
+import img10 from "../Image/verna.jpg";
+import img11 from "../Image/Skoda.jpg";
 
 const useStyles = makeStyles((theme) => ({
   color: {
@@ -90,14 +90,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 export default function PopularCenter() {
   const classes = useStyles();
-  
+
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const navigate = useNavigate();
   const Onpush = () => {
     navigate("/FeedBack");
   };
- 
+
 
   const fetchData = async () => {
     setLoading(true);
@@ -108,7 +108,7 @@ export default function PopularCenter() {
 
       setData(response);
       console.log("==>", response);
-    } catch (error) {}
+    } catch (error) { }
     setLoading(false);
   };
 
@@ -130,7 +130,7 @@ export default function PopularCenter() {
           <Grid className="imgg">
             <img src={img} alt="Girl in a jacket" className="imgcr" />
             <Grid className={classes.cartext}>
-              <Box sx={{ fontSize: "20px" }}> Tata Nexon Car AC 4+1</Box>
+              <Box sx={{ fontSize: "20px" }}> Tata Nexon Car  4+1</Box>
               <Box> AC</Box>
               <Box> GPS Fitted</Box>
               <Box>700 KM/Day</Box>
@@ -140,7 +140,7 @@ export default function PopularCenter() {
           <Grid className="imgg">
             <img src={img1} alt="Girl in a jacket" className="imgcr" />
             <Grid className={classes.cartext}>
-              <Box sx={{ fontSize: "20px" }}>Tata harrier AC 4+1</Box>
+              <Box sx={{ fontSize: "20px" }}>Tata harrier  4+1</Box>
               <Box> AC</Box>
               <Box> GPS Fitted</Box>
               <Box>700 KM/Day</Box>
@@ -150,7 +150,7 @@ export default function PopularCenter() {
           <Grid className="imgg">
             <img src={img2} alt="Girl in a jacket" className="imgcr" />
             <Grid className={classes.cartext}>
-              <Box sx={{ fontSize: "20px" }}>Tata Punch AC 3+1</Box>
+              <Box sx={{ fontSize: "20px" }}>Tata Punch  3+1</Box>
               <Box> AC</Box>
               <Box> GPS Fitted</Box>
               <Box>700 KM/Day</Box>
@@ -160,7 +160,7 @@ export default function PopularCenter() {
           <Grid className="imgg">
             <img src={img3} alt="Girl in a jacket" className="imgcr" />
             <Grid className={classes.cartext}>
-              <Box sx={{ fontSize: "20px" }}>Kia seltos AC 3+1</Box>
+              <Box sx={{ fontSize: "20px" }}>Kia seltos  3+1</Box>
               <Box> AC</Box>
               <Box> GPS Fitted</Box>
               <Box>700 KM/Day</Box>
@@ -170,7 +170,7 @@ export default function PopularCenter() {
           <Grid className="imgg">
             <img src={img5} alt="Girl in a jacket" className="imgcr" />
             <Grid className={classes.cartext}>
-              <Box sx={{ fontSize: "20px" }}>Mahindra Thar AC 3+1</Box>
+              <Box sx={{ fontSize: "20px" }}>Mahindra Thar  3+1</Box>
               <Box> AC</Box>
               <Box> GPS Fitted</Box>
               <Box>700 KM/Day</Box>
@@ -180,7 +180,7 @@ export default function PopularCenter() {
           <Grid className="imgg">
             <img src={img4} alt="Girl in a jacket" className="imgcr" />
             <Grid className={classes.cartext}>
-              <Box sx={{ fontSize: "20px" }}>Mahindra XUV700 AC 4+1</Box>
+              <Box sx={{ fontSize: "20px" }}>Mahindra XUV700  4+1</Box>
               <Box> AC</Box>
               <Box> GPS Fitted</Box>
               <Box>700 KM/Day</Box>
@@ -190,7 +190,7 @@ export default function PopularCenter() {
           <Grid className="imgg">
             <img src={img7} alt="Girl in a jacket" className="imgcr" />
             <Grid className={classes.cartext}>
-              <Box sx={{ fontSize: "20px" }}>Mercedes Benz AC 6+1</Box>
+              <Box sx={{ fontSize: "20px" }}>Mercedes Benz  6+1</Box>
               <Box> AC</Box>
               <Box> GPS Fitted</Box>
               <Box>700 KM/Day</Box>
@@ -200,7 +200,7 @@ export default function PopularCenter() {
           <Grid className="imgg">
             <img src={img6} alt="Girl in a jacket" className="imgcr" />
             <Grid className={classes.cartext}>
-              <Box sx={{ fontSize: "20px" }}>Innova AC 6+1</Box>
+              <Box sx={{ fontSize: "20px" }}>Innova  6+1</Box>
               <Box> AC</Box>
               <Box> GPS Fitted</Box>
               <Box>700 KM/Day</Box>
@@ -210,7 +210,7 @@ export default function PopularCenter() {
           <Grid className="imgg">
             <img src={img8} alt="Girl in a jacket" className="imgcr" />
             <Grid className={classes.cartext}>
-              <Box sx={{ fontSize: "20px" }}>Kia Carnival.AC 6+1</Box>
+              <Box sx={{ fontSize: "20px" }}>Kia Carnival 6+1</Box>
               <Box> AC</Box>
               <Box> GPS Fitted</Box>
               <Box>700 KM/Day</Box>
@@ -220,7 +220,7 @@ export default function PopularCenter() {
           <Grid className="imgg">
             <img src={img9} alt="Girl in a jacket" className="imgcr" />
             <Grid className={classes.cartext}>
-              <Box sx={{ fontSize: "20px" }}>Tata Safari AC 6+1</Box>
+              <Box sx={{ fontSize: "20px" }}>Tata Safari  6+1</Box>
               <Box> AC</Box>
               <Box> GPS Fitted</Box>
               <Box>700 KM/Day</Box>
@@ -230,7 +230,7 @@ export default function PopularCenter() {
           <Grid className="imgg">
             <img src={img10} alt="Girl in a jacket" className="imgcr" />
             <Grid className={classes.cartext}>
-              <Box sx={{ fontSize: "20px" }}>Tata Winger AC 14+1</Box>
+              <Box sx={{ fontSize: "20px" }}>Hyundai Verna 4+1</Box>
               <Box> AC</Box>
               <Box> GPS Fitted</Box>
               <Box>700 KM/Day</Box>
@@ -240,7 +240,7 @@ export default function PopularCenter() {
           <Grid className="imgg">
             <img src={img11} alt="Girl in a jacket" className="imgcr" />
             <Grid className={classes.cartext}>
-              <Box sx={{ fontSize: "20px" }}>Volkswagen Caravelle AC 6+1</Box>
+              <Box sx={{ fontSize: "20px" }}>Skoda Slavia  4+1</Box>
               <Box> AC</Box>
               <Box> GPS Fitted</Box>
               <Box>700 KM/Day</Box>
@@ -257,45 +257,45 @@ export default function PopularCenter() {
             See What Our Customer Says About Us...
           </Box>
         </Grid>
-        
-        
+
+
         <Grid className="textbc">
           {/* <Box className={classes.dot}>!!</Box> */}
           <Box className="text1">
             I have booked one way cab from Speedo Car Rental. I have to go from
             Mumbai to Pune. They arranged a cab for me at very affordable
             prices. I am really happy with their services.
-            
+
           </Box>
-          
+
           <Box className="text2">Risi Singh</Box>
           <Box className="text3">Surat, Gujarat</Box>
         </Grid>
         <Grid className="textbc">
           {/* <Box className={classes.dot}>!!</Box> */}
           <Box className="text1">
-          I need a cab in Jaipur, got Speedo Car Rental when searching online. They provide me 50% off on my first ride. I booked my ride for just Rs. 1,500 for 2 days trip.
-            
+            I need a cab in Jaipur, got Speedo Car Rental when searching online. They provide me 50% off on my first ride. I booked my ride for just Rs. 1,500 for 2 days trip.
+
           </Box>
-          
+
           <Box className="text2">Narender Meena</Box>
           <Box className="text3">Jaipur, Rajasthan</Box>
         </Grid>
-            
-            
 
-<Grid className={classes.color1}>
-        
 
-        <Button
-          sx={{ mt: 2, backgroundColor: "#23809fc2", padding: "12px" }}
-          variant="contained"
-          onClick={Onpush}
-        >
-          Give Your Review
-        </Button>
-      </Grid>
-        
+
+        <Grid className={classes.color1}>
+
+
+          <Button
+            sx={{ mt: 2, backgroundColor: "#23809fc2", padding: "12px" }}
+            variant="contained"
+            onClick={Onpush}
+          >
+            Give Your Review
+          </Button>
+        </Grid>
+
       </Grid>
     </>
   );

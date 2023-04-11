@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Footer from "../Dashboard/Footer";
 import Navbar from "../Dashboard/Navbar";
 import Grid from "@mui/material/Grid";
@@ -48,9 +48,9 @@ export default function Contact() {
       );
 
       setData(response);
-  
-     
-    } catch (error) {}
+
+
+    } catch (error) { }
     setLoading(false);
   }
 
@@ -70,8 +70,7 @@ export default function Contact() {
 
   const [valid, setValid] = useState({});
   const [hide, setHide] = useState({});
-  const value = data.length
-  localStorage.setItem("commentdata",(value));
+
   const oninput = (e) => {
     const { name, value } = e.target;
 
@@ -115,11 +114,11 @@ export default function Contact() {
       .post("http://localhost:8000/api/comment  ", comment)
 
       .then((res) => console.log(res.data.message));
-      
-   
-      localStorage.setItem("Contact", JSON.stringify(comment));
 
-      navigate("/GetintouchConfirm");
+
+    localStorage.setItem("Contact", JSON.stringify(comment));
+
+    navigate("/GetintouchConfirm");
   };
 
   return (
