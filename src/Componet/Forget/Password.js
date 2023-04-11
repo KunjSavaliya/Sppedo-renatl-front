@@ -37,7 +37,7 @@ export default function Register() {
 
     const myString = email1
     const email = myString.replace(/[,\\"]/g, '');
-    console.log("w", email);
+
 
     const [myvalue, setMyvalue] = useState({ email });
     console.log(myvalue);
