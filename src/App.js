@@ -15,8 +15,10 @@ import Password from "./Componet/Forget/Password";
 
 import OwnerNavbar from "./Ownar/Navbar/OwnerNavbar";
 import About from "./About/About";
-import EditBookData from "./Ownar/Editbook";
-import BookData from "./Ownar/BookData";
+import EditBookData from "./Ownar/BookingData/Editbook";
+import DriverDetails from "./Ownar/BookingData/DriverDetails";
+
+import BookData from "./Ownar/BookingData/BookData";
 import ContactData from "./Ownar/ContactData";
 import Book from "./Book/Book";
 import Contact from "./Contact/Contact";
@@ -31,6 +33,7 @@ import StateTabel from "./Ownar/State/StateTabel";
 import Driver from "./Ownar/Driver/Driver";
 import DriverTabel from "./Ownar/Driver/DriverTabel";
 import Populer from "./Popular/Popular";
+import Profile from "./Profile/Profile";
 
 function App() {
   var user = localStorage.getItem("user");
@@ -52,6 +55,8 @@ function App() {
           <Route exact path="/Forget" element={<Forget />}> </Route>
           <Route exact path="/Otp" element={<Otp />}> </Route>
           <Route exact path="/Password" element={<Password />}> </Route>
+          <Route exact path="/DriverDetails" element={<DriverDetails />}> </Route>
+
 
 
           <Route exact path="/EditBookData" element={<EditBookData />}></Route>
@@ -65,11 +70,13 @@ function App() {
           <Route exact path="/Driver" element={<Driver />}> </Route>
 
           <Route exact path="/DriverTabel" element={<DriverTabel />}> </Route>
-          {/* <Route exact path="/nav" element={<nav/>}> </Route> */}
+          <Route exact path="/Profile" element={<Profile />}> </Route>
 
 
           <Route exact path='/EditBookData/:index' element={< EditBookData />} ></Route>
           <Route exact path='/Car/:index' element={< Car />} ></Route>
+          <Route exact path='/DriverDetails/:index' element={< DriverDetails />} ></Route>
+
 
 
           <Route exact path="/FeedBack" element={<RequireAuth> <Feedback /></RequireAuth>}></Route>

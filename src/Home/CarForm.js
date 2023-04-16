@@ -107,7 +107,7 @@ function CarForm() {
       setValid((...valid) => ({ ...valid, car: true }));
       return;
     }
-
+    // debugger
     const Hatch = JSON.parse(localStorage.getItem('HatchBack'));
     const sed = JSON.parse(localStorage.getItem('Sedan'));
     const su = JSON.parse(localStorage.getItem('Suv'));
@@ -193,6 +193,7 @@ function CarForm() {
       setValid((...valid) => ({ ...valid, drive: true }));
       return;
     }
+    debugger
     if (userRegistration.state === "") {
       setValid((...valid) => ({ ...valid, state: true }));
       return;
@@ -347,7 +348,7 @@ function CarForm() {
             aria-describedby="name"
           >
             <option> Chose your Option </option>
-            <option> Hatchback</option>
+            <option> HatchBack</option>
             <option> Sedan</option>
             <option> SUV/MUV</option>
             <option> Primium</option>
@@ -405,14 +406,12 @@ function CarForm() {
             name="state"
             value={userRegistration.State}
             onChange={handleinput}
-            aria-describedby="state"
+          // aria-describedby="state"
 
 
           >
-            {/* <option> Chose your Option </option>
-            <option> Gujarat</option>
-            <option> Maharashtra</option>
-            <option> Rajasthan</option> */}
+            <option> Chose your Option </option>
+
             {(data2 || []).map((u) => (
               <option value={u.state} >{u.state}
 

@@ -120,37 +120,37 @@ export default function Book() {
 
   const onSubmit = () => {
 
-    // if (book.name === "") {
-    //   setValid((...valid) => ({ ...valid, name: true }));
-    //   return;
-    // }
+    if (book.name === "") {
+      setValid((...valid) => ({ ...valid, name: true }));
+      return;
+    }
 
-    // var IndNum = /^[0]?[789]\d{9}$/;
-    // if (book.phone === "") {
-    //   setValid((...valid) => ({ ...valid, phone: true }));
-    //   return;
-    // } else if (!IndNum.test(book.phone)) {
-    //   setValid((...valid) => ({ ...valid, phone: true }));
-    //   return;
-    // }
-    // // debugger
+    var IndNum = /^[0]?[789]\d{9}$/;
+    if (book.phone === "") {
+      setValid((...valid) => ({ ...valid, phone: true }));
+      return;
+    } else if (!IndNum.test(book.phone)) {
+      setValid((...valid) => ({ ...valid, phone: true }));
+      return;
+    }
 
-    // const items = JSON.parse(localStorage.getItem('user'));
-    // var names = items.map(function (val) {
-    //   return val.email;
-    // });
-    // var filter =
-    //   /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    // if (book.email === "") {
-    //   setValid((...valid) => ({ ...valid, email: true }));
-    //   return;
-    // } else if (!filter.test(book.email)) {
-    //   setHide((...hide) => ({ ...hide, email: true }));
-    //   return;
-    // } else if (book.email !== names[0]) {
-    //   setValid((...valid) => ({ ...valid, email: true }));
-    //   return;
-    // }
+
+    const items = JSON.parse(localStorage.getItem('user'));
+    var names = items.map(function (val) {
+      return val.email;
+    });
+    var filter =
+      /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if (book.email === "") {
+      setValid((...valid) => ({ ...valid, email: true }));
+      return;
+    } else if (!filter.test(book.email)) {
+      setHide((...hide) => ({ ...hide, email: true }));
+      return;
+    } else if (book.email !== names[0]) {
+      setValid((...valid) => ({ ...valid, email: true }));
+      return;
+    }
 
     const Hatch = JSON.parse(localStorage.getItem('HatchBack'));
     const sed = JSON.parse(localStorage.getItem('Sedan'));
@@ -230,28 +230,28 @@ export default function Book() {
 
 
 
-    // if (book.drive === "") {
-    //   setValid((...valid) => ({ ...valid, drive: true }));
-    //   return;
-    // }
+    if (book.drive === "") {
+      setValid((...valid) => ({ ...valid, drive: true }));
+      return;
+    }
 
-    // if (book.state === "") {
-    //   setValid((...valid) => ({ ...valid, state: true }));
-    //   return;
-    // }
-    // if (book.pickup === "") {
-    //   setValid((...valid) => ({ ...valid, pickup: true }));
-    //   return;
-    // }
-    // if (book.drop === "") {
-    //   setValid((...valid) => ({ ...valid, drop: true }));
-    //   return;
-    // }
+    if (book.state === "") {
+      setValid((...valid) => ({ ...valid, state: true }));
+      return;
+    }
+    if (book.pickup === "") {
+      setValid((...valid) => ({ ...valid, pickup: true }));
+      return;
+    }
+    if (book.drop === "") {
+      setValid((...valid) => ({ ...valid, drop: true }));
+      return;
+    }
 
-    // if (book.date === "") {
-    //   setValid((...valid) => ({ ...valid, date: true }));
-    //   return;
-    // }
+    if (book.date === "") {
+      setValid((...valid) => ({ ...valid, date: true }));
+      return;
+    }
 
     axios
       .post("http://localhost:8000/api/mailsent", book)

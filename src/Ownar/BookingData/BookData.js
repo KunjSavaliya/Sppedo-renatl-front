@@ -6,14 +6,16 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import OwnerNavbar from "./Navbar/OwnerNavbar";
+import OwnerNavbar from "../Navbar/OwnerNavbar";
 import { useNavigate } from "react-router-dom";
+import Button from "@mui/material/Button";
+// import "../../Book/Book.css";
 
 
 import axios from "axios";
-import Footer from "../Dashboard/Footer";
+import Footer from "../../Dashboard/Footer";
 
-export default function BookData() {
+export default function BookData(props) {
   // var data = JSON.parse(localStorage.getItem("Book"));
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
@@ -76,13 +78,21 @@ export default function BookData() {
 
 
   const DeleteUser = (id) => {
-    console.log("id", id);
-    //  axios.delete(`http://localhost:3030/student/delete/${id}`);
+
     axios.delete(`http://localhost:8000/api/Gdelete/${id}`);
 
 
     fetchData();
 
+  };
+  const SendDriver = (index) => {
+    navigate(`/DriverDetails/${index}`);
+
+  }
+  const getCellStyle = (drive) => {
+    return {
+      color: drive === 'Yes' ? 'green' : 'red'
+    };
   };
 
   const UpdateUser = (index) => {
@@ -93,18 +103,8 @@ export default function BookData() {
       <title>Booking Data</title>
 
       <OwnerNavbar />
-      {/* <h3
-        style={{
-          textAlign: "center",
-          color: "#23809fc2",
-          padding: "10px 10px 10px 10px",
-        }}
-      >
-        {" "}
-        Speedo Car Rental Booking Data
-      </h3> */}
 
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} sx={{ marginTop: "10px" }}>
         <Table sx={{ minWidth: 300 }} aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -118,6 +118,7 @@ export default function BookData() {
               <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Drop Point</TableCell>
               <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >State Name</TableCell>
               <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Driver Option</TableCell>
+              <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Send Driver Deatils</TableCell>
               <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Edit</TableCell>
               <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Delete</TableCell>
             </TableRow>
@@ -137,15 +138,23 @@ export default function BookData() {
                 <TableCell align="left">{row.pickup}</TableCell>
                 <TableCell align="left">{row.drop}</TableCell>
                 <TableCell align="left">{row.state}</TableCell>
-                <TableCell align="left">{row.drive}</TableCell>
+                <TableCell align="left" style={getCellStyle(row.drive)}>{row.drive}</TableCell>
+                <TableCell align="left">
+                  <button
+                    style={{ width: "80px", borderRadius: "10px" }}
+                    onClick={() => SendDriver(row._id)}
 
+                  >
+                    SEND
+                  </button>
+                </TableCell>
                 <TableCell align="left">
                   <button
                     style={{ width: "80px", borderRadius: "10px" }}
                     onClick={() => UpdateUser(row._id)}
 
                   >
-                    Edit
+                    EDIT
                   </button>
                 </TableCell>
                 <TableCell align="left">
@@ -153,14 +162,14 @@ export default function BookData() {
                     style={{ width: "80px", borderRadius: "10px" }}
                     onClick={() => DeleteUser(row._id)}
                   >
-                    Delete
+                    DELETE
                   </button>
                 </TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
-      </TableContainer>
+      </TableContainer >
       <Footer />
     </>
   );

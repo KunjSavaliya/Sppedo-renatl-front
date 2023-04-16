@@ -36,39 +36,7 @@ export default function BookData() {
 
   };
 
-  // const value = data.length
-  //     localStorage.setItem("Bookingdata",(value));
-  //   console.log("..",value);
-  // let iterator = data.values();
-  // let array1 = []
-  // for (let value of iterator) {
-  //   var gadi = value.gadi;
-  //   console.log("gadi", gadi);
-  //   array1.push(gadi)
-  // }
 
-  // function getOccurrence(array, value) {
-  //   var count = 0;
-  //   array.forEach((v) => (v === value && count++));
-  //   return count;
-  // }
-
-
-  // var HatchBack = getOccurrence(array1, "HatchBack");
-  // localStorage.setItem("HatchBack", JSON.stringify(HatchBack));
-
-  // var Sedan = getOccurrence(array1, "Sedan");
-  // localStorage.setItem("Sedan", JSON.stringify(Sedan));
-
-
-  // var Suv = getOccurrence(array1, "SUV/MUV");
-  // localStorage.setItem("Suv", JSON.stringify(Suv));
-
-  // var Premium = getOccurrence(array1, "Primium");
-  // localStorage.setItem("Premium", JSON.stringify(Premium));
-
-  // var Luxury = getOccurrence(array1, "Luxury");
-  // localStorage.setItem("Luxury", JSON.stringify(Luxury));
 
 
   useEffect(() => {
@@ -99,7 +67,7 @@ export default function BookData() {
 
       <OwnerNavbar />
       <Button
-        className="btn"
+        // className="btn"
         style={{
           backgroundColor: "#23809fc2",
           marginTop: "20px",

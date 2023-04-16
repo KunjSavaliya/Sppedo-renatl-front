@@ -95,7 +95,7 @@ function DrawerAppBar(props) {
             ></Typography>
 
             <Box sx={{ display: "flex", flexDirection: "row", gap: "7px" }}>
-              
+
               <Button
                 key="Home"
                 className="hover"
@@ -104,10 +104,10 @@ function DrawerAppBar(props) {
                   textTransform: "none",
                   display: { xs: "none", sm: "block" },
                 }}
-                >
-               <NavLink to="/home" className="btnactive">
-                Home
-              </NavLink>
+              >
+                <NavLink to="/home" className="btnactive">
+                  Home
+                </NavLink>
               </Button>
               <Button
                 key="About"
@@ -117,10 +117,10 @@ function DrawerAppBar(props) {
                   textTransform: "none",
                   display: { xs: "none", sm: "block" },
                 }}
-                >
+              >
                 <NavLink to="/About" className="btnactive">
-                About
-              </NavLink>
+                  About
+                </NavLink>
               </Button> <Button
                 key="Populer"
                 className="hover"
@@ -129,10 +129,10 @@ function DrawerAppBar(props) {
                   textTransform: "none",
                   display: { xs: "none", sm: "block" },
                 }}
-                >
+              >
                 <NavLink to="/Populer" className="btnactive">
-                Popular Fleets
-              </NavLink>
+                  Popular Fleets
+                </NavLink>
               </Button> <Button
                 key="Book"
                 className="hover"
@@ -141,11 +141,11 @@ function DrawerAppBar(props) {
                   textTransform: "none",
                   display: { xs: "none", sm: "block" },
                 }}
-                >
-                    <NavLink to="/Book" className="btnactive">
-                Book Now
-              </NavLink>
-                
+              >
+                <NavLink to="/Book" className="btnactive">
+                  Book Now
+                </NavLink>
+
               </Button>
               <Button
                 key="Contact"
@@ -155,11 +155,11 @@ function DrawerAppBar(props) {
                   textTransform: "none",
                   display: { xs: "none", sm: "block" },
                 }}
-                >
-                    <NavLink to="/Contact" className="btnactive">
-                Contact us
-              </NavLink>
-                
+              >
+                <NavLink to="/Contact" className="btnactive">
+                  Contact us
+                </NavLink>
+
               </Button>
               <Button
                 key="Feedback"
@@ -169,21 +169,34 @@ function DrawerAppBar(props) {
                   textTransform: "none",
                   display: { xs: "none", sm: "block" },
                 }}
-                >
-                    <NavLink to="/FeedBack" className="btnactive">
-                Feedback
-              </NavLink>
-                
+              >
+                <NavLink to="/FeedBack" className="btnactive">
+                  Feedback
+                </NavLink>
+
               </Button>
-              
-            
-              
-              
-              <Button onClick={handleOnLogout} className="hover" style={{fontWeight:"bold"}} sx={{
+
+              <Button
+                key="Profile"
+                className="hover"
+                sx={{
                   color: "black",
                   textTransform: "none",
                   display: { xs: "none", sm: "block" },
-                }}>
+                }}
+              >
+                <NavLink to="/Profile" className="btnactive">
+                  Profile
+                </NavLink>
+
+              </Button>
+
+
+              <Button onClick={handleOnLogout} className="hover" style={{ fontWeight: "bold" }} sx={{
+                color: "black",
+                textTransform: "none",
+                display: { xs: "none", sm: "block" },
+              }}>
                 Logout
               </Button>
             </Box>

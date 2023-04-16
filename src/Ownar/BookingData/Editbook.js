@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Footer from "../Dashboard/Footer";
-import Navbar from "../Dashboard/Navbar";
+import Footer from "../../Dashboard/Footer";
+import Navbar from "../../Dashboard/Navbar";
 import Grid from "@mui/material/Grid";
 import { Box } from "@mui/system";
 import { makeStyles } from "@mui/styles";
@@ -11,8 +11,8 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { useNavigate, useParams } from "react-router-dom";
 import Button from "@mui/material/Button";
-import "../Book/Book.css";
-import OwnerNavbar from "./Navbar/OwnerNavbar";
+import "../../Book/Book.css";
+import OwnerNavbar from "../Navbar/OwnerNavbar";
 
 const useStyles = makeStyles((theme) => ({
   us: {
@@ -63,13 +63,13 @@ export default function Editbook() {
 
 
   const { index } = useParams();
-  // const [data1, setData1] = useState([]);
+
   const [data2, setData2] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       const [response2] = await Promise.all([
-        // axios.get("http://localhost:8000/api/Gmaildata"),
+        
         axios.get("http://localhost:8000/api/Statedata"),
 
       ]);
@@ -83,8 +83,7 @@ export default function Editbook() {
     const data = await axios.get(`http://localhost:8000/api/Gmailupdateid/${id}`);
 
     setBook(data.data);
-    console.log("upadte", data);
-    console.log("book", book);
+    
   };
   // console.log(user);
 
