@@ -69,7 +69,7 @@ export default function Editbook() {
   useEffect(() => {
     const fetchData = async () => {
       const [response2] = await Promise.all([
-        
+
         axios.get("http://localhost:8000/api/Statedata"),
 
       ]);
@@ -78,14 +78,14 @@ export default function Editbook() {
     };
     fetchData();
   }, []);
-  console.log('s', data2);
+
   const fetchEditedData = async (id) => {
     const data = await axios.get(`http://localhost:8000/api/Gmailupdateid/${id}`);
 
     setBook(data.data);
-    
+
   };
-  // console.log(user);
+
 
   useEffect(() => {
     if (index) {

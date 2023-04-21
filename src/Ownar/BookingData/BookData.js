@@ -98,6 +98,7 @@ export default function BookData(props) {
   const UpdateUser = (index) => {
     navigate(`/EditBookData/${index}`);
   };
+
   return (
     <>
       <title>Booking Data</title>
