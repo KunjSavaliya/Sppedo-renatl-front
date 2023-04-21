@@ -72,12 +72,12 @@
   }
     @media only screen and (max-width: 600px) {
        .imgcr{
-            width: 285px;
+            width: 268px;
             height: 223px;
         }
         .textbc{
         text-align: center;
-     margin:0px 0px;
+     margin:20px 0px;
      padding: 0px;
 
 

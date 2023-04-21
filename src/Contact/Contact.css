@@ -60,3 +60,8 @@
         padding: 91px 91px 91px 91px;
     }
 }
+    @media only screen and (min-width:0px) and (max-width: 400px)  {
+        .ebox{
+            padding: 50px 10px 50px 10px;
+        }
+    }

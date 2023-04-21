@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "30px",
   },
   info1: {
-    fontSize: "20px",
+    fontSize: "15px",
   },
   info2: {
     fontWeight: "bold",

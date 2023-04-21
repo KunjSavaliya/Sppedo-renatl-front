@@ -185,7 +185,7 @@ function DrawerAppBar(props) {
                   display: { xs: "none", sm: "block" },
                 }}
               >
-                <NavLink to="/Profile" className="btnactive">
+                <NavLink to="/ShowProfile" className="btnactive">
                   Profile
                 </NavLink>
 

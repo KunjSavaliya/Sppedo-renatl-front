@@ -52,7 +52,7 @@ export default function Book() {
       const [response1, response2] = await Promise.all([
         axios.get("http://localhost:8000/api/Addcardata"),
         axios.get("http://localhost:8000/api/Statedata"),
-        // axios.get("http://localhost:8000/api/Addcardata")
+
 
       ]);
       setData1(response1.data);

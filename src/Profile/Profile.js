@@ -1,36 +1,26 @@
 import React from "react";
+
 import Details from "./Details";
-import img1 from "../Image/profile.jpg";
+import img1 from "../Image/logoo.jpg";
+import Navbar from "../Dashboard/Navbar";
+import Footer from "../Dashboard/Footer";
 
 function Profile() {
     return (
-        <div
-            className="container "
-            style={{
-                backgroundSize: "cover",
-                overflow: "hidden",
-            }}
-        >
-            <div className="row">
-                <div
-                    className="col-12 col-lg-4 col-sm-6"
-                    style={{
-                        marginTop: "7vw",
-                        display: "flex",
-                        justifyContent: "center",
-                    }}
-                >
-                    <img
-                        style={{ height: "225px", borderRadius: "120px" }}
-                        src={img1}
-                        alt=""
-                    />
+        <>
+            <Navbar />
+            <div
+
+            >
+                <div>
+
+                    <div className="col-12 col-lg-12">
+                        <Details />
+                    </div>
                 </div>
-                <div className="col-12 col-lg-6 col-sm-6">
-                    <Details />
-                </div>
-            </div>
-        </div>
+            </div >
+            <Footer />
+        </>
     );
 }
 

@@ -34,6 +34,7 @@ import Driver from "./Ownar/Driver/Driver";
 import DriverTabel from "./Ownar/Driver/DriverTabel";
 import Populer from "./Popular/Popular";
 import Profile from "./Profile/Profile";
+import ShowProfile from "./Profile/ShowProfile";
 
 function App() {
   var user = localStorage.getItem("user");
@@ -71,11 +72,15 @@ function App() {
 
           <Route exact path="/DriverTabel" element={<DriverTabel />}> </Route>
           <Route exact path="/Profile" element={<Profile />}> </Route>
+          <Route exact path="/ShowProfile" element={<ShowProfile />}> </Route>
+
 
 
           <Route exact path='/EditBookData/:index' element={< EditBookData />} ></Route>
           <Route exact path='/Car/:index' element={< Car />} ></Route>
           <Route exact path='/DriverDetails/:index' element={< DriverDetails />} ></Route>
+          <Route exact path='/Profile/:id' element={< Profile />} ></Route>
+
 
 
 
