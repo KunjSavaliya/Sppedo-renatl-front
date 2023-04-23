@@ -15,6 +15,9 @@ function Details() {
         Address: "",
     });
     const { id } = useParams();
+    const [valid, setValid] = useState({});
+    const [hide, setHide] = useState({});
+
 
     // debugger
     const fetchEditedData = async (id) => {
@@ -50,17 +53,68 @@ function Details() {
     const OnHandel = (e) => {
         const { value, name } = e.target;
         setUserRegistration((pre) => ({ ...pre, [name]: value }));
-        // setValid(true);
-        // setHide(true);
+        setValid(true);
+        setHide(true);
     };
 
     const onSubmit = () => {
+
+        if (userRegistration.name === "") {
+            setValid((...valid) => ({ ...valid, name: true }));
+            return;
+        }
+
+        var IndNum = /^[0]?[789]\d{9}$/;
+        if (userRegistration.phone === "") {
+            setValid((...valid) => ({ ...valid, phone: true }));
+            return;
+        } else if (!IndNum.test(userRegistration.phone)) {
+            setValid((...valid) => ({ ...valid, phone: true }));
+            return;
+        }
+
+
+        const items = JSON.parse(localStorage.getItem('user'));
+        var names = items.map(function (val) {
+            return val.email;
+        });
+        var filter =
+            /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if (userRegistration.email === "") {
+            setValid((...valid) => ({ ...valid, email: true }));
+            return;
+        } else if (!filter.test(userRegistration.email)) {
+            setHide((...hide) => ({ ...hide, email: true }));
+            return;
+        } else if (userRegistration.email !== names[0]) {
+            setValid((...valid) => ({ ...valid, email: true }));
+            return;
+        }
+
+
+        if (userRegistration.gender === "") {
+            setValid((...valid) => ({ ...valid, gender: true }));
+            return;
+        }
+
+        if (userRegistration.dob === "") {
+            setValid((...valid) => ({ ...valid, dob: true }));
+            return;
+        }
+
+        if (userRegistration.Address === "") {
+            setValid((...valid) => ({ ...valid, Address: true }));
+            return;
+        }
+
         if (id) {
             axios
                 .put(`http://localhost:8000/api/pupdate/${id}`, userRegistration)
 
                 .then((res) => console.log("dtaa", res.data.message));
             localStorage.setItem("Profiledata", JSON.stringify(userRegistration));
+            localStorage.setItem("Profile1", JSON.stringify([userRegistration]));
+
 
         } else {
             axios
@@ -69,6 +123,8 @@ function Details() {
                 .then((res) => console.log("dtaa", res.data.message));
 
             localStorage.setItem("Profiledata", JSON.stringify(userRegistration));
+            localStorage.setItem("Profile1", JSON.stringify([userRegistration]));
+
 
         }
 
@@ -103,6 +159,19 @@ function Details() {
                         aria-describedby="name"
                         placeholder="Enter Your Full Name"
                     />
+                    {valid.name == true && (
+                        <span
+                            style={{
+                                color: "red",
+                                fontWeight: "bold",
+                                fontSize: "15px",
+                                display: "flex",
+                                justifyContent: "center",
+                            }}
+                        >
+                            Enter Your Name
+                        </span>
+                    )}
                     <label htmlFor="exampleInputEmail1" className="form-label">
                         Contact Number*
                     </label>
@@ -116,6 +185,19 @@ function Details() {
                         aria-describedby="name"
                         placeholder="Enter Your Contact number"
                     />
+                    {valid.phone == true && (
+                        <span
+                            style={{
+                                color: "red",
+                                fontWeight: "bold",
+                                fontSize: "15px",
+                                display: "flex",
+                                justifyContent: "center",
+                            }}
+                        >
+                            Enter Valid Number
+                        </span>
+                    )}
                     <label htmlFor="exampleInputEmail1" className="form-label">
                         Email Address*
                     </label>
@@ -129,6 +211,32 @@ function Details() {
                         aria-describedby="name"
                         placeholder="Enter Your Email Address"
                     />
+                    {valid.email == true && (
+                        <span
+                            style={{
+                                color: "red",
+                                fontWeight: "bold",
+                                fontSize: "15px",
+                                display: "flex",
+                                justifyContent: "center",
+                            }}
+                        >
+                            Use Register Email Address
+                        </span>
+                    )}
+                    {hide.email == true && (
+                        <span
+                            style={{
+                                color: "red",
+                                fontWeight: "bold",
+                                fontSize: "15px",
+                                display: "flex",
+                                justifyContent: "center",
+                            }}
+                        >
+                            Invlid Email Address
+                        </span>
+                    )}
                     <label htmlFor="exampleInputEmail1" className="form-label">
                         Gender
                     </label>
@@ -146,6 +254,19 @@ function Details() {
                         <option> Female</option>
                         <option> Other</option>
                     </select>
+                    {valid.gender == true && (
+                        <span
+                            style={{
+                                color: "red",
+                                fontWeight: "bold",
+                                fontSize: "15px",
+                                display: "flex",
+                                justifyContent: "center",
+                            }}
+                        >
+                            Enter Your Gender
+                        </span>
+                    )}
 
                     <label htmlFor="exampleInputEmail1" className="form-label">
                         DOB
@@ -159,6 +280,19 @@ function Details() {
                         onChange={OnHandel}
                         aria-describedby="name"
                     />
+                    {valid.dob == true && (
+                        <span
+                            style={{
+                                color: "red",
+                                fontWeight: "bold",
+                                fontSize: "15px",
+                                display: "flex",
+                                justifyContent: "center",
+                            }}
+                        >
+                            Enter Your DOB
+                        </span>
+                    )}
                     <label htmlFor="exampleInputEmail1" className="form-label">
                         Address
                     </label>
@@ -171,6 +305,19 @@ function Details() {
                         aria-describedby="name"
                         placeholder="Enter Your Address"
                     />
+                    {valid.Address == true && (
+                        <span
+                            style={{
+                                color: "red",
+                                fontWeight: "bold",
+                                fontSize: "15px",
+                                display: "flex",
+                                justifyContent: "center",
+                            }}
+                        >
+                            Enter Your Address
+                        </span>
+                    )}
                 </div>
 
                 <button
