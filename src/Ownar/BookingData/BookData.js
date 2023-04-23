@@ -101,7 +101,7 @@ export default function BookData(props) {
 
   return (
     <>
-      <title>Booking Data</title>
+      <title>Booking Data - Sppedo Car Rental</title>
 
       <OwnerNavbar />
 

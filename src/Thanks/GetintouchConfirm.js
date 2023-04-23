@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from "react";
+import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import { makeStyles } from "@mui/styles";
@@ -42,22 +42,22 @@ export default function Thanks() {
   };
   return (
     <>
-      <title>Thanks</title>
+      <title> Getintouch- Sppedo Car Rental</title>
       <div className={classes.cards}>
         <Card
           sx={{
             width: 600,
-           
+
             backgroundColor: "rgba(119, 204, 255, 0.22)",
           }}
           className={classes.words}
         >
           <Box className={classes.eqv}>Thanks For Your Enquiry</Box>
-          
+
           <Box className={classes.eqv1}>Name: {name.name}</Box>
           <Box className={classes.eqv1}>Email: {name.email}</Box>
           <Box className={classes.eqv1}>Message: {name.message}</Box>
-          
+
 
           <Button
             style={{

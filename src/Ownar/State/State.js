@@ -92,10 +92,12 @@ export default function State() {
     };
     return (
         <>
-            <title>Car -Speedo Car Rental</title>
+            <title>State -Speedo Car Rental</title>
             <OwnerNavbar />
+            <Box className={classes.car}>ENTER STATE</Box>
+
             <Grid className={classes.form}>
-                <Box style={{ fontWeight: "400", fontSize: "20px" }}> Gadi State*</Box>
+                <Box style={{ fontWeight: "400", fontSize: "20px" }}>  State *</Box>
                 <TextField
                     name="state"
                     value={comment.state}

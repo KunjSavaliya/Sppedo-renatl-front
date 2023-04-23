@@ -146,7 +146,7 @@ export default function Register() {
 
   return (
     <>
-      <title>Register</title>
+      <title>Register - Sppedo Car Rental</title>
       {/* <h1 style={{textAlign:"center",color:"#23809fc2",marginBottom: "-42px"}}>Car Rental Register</h1> */}
       <h2
         style={{

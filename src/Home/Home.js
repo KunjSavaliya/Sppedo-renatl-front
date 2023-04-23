@@ -46,7 +46,7 @@ export default function Home() {
 
   return (
     <>
-      <title>Home</title>
+      <title>Home - Sppedo Car Rental</title>
 
       <Navbar />
 

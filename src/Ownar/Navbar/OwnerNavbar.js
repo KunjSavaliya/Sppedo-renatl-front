@@ -108,7 +108,7 @@ function DrawerAppBar(props) {
                 }}
               >
                 <NavLink to="/Dashboard" className="btnactive">
-                  Dashbaord
+                  Dashboard
                 </NavLink>
 
               </Button>

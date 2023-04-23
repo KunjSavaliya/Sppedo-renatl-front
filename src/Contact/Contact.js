@@ -123,7 +123,7 @@ export default function Contact() {
 
   return (
     <>
-      <title>Contact Us</title>
+      <title>Contact Us - Sppedo Car Rental</title>
 
       <Navbar />
       <Grid>

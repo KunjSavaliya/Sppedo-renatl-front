@@ -84,6 +84,7 @@ export default function BookData() {
             <TableRow>
               <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Car Brand</TableCell>
               <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Car Name</TableCell>
+              <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Plat Number</TableCell>
               <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Edit</TableCell>
               <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Delete</TableCell>
             </TableRow>
@@ -97,6 +98,8 @@ export default function BookData() {
                 <TableCell align="left">{row.carname}</TableCell>
 
                 <TableCell align="left">{row.carbrand}</TableCell>
+                <TableCell align="left">{row.platnumber}</TableCell>
+
 
 
                 <TableCell align="left">

@@ -63,7 +63,7 @@ export default function StateTabel() {
 
     return (
         <>
-            <title>Booking Data</title>
+            <title>State Data - Sppedo Car Rental</title>
 
             <OwnerNavbar />
             <Button

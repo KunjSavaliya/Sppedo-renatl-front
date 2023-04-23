@@ -1,12 +1,12 @@
 export const OwnerNavitem = [
   {
-    title: "HomeBooking Data",
-    path: "/HomeBookData",
+    title: "Dashboard",
+    path: "/Dashboard",
     cName: "submenu",
   },
   {
-    title: "Contact Data",
-    path: "/ContactData",
+    title: "AddCar",
+    path: "/CarTabel",
     cName: "submenu",
   },
   {
@@ -14,5 +14,23 @@ export const OwnerNavitem = [
     path: "/BookData",
     cName: "submenu",
   },
+  {
+    title: "Contact Data",
+    path: "/ContactData",
+    cName: "submenu",
+  }, {
+    title: "State Data",
+    path: "/StateTabel",
+    cName: "submenu",
+  }, {
+    title: "Driver Data",
+    path: "/DriverTabel",
+    cName: "submenu",
+  }, {
+    title: "Logout",
+    path: "/login",
+    cName: "submenu",
+  },
+
 
 ];

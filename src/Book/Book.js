@@ -278,7 +278,7 @@ export default function Book() {
 
   return (
     <>
-      <title>Book Now</title>
+      <title>Book Now  - Sppedo Car Rental </title>
 
       <Navbar />
       <Grid>
@@ -452,10 +452,7 @@ export default function Book() {
               onChange={OnBook}
               value={book.state}
             >
-              {/* <MenuItem value="Choose Option">Choose Option</MenuItem>
-              <MenuItem value="Gujarat">Gujarat</MenuItem>
-              <MenuItem value="Maharashtra">Maharashtra</MenuItem>
-              <MenuItem value="Rajasthan">Rajasthan</MenuItem> */}
+
 
               {(data2 || []).map((u) => (
                 <MenuItem value={u.state} >{u.state}

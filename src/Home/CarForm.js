@@ -10,7 +10,7 @@ function CarForm() {
   useEffect(() => {
     const fetchData = async () => {
       const [response1, response2] = await Promise.all([
-        axios.get("http://localhost:8000/api/Gmaildata"),
+        axios.get("http://localhost:8000/api/Addcardata"),
         axios.get("http://localhost:8000/api/Statedata"),
 
       ]);
@@ -74,6 +74,7 @@ function CarForm() {
   };
 
   const onSubmit = () => {
+
     if (userRegistration.name === "") {
       setValid((...valid) => ({ ...valid, name: true }));
       return;
@@ -319,7 +320,8 @@ function CarForm() {
                 justifyContent: "center",
               }}
             >
-              Enter Valid email
+              Use Register Email Address
+
             </span>
           )}
           {hide.email == true && (
@@ -367,6 +369,20 @@ function CarForm() {
               Choose Car Name
             </span>
           )}
+          {hide.car == true && (
+            <span
+              style={{
+                color: "red",
+                fontWeight: "bold",
+                fontSize: "15px",
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              Car not available
+            </span>
+          )}
+
 
           <label htmlFor="exampleInputEmail1" className="form-label">
             Self Drive

@@ -39,7 +39,7 @@ export default function Thanks() {
     const data = JSON.parse(localStorage.getItem("bookingdata"));
     setname(data);
     console.log("name", name);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onView = () => {
@@ -47,7 +47,7 @@ export default function Thanks() {
   };
   return (
     <>
-      <title>Thanks</title>
+      <title>Booking Confirm - Sppedo Car Rental</title>
       <div className={classes.cards}>
         <Card
           sx={{

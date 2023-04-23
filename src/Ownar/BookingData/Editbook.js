@@ -167,7 +167,7 @@ export default function Editbook() {
 
   return (
     <>
-      <title>Book Now</title>
+
 
       <OwnerNavbar />
 

@@ -28,14 +28,14 @@ export default function About() {
 
   return (
     <>
-    <title>About us</title>
+      <title>About us - Sppedo Car Rental</title>
       <Navbar />
       <Grid>
         <Grid className={classes.color}>
           <Box className={classes.us}>About us</Box>
           <Box className={classes.we}>Who We Are</Box>
         </Grid>
-        <AboutCenter/>
+        <AboutCenter />
         <Footer />
       </Grid>
     </>

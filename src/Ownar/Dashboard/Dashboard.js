@@ -67,7 +67,7 @@ export default function Dashboard() {
   return (
 
     <>
-      <title>Dashboard</title>
+      <title>Dashboard - Sppedo Car Rental</title>
       <OwnerNavbar />
       <div className="dashboard">
         <div className="dashboard__wrapper">
@@ -83,7 +83,7 @@ export default function Dashboard() {
               <MileChart />
             </div>
             <div className="stats">
-              <h3 className="stats__title">Total Vhical Data</h3>
+              <h3 className="stats__title">Total Vehicle Data</h3>
               <CarStatsChart />
             </div>
           </div>

@@ -12,7 +12,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 // import button from "@mui/material/button";
 import Button from "@mui/material/Button";
-
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../Image/logoo.jpg";
 import { Navitem } from "./Navitem";
@@ -176,22 +176,6 @@ function DrawerAppBar(props) {
 
               </Button>
 
-              <Button
-                key="Profile"
-                className="hover"
-                sx={{
-                  color: "black",
-                  textTransform: "none",
-                  display: { xs: "none", sm: "block" },
-                }}
-              >
-                <NavLink to="/ShowProfile" className="btnactive">
-                  Profile
-                </NavLink>
-
-              </Button>
-
-
               <Button onClick={handleOnLogout} className="hover" style={{ fontWeight: "bold" }} sx={{
                 color: "black",
                 textTransform: "none",
@@ -200,6 +184,20 @@ function DrawerAppBar(props) {
                 Logout
               </Button>
             </Box>
+            <Button
+              key="Profile"
+              className="hover"
+              sx={{
+                color: "black",
+                textTransform: "none",
+                display: { xs: "none", sm: "block" },
+              }}
+            >
+              <NavLink to="/ShowProfile" className="btnactive">
+                <AccountCircleIcon />
+              </NavLink>
+
+            </Button>
 
             <IconButton
               color="inherit"

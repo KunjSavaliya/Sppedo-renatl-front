@@ -113,7 +113,7 @@ export default function Feedback() {
 
   return (
     <>
-      <title>Feed Back</title>
+      <title>Feed Back - Sppedo Car Rental</title>
 
       <Navbar />
       <Grid className={classes.color}>

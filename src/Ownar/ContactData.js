@@ -51,18 +51,8 @@ export default function ContactData() {
   // const value = {data.length};
   return (
     <>
-      <title>Contact Data</title>
+      <title>Contact Data - Sppedo Car Rental</title>
       <OwnerNavbar />
-      {/* <h3
-        style={{
-          textAlign: "center",
-          color: "#23809fc2",
-          padding: "10px 10px 10px 10px",
-        }}
-      >
-        {" "}
-        Speedo Car Rental Contact Comment Data
-      </h3> */}
 
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 100, color: "red" }} aria-label="simple table">

@@ -63,32 +63,32 @@ export default function Cardata() {
 
     {
       // name: "HatchBack",
-      Vechialtype: 0,
+      VehicleAvailable: 0,
       // prevWeek: 0,
     },
     {
       name: "HatchBack",
-      Vechialtype: HatchBack,
+      VehicleAvailable: HatchBack,
       // prevWeek: 0,
     },
     {
       name: "Sedan",
-      Vechialtype: Sedan,
+      VehicleAvailable: Sedan,
       // prevWeek: 1398,
     },
     {
       name: "SUV/MUV",
-      Vechialtype: Suv,
+      VehicleAvailable: Suv,
       // prevWeek: 9800,
     },
     {
       name: "Primium",
-      Vechialtype: Premium,
+      VehicleAvailable: Premium,
       // prevWeek: 2400,
     },
     {
       name: "Luxury",
-      Vechialtype: Luxury,
+      VehicleAvailable: Luxury,
       // prevWeek: 2400,
     },
   ];
@@ -117,7 +117,7 @@ export default function Cardata() {
           <Tooltip wrapperClassName="tooltip__style" cursor={false} />
           <Area
             type="monotone"
-            dataKey="Vechialtype"
+            dataKey="VehicleAvailable"
             stroke="#0a6d94"
             fillOpacity={1}
             fill="url(#colorUv)"

@@ -50,9 +50,7 @@ export default function DriverTabel() {
 
     };
 
-    // const UpdateUser = (index) => {
-    //     navigate(`/Car/${index}`);
-    // };
+
 
     const onSubmit = () => {
         navigate("/Driver")
@@ -63,7 +61,7 @@ export default function DriverTabel() {
 
     return (
         <>
-            <title>Booking Data</title>
+            <title>Driver Data - Sppedo Car Rental</title>
 
             <OwnerNavbar />
             <Button

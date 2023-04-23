@@ -50,6 +50,7 @@ export default function Car() {
   const [comment, setComment] = useState({
     carbrand: "",
     carname: "",
+    platnumber: ""
 
   });
   const fetchEditedData = async (id) => {
@@ -90,6 +91,10 @@ export default function Car() {
       setValid((...valid) => ({ ...valid, carname: true }));
       return;
     }
+    if (comment.platnumber === "") {
+      setValid((...valid) => ({ ...valid, platnumber: true }));
+      return;
+    }
 
     if (index) {
       axios
@@ -113,8 +118,10 @@ export default function Car() {
     <>
       <title>Car -Speedo Car Rental</title>
       <OwnerNavbar />
+      <Box className={classes.car}>ADD CAR</Box>
+
       <Grid className={classes.form}>
-        <Box style={{ fontWeight: "400", fontSize: "20px" }}> Gadi Name*</Box>
+        <Box style={{ fontWeight: "400", fontSize: "20px" }}> Car Name*</Box>
         <TextField
           name="carbrand"
           value={comment.carbrand}
@@ -160,6 +167,27 @@ export default function Car() {
             }}
           >
             Choose Car Type*
+          </span>
+        )}
+        <Box style={{ fontWeight: "400", fontSize: "20px" }}> Plat Number*</Box>
+        <TextField
+          name="platnumber"
+          value={comment.platnumber}
+          // placeholder="Gadi Name"
+          fullWidth
+          onChange={oninput}
+        />
+        {valid.platnumber == true && (
+          <span
+            style={{
+              color: "red",
+              fontWeight: "bold",
+              fontSize: "15px",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            Enter Plat Number
           </span>
         )}
         <Button

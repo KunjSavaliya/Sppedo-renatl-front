@@ -131,6 +131,7 @@ function Details() {
     };
 
     return (
+
         <div className="card" style={{ margin: "2vw 8vw 2vw 8vw" }}>
             <div className="card-body">
                 <h5

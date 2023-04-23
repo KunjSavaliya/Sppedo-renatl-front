@@ -149,8 +149,10 @@ export default function Driver() {
     };
     return (
         <>
-            <title>Car -Speedo Car Rental</title>
+
             <OwnerNavbar />
+            <Box className={classes.car}>ENTER DRIVER DETAILS</Box>
+
             <Grid className={classes.form}>
                 <Box style={{ fontWeight: "400", fontSize: "20px" }}> Driver Name*</Box>
                 <TextField

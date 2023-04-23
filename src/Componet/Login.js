@@ -104,7 +104,7 @@ export default function Register() {
 
   return (
     <>
-      <title>Login</title>
+      <title>Login - Sppedo Car Rental</title>
 
       <div>
         <h2

@@ -43,6 +43,23 @@ function App() {
     return user ? children : <Navigate to="/Login" replace />;
   }
 
+  const items = JSON.parse(localStorage.getItem('user'));
+  var useremail = items.map(function (val) {
+    return val.email;
+  });
+
+  var Profiledata = JSON.parse(localStorage.getItem('Profile1'));
+
+  var profileemail = Profiledata.map(function (val) {
+    return val.email;
+  });
+
+
+  function RequireAuth1({ children }) {
+    return useremail === profileemail ? children : <Navigate to="/Profile" replace />;
+  }
+
+
   return (
     <>
       <Router>
@@ -72,7 +89,7 @@ function App() {
 
           <Route exact path="/DriverTabel" element={<DriverTabel />}> </Route>
           <Route exact path="/Profile" element={<Profile />}> </Route>
-          <Route exact path="/ShowProfile" element={<ShowProfile />}> </Route>
+          <Route exact path="/ShowProfile" element={<RequireAuth1><ShowProfile /></RequireAuth1>}> </Route>
 
 
 

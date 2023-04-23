@@ -104,46 +104,20 @@ export default function State() {
 
 
 
-        console.log("comm", mergedState);
-        // console.log("driver", driver);
 
-        // navigate("/BookData")
 
 
     };
     return (
         <>
-            <title>Car -Speedo Car Rental</title>
-            <OwnerNavbar />
-            {/* <p style={{ fontWeight: "bold" }}> Customer Email : {comment.data.email}</p> */}
-            <Grid className={classes.form}>
-                {/* 
 
-                <Box style={{ fontWeight: "400", fontSize: "20px" }}>
-                    {" "}
-                    Email Address*
-                </Box>
-                <TextField
-                    id="outlined-basic"
-                    placeholder="Email Address"
-                    fullWidth
-                    onChange={oninput}
-                    value={driver.email}
-                    name="email"
-                />
-                {valid.email == true && (
-                    <span
-                        style={{
-                            color: "red",
-                            fontWeight: "bold",
-                            fontSize: "15px",
-                            display: "flex",
-                            justifyContent: "center",
-                        }}
-                    >
-                        Enter Valid email
-                    </span>
-                )} */}
+            <OwnerNavbar />
+            <Box className={classes.car}>Driver Details</Box>
+
+
+            <Grid className={classes.form}>
+
+
                 <Box style={{ fontWeight: "400", fontSize: "20px" }}> Driver Full Name*</Box>
                 <TextField
                     id="outlined-basic"

@@ -62,6 +62,7 @@ function Details() {
             navigate("/Profile");
 
         }
+        navigate("/Profile");
 
 
 
@@ -70,6 +71,8 @@ function Details() {
 
     return (
         <>
+            <title>Profile - Sppedo Car Rental</title>
+
             <Navbar />
             <div className="card" style={{ margin: "2vw 8vw 2vw 8vw" }}>
                 <div className="card-body">
