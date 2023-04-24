@@ -39,24 +39,21 @@ import ShowProfile from "./Profile/ShowProfile";
 function App() {
   var user = localStorage.getItem("user");
 
+
+
+
   function RequireAuth({ children }) {
     return user ? children : <Navigate to="/Login" replace />;
   }
 
-  const items = JSON.parse(localStorage.getItem('user'));
-  var useremail = items.map(function (val) {
-    return val.email;
-  });
+  const items = JSON.parse(localStorage.getItem('user1'));
 
-  var Profiledata = JSON.parse(localStorage.getItem('Profile1'));
-
-  var profileemail = Profiledata.map(function (val) {
-    return val.email;
-  });
+  var Profiledata = JSON.parse(localStorage.getItem('Profiledata'));
+  console.log("user", Profiledata.email);
 
 
   function RequireAuth1({ children }) {
-    return useremail === profileemail ? children : <Navigate to="/Profile" replace />;
+    return items.email === Profiledata.email ? children : <Navigate to="/Profile" replace />;
   }
 
 

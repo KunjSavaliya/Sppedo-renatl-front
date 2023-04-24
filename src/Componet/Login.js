@@ -83,6 +83,8 @@ export default function Register() {
           navigate("/");
         }
         localStorage.setItem("user", JSON.stringify([data[index]]));
+        localStorage.setItem("user1", JSON.stringify(data[index]));
+
         // setinput({ email: "", password: "" });
       }
       if (index === -1) {
