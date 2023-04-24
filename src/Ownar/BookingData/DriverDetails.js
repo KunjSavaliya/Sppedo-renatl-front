@@ -100,7 +100,7 @@ export default function State() {
         axios
             .post("http://localhost:8000/api/driversent", mergedState)
 
-            .then((res) => console.log(res.data.message));
+            .then((res) => console.log(res.data.message));;
 
 
 
