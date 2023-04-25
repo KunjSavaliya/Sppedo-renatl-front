@@ -104,7 +104,7 @@ export default function BookData() {
 
                 <TableCell align="left">
                   <button
-                    style={{ width: "80px", borderRadius: "10px" }}
+                    style={{ width: "80px", borderRadius: "8px" }}
                     onClick={() => UpdateUser(row._id)}
 
                   >
@@ -113,7 +113,7 @@ export default function BookData() {
                 </TableCell>
                 <TableCell align="left">
                   <button
-                    style={{ width: "80px", borderRadius: "10px" }}
+                    style={{ width: "80px", borderRadius: "8px" }}
                     onClick={() => DeleteUser(row._id)}
                   >
                     Delete

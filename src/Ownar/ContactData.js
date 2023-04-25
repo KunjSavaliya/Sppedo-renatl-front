@@ -79,7 +79,7 @@ export default function ContactData() {
                 <TableCell align="left">{row.message}</TableCell>
                 <TableCell align="left">
                   <button
-                    style={{ width: "80px", borderRadius: "10px" }}
+                    style={{ width: "80px", borderRadius: "8px" }}
                     onClick={() => DeleteUser(row._id)}
                   >
                     Delete

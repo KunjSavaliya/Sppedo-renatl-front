@@ -142,7 +142,7 @@ export default function BookData(props) {
                 <TableCell align="left" style={getCellStyle(row.drive)}>{row.drive}</TableCell>
                 <TableCell align="left">
                   <button
-                    style={{ width: "80px", borderRadius: "10px" }}
+                    style={{ width: "80px", borderRadius: "8px" }}
                     onClick={() => SendDriver(row._id)}
 
                   >
@@ -151,7 +151,7 @@ export default function BookData(props) {
                 </TableCell>
                 <TableCell align="left">
                   <button
-                    style={{ width: "80px", borderRadius: "10px" }}
+                    style={{ width: "80px", borderRadius: "8px" }}
                     onClick={() => UpdateUser(row._id)}
 
                   >
@@ -160,7 +160,7 @@ export default function BookData(props) {
                 </TableCell>
                 <TableCell align="left">
                   <button
-                    style={{ width: "80px", borderRadius: "10px" }}
+                    style={{ width: "80px", borderRadius: "8px" }}
                     onClick={() => DeleteUser(row._id)}
                   >
                     DELETE

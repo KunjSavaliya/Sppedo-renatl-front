@@ -100,17 +100,11 @@ export default function StateTabel() {
 
 
                                 <TableCell align="left">
-                                    {/* <button
-                                        style={{ width: "80px", borderRadius: "10px" }}
-                                        onClick={() => UpdateUser(row._id)}
 
-                                    >
-                                        Edit
-                                    </button> */}
                                 </TableCell>
                                 <TableCell align="left">
                                     <button
-                                        style={{ width: "80px", borderRadius: "10px" }}
+                                        style={{ width: "80px", borderRadius: "8px" }}
                                         onClick={() => DeleteUser(row._id)}
                                     >
                                         Delete

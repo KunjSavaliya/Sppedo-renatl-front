@@ -327,7 +327,7 @@ function Details() {
                     style={{ width: "100%", fontSize: "17px" }}
                     onClick={onSubmit}
                 >
-                    Edit
+                    Submit
                 </button>
 
             </div >

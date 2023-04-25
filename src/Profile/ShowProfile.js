@@ -38,6 +38,7 @@ function Details() {
 
 
     const onSubmit = () => {
+        debugger
 
 
         const items = JSON.parse(localStorage.getItem('user'));
@@ -62,7 +63,7 @@ function Details() {
             navigate("/Profile");
 
         }
-        navigate("/Profile");
+        // navigate("/Profile");    
 
 
 

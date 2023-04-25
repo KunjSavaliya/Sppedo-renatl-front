@@ -80,13 +80,13 @@ export default function DriverTabel() {
                 <Table sx={{ minWidth: 300 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell align="right" style={{ backgroundColor: "#23809fc2" }} >Driver Name</TableCell>
-                            <TableCell align="right" style={{ backgroundColor: "#23809fc2" }} >Contact Number</TableCell>
-                            <TableCell align="right" style={{ backgroundColor: "#23809fc2" }} >Alternatvie Contact Number</TableCell>
-                            <TableCell align="right" style={{ backgroundColor: "#23809fc2" }} >Email Address</TableCell>
-                            <TableCell align="right" style={{ backgroundColor: "#23809fc2" }} >Licence Number</TableCell>
-                            <TableCell align="right" style={{ backgroundColor: "#23809fc2" }} >State Name</TableCell>
-                            <TableCell align="right" style={{ backgroundColor: "#23809fc2" }} >Delete</TableCell>
+                            <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Driver Name</TableCell>
+                            <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Contact Number</TableCell>
+                            <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Alternatvie Contact Number</TableCell>
+                            <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Email Address</TableCell>
+                            <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Licence Number</TableCell>
+                            <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >State Name</TableCell>
+                            <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Delete</TableCell>
 
                         </TableRow>
                     </TableHead>
@@ -96,19 +96,19 @@ export default function DriverTabel() {
                                 // key={row.name}
                                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                             >
-                                <TableCell align="right">{row.driver}</TableCell>
-                                <TableCell align="right">{row.phone}</TableCell>
-                                <TableCell align="right">{row.alternativephone}</TableCell>
-                                <TableCell align="right">{row.email}</TableCell>
-                                <TableCell align="right">{row.licence}</TableCell>
-                                <TableCell align="right">{row.state}</TableCell>
+                                <TableCell align="left">{row.driver}</TableCell>
+                                <TableCell align="left">{row.phone}</TableCell>
+                                <TableCell align="left">{row.alternativephone}</TableCell>
+                                <TableCell align="left">{row.email}</TableCell>
+                                <TableCell align="left">{row.licence}</TableCell>
+                                <TableCell align="left">{row.state}</TableCell>
 
 
 
 
-                                <TableCell align="right">
+                                <TableCell align="left">
                                     <button
-                                        style={{ width: "80px", borderRadius: "10px" }}
+                                        style={{ width: "80px", borderRadius: "8px" }}
                                         onClick={() => DeleteUser(row._id)}
                                     >
                                         Delete
