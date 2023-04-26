@@ -1,12 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-// import Link from '@mui/material/Link';
 import { makeStyles } from "@mui/styles";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -14,36 +8,22 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { MuiOtpInput } from 'mui-one-time-password-input'
 
 const theme = createTheme();
-const useStyles = makeStyles((theme) => ({}));
-
 export default function Register() {
     const navigate = useNavigate();
-    const classes = useStyles();
-    const [valid, setValid] = useState({});
 
+    const [valid, setValid] = useState({});
     const [otp, setOtp] = useState('')
 
     const handleChange = (newValue) => {
         setOtp(newValue);
         setValid(true);
-
     }
-
-
-
-
-
-
     function Submit() {
         const oTp = JSON.parse(localStorage.getItem('otp'));
-
-
-
         if (otp === "") {
             setValid(false);
             return;
@@ -51,7 +31,6 @@ export default function Register() {
             setValid(false);
             return
         }
-
         navigate("/Password")
     }
     return (
@@ -66,13 +45,11 @@ export default function Register() {
             >
                 Speedo Car Rental
             </h2>
-
             <ThemeProvider theme={theme}>
                 <Container
                     component="main"
                     maxWidth="xs"
                     style={{ backgroundColor: "white", borderRadius: "20px" }}
-
                 >
                     <Box
                         sx={{
@@ -91,10 +68,8 @@ export default function Register() {
                         </Typography>
                         <Grid style={{ marginTop: "15px" }}>
                             <MuiOtpInput value={otp} onChange={handleChange} />
-
                             {!valid && <p style={{ color: "red", fontWeight: "bold", fontSize: "15px", textAlign: "center" }}> Enter Valid Otp</p>}
                         </Grid>
-
                         <Button
                             type="submit"
                             fullWidth
@@ -104,7 +79,6 @@ export default function Register() {
                         >
                             VERIFY OTP
                         </Button>
-
                     </Box>
                 </Container>
             </ThemeProvider>

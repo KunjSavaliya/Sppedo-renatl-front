@@ -2,12 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-// import Link from '@mui/material/Link';
-import { makeStyles } from "@mui/styles";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -18,11 +13,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const theme = createTheme();
-const useStyles = makeStyles((theme) => ({}));
-
 export default function Register() {
   const navigate = useNavigate();
-  const classes = useStyles();
 
   const generateOTP = () => {
     const digits = '0123456789';
@@ -38,15 +30,11 @@ export default function Register() {
   const [otpp, setOtpp] = useState({ otp })
   const [user, setuser] = useState({
     email: "",
-
-
   });
   const mergedState = { ...user, ...otpp };
-  console.log("gg", mergedState);
 
   const [hide, sethide] = useState(false);
   const [valid, setValid] = useState({});
-
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
@@ -73,24 +61,16 @@ export default function Register() {
     sethide(true);
   }
 
-
-
-
-
   function Submit() {
-    console.log("data", data);
-    var index = data.findIndex((element) => element.email === user.email);
 
+    var index = data.findIndex((element) => element.email === user.email);
     if (user.email === "") {
       setValid((...valid) => ({ ...valid, email: true }));
       return;
     } else if (data[index]?.email !== user.email) {
       sethide((...hide) => ({ ...hide, email: true }));
-
       return;
     }
-
-
 
     axios
       .post("http://localhost:8000/api/otp", mergedState)
@@ -98,12 +78,7 @@ export default function Register() {
       .then((res) => console.log(res.data.message));
     localStorage.setItem("otp", JSON.stringify(mergedState.otp));
     localStorage.setItem("femail", JSON.stringify(mergedState.email));
-
-
-
-
     navigate("/Otp")
-    console.log(user);
   }
 
   return (
@@ -124,7 +99,6 @@ export default function Register() {
           component="main"
           maxWidth="xs"
           style={{ backgroundColor: "white", borderRadius: "20px" }}
-        // style={{ backgroundColor: "white", borderRadius: "20px" }}
         >
           <Box
             sx={{
@@ -140,7 +114,6 @@ export default function Register() {
             <Typography component="h1" variant="h5" sx={{ color: "#23809fc2" }}>
               Forget Password
             </Typography>
-
             <TextField
               margin="normal"
               required
@@ -153,7 +126,6 @@ export default function Register() {
               onChange={pagehandler}
               value={user.email}
             />
-
             {valid.email == true && (
               <span
                 style={{ color: "red", fontWeight: "bold", fontSize: "15px" }}
@@ -166,7 +138,6 @@ export default function Register() {
                 Email Address is Not Register
               </span>
             )}
-
             <Button
               type="submit"
               fullWidth

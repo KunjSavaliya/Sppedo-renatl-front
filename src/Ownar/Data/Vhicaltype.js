@@ -9,7 +9,6 @@ import {
   Area,
 } from "recharts";
 
-
 export default function Cardata() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
@@ -20,10 +19,7 @@ export default function Cardata() {
       const { data: response } = await axios.get(
         "http://localhost:8000/api/Addcardata"
       );
-
       setData(response);
-      console.log("===>", response);
-
     } catch (error) { }
     setLoading(false);
 
@@ -49,47 +45,34 @@ export default function Cardata() {
 
 
   var HatchBack = getOccurrence(array1, "HatchBack");
-
-
   var Sedan = getOccurrence(array1, "Sedan")
-
   var Suv = getOccurrence(array1, "SUV/MUV")
   var Premium = getOccurrence(array1, "Primium")
   var Luxury = getOccurrence(array1, "Luxury")
 
-  console.log("w=>", Sedan);
-
   const carStaticsData = [
-
     {
-      // name: "HatchBack",
       VehicleAvailable: 0,
-      // prevWeek: 0,
     },
     {
       name: "HatchBack",
       VehicleAvailable: HatchBack,
-      // prevWeek: 0,
     },
     {
       name: "Sedan",
       VehicleAvailable: Sedan,
-      // prevWeek: 1398,
     },
     {
       name: "SUV/MUV",
       VehicleAvailable: Suv,
-      // prevWeek: 9800,
     },
     {
       name: "Primium",
       VehicleAvailable: Premium,
-      // prevWeek: 2400,
     },
     {
       name: "Luxury",
       VehicleAvailable: Luxury,
-      // prevWeek: 2400,
     },
   ];
 

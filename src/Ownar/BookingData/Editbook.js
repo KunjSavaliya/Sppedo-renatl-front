@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Footer from "../../Dashboard/Footer";
-import Navbar from "../../Dashboard/Navbar";
 import Grid from "@mui/material/Grid";
 import { Box } from "@mui/system";
 import { makeStyles } from "@mui/styles";
@@ -44,8 +43,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Editbook() {
   const navigate = useNavigate();
-
-
   const classes = useStyles();
   const [book, setBook] = useState({
     name: "",
@@ -60,20 +57,13 @@ export default function Editbook() {
   });
   const [valid, setValid] = useState({});
   const [hide, setHide] = useState({});
-
-
   const { index } = useParams();
-
   const [data2, setData2] = useState([]);
-
   useEffect(() => {
     const fetchData = async () => {
       const [response2] = await Promise.all([
-
         axios.get("http://localhost:8000/api/Statedata"),
-
       ]);
-      // setData1(response1.data);
       setData2(response2.data);
     };
     fetchData();
@@ -81,23 +71,14 @@ export default function Editbook() {
 
   const fetchEditedData = async (id) => {
     const data = await axios.get(`http://localhost:8000/api/Gmailupdateid/${id}`);
-
     setBook(data.data);
-
   };
-
 
   useEffect(() => {
     if (index) {
       fetchEditedData(index);
     }
   }, []);
-
-
-  // const [data1, setData1] = useState([]);
-
-
-
 
   const onSubmit = () => {
     if (book.name === "") {
@@ -151,10 +132,7 @@ export default function Editbook() {
 
     axios
       .put(`http://localhost:8000/api/gupdate/${index}`, book)
-
       .then((res) => console.log("dtaa", res.data.message));
-
-
     navigate("/BookData")
 
   };
@@ -167,17 +145,14 @@ export default function Editbook() {
 
   return (
     <>
-
-
+      <title>Edit Book Data - Speedo Car Rental</title>
       <OwnerNavbar />
-
       <Grid>
         <Grid className={classes.color}>
           <Box className={classes.us}>Edit Book Data</Box>
           <Box className={classes.we}>Book Your Ride Now</Box>
         </Grid>
         <Box className={classes.car}>Rent A Car Online</Box>
-
         <Grid className={classes.form}>
           <Box style={{ fontWeight: "400", fontSize: "20px" }}> Full Name*</Box>
           <TextField
@@ -224,7 +199,6 @@ export default function Editbook() {
               Enter Valid Number
             </span>
           )}
-
           <Box style={{ fontWeight: "400", fontSize: "20px" }}>
             {" "}
             Email Address*
@@ -289,7 +263,6 @@ export default function Editbook() {
               Choose Car Name*
             </span>
           )}
-
           <FormControl fullWidth>
             <Box style={{ fontWeight: "400", fontSize: "20px" }}>
               Self Drive*
@@ -305,7 +278,6 @@ export default function Editbook() {
               <MenuItem value="No">No</MenuItem>
             </Select>
           </FormControl>
-
           {valid.drive == true && (
             <span
               style={{
@@ -329,10 +301,8 @@ export default function Editbook() {
               onChange={OnBook}
               value={book.state}
             >
-
               {(data2 || []).map((u) => (
                 <MenuItem value={u.state} >{u.state}
-
                 </MenuItem>
               ))}
             </Select>
@@ -408,9 +378,6 @@ export default function Editbook() {
             defaultValue="24/7/2023"
             value={book.date}
             onChange={OnBook}
-            // InputLabelProps={{
-            //   shrink: true,
-            // }}
             fullWidth
           />
           {valid.date == true && (
@@ -426,7 +393,6 @@ export default function Editbook() {
               Enter Gadi Book Date
             </span>
           )}
-
           <Button
             className="btn"
             style={{
@@ -441,7 +407,6 @@ export default function Editbook() {
           </Button>
         </Grid>
       </Grid>
-
       <Footer />
     </>
   );

@@ -1,73 +1,39 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../Dashboard/Navbar";
 import Footer from "../Dashboard/Footer";
 
-
-
 function Details() {
     const navigate = useNavigate();
-
-
-
     const [data1, setData1] = useState([]);
-    const [data2, setData2] = useState([]);
-
     useEffect(() => {
         const fetchData = async () => {
             const [response1] = await Promise.all([
                 axios.get("http://localhost:8000/api/alldata"),
-
             ]);
             setData1(response1.data);
-
         };
         fetchData();
     }, []);
 
-
-
-
-
-
-
-
-
     const values = JSON.parse(localStorage.getItem('Profiledata'));
-
-
     const onSubmit = () => {
-        debugger
-
-
         const items = JSON.parse(localStorage.getItem('user'));
         var names = items.map(function (val) {
             return val.email;
         });
-
         if (names[0]) {
             var index = data1.findIndex((element) => element.email === names[0]);
             if (
                 data1[index]?.email === names[0]
-
             ) {
-
                 let id = data1[index]._id
                 navigate(`/Profile/${id}`)
-
-
             }
-
         } else {
             navigate("/Profile");
-
         }
-        // navigate("/Profile");    
-
-
-
-
     };
 
     return (
@@ -96,10 +62,8 @@ function Details() {
                         <input
                             type="text"
                             className="form-control"
-
                             name="name"
                             value={values.name}
-                            // onChange={OnHandel}
                             aria-describedby="name"
                             placeholder="Enter Your Full Name"
                         />
@@ -109,10 +73,8 @@ function Details() {
                         <input
                             type="text"
                             className="form-control"
-
                             name="phone"
                             value={values.phone}
-                            // onChange={OnHandel}
                             aria-describedby="name"
                             placeholder="Enter Your Contact number"
                         />
@@ -122,10 +84,8 @@ function Details() {
                         <input
                             type="email"
                             className="form-control"
-
                             name="email"
                             value={values.email}
-                            // onChange={OnHandel}
                             aria-describedby="name"
                             placeholder="Enter Your Email Address"
                         />
@@ -135,10 +95,8 @@ function Details() {
                         <select
                             type="text"
                             className="form-control"
-
                             name="gender"
                             value={values.gender}
-                            // onChange={OnHandel}
                             aria-describedby="name"
                         >
                             <option> Select gender </option>
@@ -153,10 +111,8 @@ function Details() {
                         <input
                             type="date"
                             className="form-control"
-
                             name="dob"
                             value={values.dob}
-                            // onChange={OnHandel}
                             aria-describedby="name"
                         />
                         <label htmlFor="exampleInputEmail1" className="form-label">
@@ -167,12 +123,10 @@ function Details() {
                             className="form-control"
                             name="Address"
                             value={values.Address}
-                            // onChange={OnHandel}
                             aria-describedby="name"
                             placeholder="Enter Your Address"
                         />
                     </div>
-
                     <button
                         type="submit"
                         className="btn btn-dark"
@@ -181,7 +135,6 @@ function Details() {
                     >
                         Edit
                     </button>
-
                 </div >
             </div >
             <Footer />

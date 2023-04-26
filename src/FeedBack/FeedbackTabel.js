@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
-import "./Feedback.css";
-
 import "../Popular/Popular.css";
-
 import axios from "axios";
 import ReactPaginate from "react-paginate";
 import { makeStyles } from "@mui/styles";
 import Grid from "@mui/material/Grid";
 import { Box } from "@mui/system";
-
 
 const useStyles = makeStyles((theme) => ({
   colorbc: {
@@ -46,15 +42,12 @@ export default function FeedbackTabel() {
   const changePage = ({ selected }) => {
     setCurrentpage(selected);
   };
-
-
   const fetchData = async () => {
     setLoading(true);
     try {
       const { data: response } = await axios.get(
         "http://localhost:8000/api/feedbackdata"
       );
-
       setData(response);
       console.log("==>", response);
     } catch (error) { }
@@ -67,9 +60,7 @@ export default function FeedbackTabel() {
 
   return (
     <>
-
       <Grid className="bcimg">
-
         <Grid className={classes.colorbc}>
           <Box className={classes.us}>Customer Reviews</Box>
           <Box className={classes.we}>
@@ -77,16 +68,11 @@ export default function FeedbackTabel() {
           </Box>
         </Grid>
         {currentposts.map((row) => (
-
           <Grid className="textbc">
-
             <Box className="text1">
-
               {row.message}
             </Box>
-
             <Box className="text2">{row.name}</Box>
-
           </Grid>
         ))}
         <Grid>
@@ -103,8 +89,6 @@ export default function FeedbackTabel() {
             activeClassName={"paginationActive"}
           />
         </Grid>
-
-
       </Grid>
     </>
   );

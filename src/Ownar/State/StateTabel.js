@@ -20,51 +20,33 @@ export default function StateTabel() {
     const [data, setData] = useState([]);
     const navigate = useNavigate();
 
-
     const fetchData = async () => {
         setLoading(true);
         try {
             const { data: response } = await axios.get(
                 "http://localhost:8000/api/Statedata"
             );
-
             setData(response);
-            console.log("==>", response);
-
         } catch (error) { }
         setLoading(false);
-
     };
-
-
-
 
     useEffect(() => {
         fetchData();
     }, []);
 
     const DeleteUser = (id) => {
-        console.log("id", id);
         axios.delete(`http://localhost:8000/api/statedelete/${id}`);
+        window.alert("Data Deleted SuccessFully");
         fetchData();
-
     };
-
-    // const UpdateUser = (index) => {
-    //     navigate(`/Car/${index}`);
-    // };
 
     const onSubmit = () => {
         navigate("/State")
     }
-
-
-
-
     return (
         <>
             <title>State Data - Sppedo Car Rental</title>
-
             <OwnerNavbar />
             <Button
                 className="btn"
@@ -85,22 +67,15 @@ export default function StateTabel() {
                             <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >State Name</TableCell>
                             <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} ></TableCell>
                             <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Delete</TableCell>
-                            {/* <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Delete</TableCell> */}
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {data.map((row, i) => (
                             <TableRow
-                                // key={row.name}
                                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                             >
                                 <TableCell align="left">{row.state}</TableCell>
-
-                                {/* <TableCell align="left">{row.gadi}</TableCell> */}
-
-
                                 <TableCell align="left">
-
                                 </TableCell>
                                 <TableCell align="left">
                                     <button

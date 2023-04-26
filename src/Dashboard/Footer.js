@@ -1,8 +1,6 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
-
-import { Box, Container, height } from "@mui/system";
-import Paper from "@mui/material/Paper";
+import { Box } from "@mui/system";
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -57,7 +55,6 @@ export default function Footer() {
           <Box>Speedo Car Rental</Box>
           <Box>Book Cab, Self Drive, Outstation Trips</Box>
         </Grid>
-
         <Grid className={classes.foo}>
           <Box className={classes.ftext}>Office address</Box>
           <Box>

@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-// import Link from '@mui/material/Link';
-import { makeStyles } from "@mui/styles";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -18,59 +15,26 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const theme = createTheme();
-const useStyles = makeStyles((theme) => ({}));
-
 export default function Register() {
     const navigate = useNavigate();
-    const classes = useStyles();
-
-
-
-
-    const [user, setuser] = useState({
-
-        password: "",
-        Cpassword: "",
-
-    });
+    const [user, setuser] = useState({ password: "", Cpassword: "", });
     const email1 = localStorage.getItem('femail');
 
     const myString = email1
     const email = myString.replace(/[,\\"]/g, '');
-
-
     const [myvalue, setMyvalue] = useState({ email });
-    console.log(myvalue);
-
-
-
     const mergedState = { ...user, ...myvalue };
-    console.log("gg", mergedState);
-
-
-
     const [hide, sethide] = useState(false);
     const [valid, setValid] = useState({});
-
-
-
-
     function pagehandler(e) {
         setuser({ ...user, [e.target.name]: e.target.value });
         setValid(true);
         sethide(true);
     }
 
-
-
-
-
     function Submit() {
-
-
         const pattern = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g;
         const patterns = /[A-Z]/;
-
         const patternss = /[0-9]/;
         if (user.password === "") {
             setValid((...valid) => ({ ...valid, password: true }));
@@ -83,35 +47,28 @@ export default function Register() {
             return;
         } else if (!patternss.test(user.password)) {
             sethide((...hide) => ({ ...hide, password: true }));
-
             return;
         }
 
         if (user.Cpassword === "") {
             setValid((...valid) => ({ ...valid, Cpassword: true }));
-
             return;
         } else if (user.password !== user.Cpassword) {
             sethide((...hide) => ({ ...hide, Cpassword: true }));
-
             return;
 
         }
 
         axios
             .post("http://localhost:8000/api/forget", mergedState)
-
             .then((res) => console.log(res.data.message));
-
         navigate('/Login')
     }
     const [type, setType] = useState("password");
     const handelpass = () => {
         if (type === "password") {
-
             setType("text");
         } else {
-
             setType("password");
         }
     };
@@ -133,7 +90,6 @@ export default function Register() {
                     component="main"
                     maxWidth="xs"
                     style={{ backgroundColor: "white", borderRadius: "20px" }}
-                // style={{ backgroundColor: "white", borderRadius: "20px" }}
                 >
                     <Box
                         sx={{
@@ -149,8 +105,6 @@ export default function Register() {
                         <Typography component="h1" variant="h5" sx={{ color: "#23809fc2" }}>
                             Forget Password
                         </Typography>
-
-
                         <TextField
                             margin="normal"
                             required
@@ -164,7 +118,6 @@ export default function Register() {
                             onChange={pagehandler}
                             value={user.password}
                         />
-
                         {valid.password == true && (
                             <span
                                 style={{ color: "red", fontWeight: "bold", fontSize: "15px" }}
@@ -177,7 +130,6 @@ export default function Register() {
                                 Enter Symbols,Uppercase,Numbers Characters
                             </span>
                         )}
-
                         <TextField
                             margin="normal"
                             required
@@ -191,7 +143,6 @@ export default function Register() {
                             onChange={pagehandler}
                             value={user.Cpassword}
                         />
-
                         {valid.Cpassword == true && (
                             <span
                                 style={{ color: "red", fontWeight: "bold", fontSize: "15px" }}

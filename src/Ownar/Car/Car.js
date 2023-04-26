@@ -11,10 +11,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import InputLabel from '@mui/material/InputLabel';
-
-
-
 
 const useStyles = makeStyles((theme) => ({
   us: {
@@ -43,9 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Car() {
   const navigate = useNavigate();
-
   const { index } = useParams();
-
   const classes = useStyles();
   const [comment, setComment] = useState({
     carbrand: "",
@@ -53,33 +47,30 @@ export default function Car() {
     platnumber: ""
 
   });
+  const [headingText, setHeadingText] = useState('ADD CAR');
   const fetchEditedData = async (id) => {
     const data = await axios.get(`http://localhost:8000/api/carupdate/${id}`);
-
     setComment(data.data);
-    console.log("upadte", data);
-    console.log("book", comment);
   };
-  // console.log(user);
-
   useEffect(() => {
     if (index) {
       fetchEditedData(index);
     }
   }, []);
 
+  useEffect(() => {
+    if (index) {
+      setHeadingText("EDIT CAR");
+    }
+  }, []);
   const [valid, setValid] = useState({});
-  //   const [hide, setHide] = useState({});
-
   const oninput = (e) => {
     const { name, value } = e.target;
-
     setComment((pre) => ({
       ...pre,
       [name]: value,
     }));
     setValid(true);
-    // setHide(true);
   };
 
   const onSubmit = () => {
@@ -95,37 +86,28 @@ export default function Car() {
       setValid((...valid) => ({ ...valid, platnumber: true }));
       return;
     }
-
     if (index) {
       axios
         .put(`http://localhost:8000/api/carup/${index}`, comment)
-
         .then((res) => console.log("==>", res.data.message));
     } else {
       axios
         .post("http://localhost:8000/api/Addcar", comment)
-
         .then((res) => console.log(res.data.message));
     }
-
-
-
     navigate("/CarTabel")
-
-
   };
   return (
     <>
       <title>Car -Speedo Car Rental</title>
       <OwnerNavbar />
-      <Box className={classes.car}>ADD CAR</Box>
+      <Box className={classes.car}>{headingText}</Box>
 
       <Grid className={classes.form}>
         <Box style={{ fontWeight: "400", fontSize: "20px" }}> Car Name*</Box>
         <TextField
           name="carbrand"
           value={comment.carbrand}
-          // placeholder="Gadi Name"
           fullWidth
           onChange={oninput}
         />
@@ -142,12 +124,10 @@ export default function Car() {
             Enter Gadi Name
           </span>
         )}
-
         <FormControl fullWidth>
           <Box style={{ fontWeight: "400", fontSize: "20px" }}>
             Select Car*
           </Box>
-
           <Select onChange={oninput} name="carname" value={comment.carname} placeholder="Gadi Type">
             <MenuItem value="HatchBack">HatchBack</MenuItem>
             <MenuItem value="Sedan">Sedan</MenuItem>
@@ -173,7 +153,6 @@ export default function Car() {
         <TextField
           name="platnumber"
           value={comment.platnumber}
-          // placeholder="Gadi Name"
           fullWidth
           onChange={oninput}
         />
@@ -202,7 +181,6 @@ export default function Car() {
           Submit
         </Button>
       </Grid>
-
       <Footer />
     </>
   )

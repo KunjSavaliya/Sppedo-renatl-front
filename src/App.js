@@ -3,27 +3,22 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navigate } from "react-router";
 import Register from "./Componet/Register";
-
 import Bookingconform from "./Thanks/Bookingconfirm";
 import Feedbackrconform from "./Thanks/Feedbackrconfirm";
 import Getintouchconfirm from "./Thanks/GetintouchConfirm";
-
 import Login from "./Componet/Login";
 import Forget from "./Componet/Forget/Forget";
 import Otp from "./Componet/Forget/Otp";
 import Password from "./Componet/Forget/Password";
-
 import OwnerNavbar from "./Ownar/Navbar/OwnerNavbar";
 import About from "./About/About";
 import EditBookData from "./Ownar/BookingData/Editbook";
 import DriverDetails from "./Ownar/BookingData/DriverDetails";
-
 import BookData from "./Ownar/BookingData/BookData";
 import ContactData from "./Ownar/ContactData";
 import Book from "./Book/Book";
 import Contact from "./Contact/Contact";
 import Home from "./Home/Home";
-
 import Feedback from "./FeedBack/Feedback";
 import Dashboard from "./Ownar/Dashboard/Dashboard";
 import Car from "./Ownar/Car/Car";
@@ -38,24 +33,15 @@ import ShowProfile from "./Profile/ShowProfile";
 
 function App() {
   var user = localStorage.getItem("user");
-
-
-
-
   function RequireAuth({ children }) {
     return user ? children : <Navigate to="/Login" replace />;
   }
 
   const items = JSON.parse(localStorage.getItem('user1'));
-
   var Profiledata = JSON.parse(localStorage.getItem('Profiledata'));
-  console.log("user", Profiledata.email);
-
-
   function RequireAuth1({ children }) {
     return items.email === Profiledata.email ? children : <Navigate to="/Profile" replace />;
   }
-
 
   return (
     <>
@@ -71,9 +57,6 @@ function App() {
           <Route exact path="/Otp" element={<Otp />}> </Route>
           <Route exact path="/Password" element={<Password />}> </Route>
           <Route exact path="/DriverDetails" element={<DriverDetails />}> </Route>
-
-
-
           <Route exact path="/EditBookData" element={<EditBookData />}></Route>
           <Route exact path="/BookData" element={<BookData />}></Route>
           <Route exact path="/ContactData" element={<ContactData />}></Route>
@@ -83,21 +66,13 @@ function App() {
           <Route exact path="/State" element={<State />}> </Route>
           <Route exact path="/StateTabel" element={<StateTabel />}> </Route>
           <Route exact path="/Driver" element={<Driver />}> </Route>
-
           <Route exact path="/DriverTabel" element={<DriverTabel />}> </Route>
-          <Route exact path="/Profile" element={<Profile />}> </Route>
+          <Route exact path="/Profile" element={<RequireAuth><Profile /></RequireAuth>}> </Route>
           <Route exact path="/ShowProfile" element={<RequireAuth1><ShowProfile /></RequireAuth1>}> </Route>
-
-
-
           <Route exact path='/EditBookData/:index' element={< EditBookData />} ></Route>
           <Route exact path='/Car/:index' element={< Car />} ></Route>
           <Route exact path='/DriverDetails/:index' element={< DriverDetails />} ></Route>
           <Route exact path='/Profile/:id' element={< Profile />} ></Route>
-
-
-
-
           <Route exact path="/FeedBack" element={<RequireAuth> <Feedback /></RequireAuth>}></Route>
           <Route exact path="/OwnerNavbar" element={<RequireAuth><OwnerNavbar /></RequireAuth>}></Route>
           <Route exact path="/About" element={<RequireAuth> <About /></RequireAuth>} ></Route>

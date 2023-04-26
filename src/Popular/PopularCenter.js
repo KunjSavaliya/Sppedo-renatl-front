@@ -1,10 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./Popular.css"
-import axios from "axios";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-
-
 import { makeStyles } from "@mui/styles";
 import Grid from "@mui/material/Grid";
 import { Box } from "@mui/system";
@@ -43,8 +40,6 @@ const useStyles = makeStyles((theme) => ({
   },
   pop: {
     textAlign: "center",
-    // fontSize:"25px",
-    // color:"black",
     padding: "30px",
   },
   pop1: {
@@ -62,7 +57,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#23809fc2",
     color: "#fff !important",
     boxShadow: "5px 5px 3px rgb(0 0 0 / 15%), -5px -5px 3px rgb(0 0 0 / 15%)",
-    //  borderRadius: " 15px",
   },
   imgmain: {
     display: "flex",
@@ -71,50 +65,24 @@ const useStyles = makeStyles((theme) => ({
     columnGap: "40px",
     rowGap: "30px",
     padding: "10px 10px 10px 10px",
-    // borderRadius:"15px"
   },
   cartext: {
     padding: "30px",
-    // display:"flex",
     textAlign: "center",
     fontWeight: "bold",
   },
   color1: {
-    // backgroundColor: "#23809fc2",
     textAlign: "center",
     fontWeight: "bold",
     color: "balck",
-    // padding: "30px",
-    // marginTop: "30px",
   },
 }));
 export default function PopularCenter() {
   const classes = useStyles();
-
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState([]);
   const navigate = useNavigate();
   const Onpush = () => {
     navigate("/FeedBack");
   };
-
-
-  const fetchData = async () => {
-    setLoading(true);
-    try {
-      const { data: response } = await axios.get(
-        "http://localhost:8000/api/feedbackdata"
-      );
-
-      setData(response);
-      console.log("==>", response);
-    } catch (error) { }
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   return (
     <>
@@ -124,7 +92,6 @@ export default function PopularCenter() {
           These are some of our popular fleet. But we have others also.
         </Box>
       </Grid>
-      {/* ....., */}
       <Grid spacing={3}>
         <Grid className={classes.imgmain}>
           <Grid className="imgg">
@@ -250,43 +217,29 @@ export default function PopularCenter() {
         </Grid>
       </Grid>
       <Grid className="bcimg">
-        {/* <img src={img6} alt="Girl in a jacket" className="imgbc" /> */}
         <Grid className={classes.colorbc}>
           <Box className={classes.us}>Customer Reviews</Box>
           <Box className={classes.we}>
             See What Our Customer Says About Us...
           </Box>
         </Grid>
-
-
         <Grid className="textbc">
-          {/* <Box className={classes.dot}>!!</Box> */}
           <Box className="text1">
             I have booked one way cab from Speedo Car Rental. I have to go from
             Mumbai to Pune. They arranged a cab for me at very affordable
             prices. I am really happy with their services.
-
           </Box>
-
           <Box className="text2">Risi Singh</Box>
           <Box className="text3">Surat, Gujarat</Box>
         </Grid>
         <Grid className="textbc">
-          {/* <Box className={classes.dot}>!!</Box> */}
           <Box className="text1">
             I need a cab in Jaipur, got Speedo Car Rental when searching online. They provide me 50% off on my first ride. I booked my ride for just Rs. 1,500 for 2 days trip.
-
           </Box>
-
           <Box className="text2">Narender Meena</Box>
           <Box className="text3">Jaipur, Rajasthan</Box>
         </Grid>
-
-
-
         <Grid className={classes.color1}>
-
-
           <Button
             sx={{ mt: 2, backgroundColor: "#23809fc2", padding: "12px" }}
             variant="contained"
@@ -295,7 +248,6 @@ export default function PopularCenter() {
             Give Your Review
           </Button>
         </Grid>
-
       </Grid>
     </>
   );

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Navbar from "../Dashboard/Navbar";
 import Footer from "../Dashboard/Footer";
 import Grid from "@mui/material/Grid";
@@ -35,30 +35,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 export default function Feedback() {
-
   const classes = useStyles();
   const navigate = useNavigate();
-
-
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState([]);
-
-  const fetchData = async () => {
-    setLoading(true);
-    try {
-      const { data: response } = await axios.get(
-        "http://localhost:8000/api/feedbackdata"
-      );
-
-      setData(response);
-      console.log("==>", response);
-    } catch (error) { }
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
   const [comment, setComment] = useState({
     name: "",
     email: "",
@@ -69,7 +47,6 @@ export default function Feedback() {
 
   const oninput = (e) => {
     const { name, value } = e.target;
-
     setComment((pre) => ({
       ...pre,
       [name]: value,
@@ -100,28 +77,20 @@ export default function Feedback() {
 
     axios
       .post("http://localhost:8000/api/feedback", comment)
-
       .then((res) => console.log(res.data.message));
-
-
-
     localStorage.setItem("Feedback", JSON.stringify(comment));
-
     navigate("/Feedbackrconform");
-
   };
 
   return (
     <>
       <title>Feed Back - Sppedo Car Rental</title>
-
       <Navbar />
       <Grid className={classes.color}>
         <Box className={classes.us}>Feedback</Box>
         <Box className={classes.we}>FeedBack</Box>
       </Grid>
       <Box className={classes.car}>FeedBack</Box>
-
       <Grid className={classes.form}>
         <Box style={{ fontWeight: "400", fontSize: "20px" }}> Full Name*</Box>
         <TextField
@@ -181,7 +150,6 @@ export default function Feedback() {
             Invlid Email Address
           </span>
         )}
-
         <Box style={{ fontWeight: "400", fontSize: "20px" }}>Message*</Box>
         <TextField
           name="message"
@@ -217,7 +185,6 @@ export default function Feedback() {
         </Button>
       </Grid>
       <FeedbackTabel />
-
       <Footer />
     </>
   );

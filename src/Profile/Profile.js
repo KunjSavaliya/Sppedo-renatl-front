@@ -1,7 +1,5 @@
 import React from "react";
-
 import Details from "./Details";
-import img1 from "../Image/logoo.jpg";
 import Navbar from "../Dashboard/Navbar";
 import Footer from "../Dashboard/Footer";
 
@@ -11,13 +9,9 @@ function Profile() {
             <title>Edit Profile - Sppedo Car Rental</title>
             <Navbar />
             <div style={{ display: "flex", flexWrap: "wrap" }}>
-
-
-
                 <div className="col-6 col-12">
                     <Details />
                 </div>
-
             </div >
             <Footer />
         </>

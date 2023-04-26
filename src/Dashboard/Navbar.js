@@ -1,23 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Navbar.css";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
-// import { mobileshow } from "./Navtm";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-// import button from "@mui/material/button";
 import Button from "@mui/material/Button";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../Image/logoo.jpg";
 import { Navitem } from "./Navitem";
 import { NavLink } from "react-router-dom";
-
 const drawerWidth = 240;
 
 function DrawerAppBar(props) {
@@ -53,7 +50,6 @@ function DrawerAppBar(props) {
               <p className="view1" key={item.id}>
                 <Link
                   to={item.path}
-                  className={item.cName}
                   style={{
                     color: "black",
                     textDecoration: "none",
@@ -93,7 +89,6 @@ function DrawerAppBar(props) {
               component="img"
               sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
             ></Typography>
-
             <Box sx={{ display: "flex", flexDirection: "row", gap: "7px" }}>
 
               <Button
@@ -145,7 +140,6 @@ function DrawerAppBar(props) {
                 <NavLink to="/Book" className="btnactive">
                   Book Now
                 </NavLink>
-
               </Button>
               <Button
                 key="Contact"
@@ -159,7 +153,6 @@ function DrawerAppBar(props) {
                 <NavLink to="/Contact" className="btnactive">
                   Contact us
                 </NavLink>
-
               </Button>
               <Button
                 key="Feedback"
@@ -173,9 +166,7 @@ function DrawerAppBar(props) {
                 <NavLink to="/FeedBack" className="btnactive">
                   Feedback
                 </NavLink>
-
               </Button>
-
               <Button onClick={handleOnLogout} className="hover" style={{ fontWeight: "bold" }} sx={{
                 color: "black",
                 textTransform: "none",
@@ -198,7 +189,6 @@ function DrawerAppBar(props) {
               </NavLink>
 
             </Button>
-
             <IconButton
               color="inherit"
               aria-label="open drawer"

@@ -29,7 +29,6 @@ export default function Populer() {
   return (
     <>
       <title>Popular Fleets - Sppedo Car Rental</title>
-
       <Navbar />
       <Grid>
         <Grid className={classes.color}>
@@ -40,7 +39,6 @@ export default function Populer() {
           </Box>
         </Grid>
         <PopularCenter />
-
         <Footer />
       </Grid>
     </>

@@ -1,8 +1,6 @@
 .btnactive {
   border: none;
   outline: none;
-  /* padding: 0px 10px; */
-  /* background-color: white; */
   cursor: pointer;
   color: black;
   font-weight: bolder;
@@ -14,13 +12,3 @@
 }
 
 
-/* .btnactive:hover {
-    background-color: #23809fc2;
-    border-radius: 10px;
-  }
-  .btnactive:active {
-    color: white;
-  }
-  .btnactive button.active {
-    background-color: red;
-  } */

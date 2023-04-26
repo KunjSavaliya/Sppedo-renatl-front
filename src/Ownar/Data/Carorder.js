@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { ResponsiveContainer, BarChart, Bar, XAxis, Tooltip } from "recharts";
-
-
 import axios from "axios";
 
-
 export default function Totalcar() {
-
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
@@ -16,10 +12,7 @@ export default function Totalcar() {
       const { data: response } = await axios.get(
         "http://localhost:8000/api/Gmaildata"
       );
-
       setData(response);
-      console.log("==>", response);
-
     } catch (error) { }
     setLoading(false);
 
@@ -42,56 +35,40 @@ export default function Totalcar() {
     return count;
   }
 
-
   var Hatchback = getOccurrence(array1, "HatchBack")
   var Sedan = getOccurrence(array1, "Sedan")
   var Suv = getOccurrence(array1, "SUV/MUV")
   var Premium = getOccurrence(array1, "Primium")
   var Luxury = getOccurrence(array1, "Luxury")
 
-
-
-
-
-
-
-
-
-
   const mileStaticsData = [
     {
       name: "Hatchback",
-      Gaditype: Hatchback,
+      CarType: Hatchback,
     },
     {
       name: "Premium",
-      Gaditype: Premium,
+      CarType: Premium,
     },
     {
       name: "Luxury",
-      Gaditype: Luxury,
+      CarType: Luxury,
     },
     {
       name: "Sedan",
-      Gaditype: Sedan,
+      CarType: Sedan,
     },
     {
       name: "Suv",
-      Gaditype: Suv,
+      CarType: Suv,
     },
   ];
-
-
-
-
-
   return (
     <>
       <ResponsiveContainer width="100%">
         <BarChart data={mileStaticsData}>
           <XAxis dataKey="name" stroke="#0a6d94" />
-          <Bar dataKey="Gaditype" stroke="#0a6d94" fill="#0a6d94" barSize={30} />
-
+          <Bar dataKey="CarType" stroke="#0a6d94" fill="#0a6d94" barSize={30} />
           <Tooltip wrapperClassName="tooltip__style" cursor={false} />
         </BarChart>
       </ResponsiveContainer>

@@ -43,17 +43,18 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Book() {
 
-
+  const navigate = useNavigate();
+  const classes = useStyles();
   const [data1, setData1] = useState([]);
   const [data2, setData2] = useState([]);
+  const [valid, setValid] = useState({});
+  const [hide, setHide] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
       const [response1, response2] = await Promise.all([
         axios.get("http://localhost:8000/api/Addcardata"),
         axios.get("http://localhost:8000/api/Statedata"),
-
-
       ]);
       setData1(response1.data);
       setData2(response2.data);
@@ -66,7 +67,6 @@ export default function Book() {
   let array1 = []
   for (let value of iterator) {
     var carname = value.carname;
-
     array1.push(carname)
   }
 
@@ -78,27 +78,11 @@ export default function Book() {
 
 
   var HatchBack = getOccurrence(array1, "HatchBack");
-
-
   var Sedan = getOccurrence(array1, "Sedan");
-
-
   var Suv = getOccurrence(array1, "SUV/MUV");
-
-
   var Premium = getOccurrence(array1, "Primium");
-
-
   var Luxury = getOccurrence(array1, "Luxury");
 
-
-
-
-
-
-  const navigate = useNavigate();
-
-  const classes = useStyles();
   const [book, setBook] = useState({
     name: "",
     phone: "",
@@ -110,16 +94,8 @@ export default function Book() {
     drop: "",
     date: "",
   });
-  const [valid, setValid] = useState({});
-  const [hide, setHide] = useState({});
-
-
-
-
-
 
   const onSubmit = () => {
-
     if (book.name === "") {
       setValid((...valid) => ({ ...valid, name: true }));
       return;
@@ -133,7 +109,6 @@ export default function Book() {
       setValid((...valid) => ({ ...valid, phone: true }));
       return;
     }
-
 
     const items = JSON.parse(localStorage.getItem('user'));
     var names = items.map(function (val) {
@@ -158,13 +133,12 @@ export default function Book() {
     const lux = JSON.parse(localStorage.getItem('Luxury'));
     const pre = JSON.parse(localStorage.getItem('Premium'));
 
-
     if (book.car === "") {
       setValid((...valid) => ({ ...valid, car: true }));
       return;
     }
     if (book.car === "HatchBack") {
-      // HatchBack
+
       if (HatchBack === Hatch) {
         setHide((...hide) => ({ ...hide, car: true }));
         return;
@@ -176,7 +150,7 @@ export default function Book() {
         localStorage.setItem('HatchBack', JSON.stringify(sum));
       }
     } else if (book.car === "Sedan") {
-      // Sedan
+
       if (Sedan === sed) {
         setHide((...hide) => ({ ...hide, car: true }));
         return;
@@ -188,7 +162,7 @@ export default function Book() {
         localStorage.setItem('Sedan', JSON.stringify(sum));
       }
     } else if (book.car === "SUV/MUV") {
-      // Suv
+
       if (Suv === su) {
         setHide((...hide) => ({ ...hide, car: true }));
         return;
@@ -200,7 +174,7 @@ export default function Book() {
         localStorage.setItem('Suv', JSON.stringify(sum));
       }
     } else if (book.car === "Premium") {
-      // Premium
+
       if (Premium === pre) {
         setHide((...hide) => ({ ...hide, car: true }));
         return;
@@ -212,7 +186,6 @@ export default function Book() {
         localStorage.setItem('Premium', JSON.stringify(sum));
       }
     } else if (book.car === "Luxury") {
-      // Luxury
       if (Luxury === lux) {
         setHide((...hide) => ({ ...hide, car: true }));
         return;
@@ -225,11 +198,6 @@ export default function Book() {
       }
     }
 
-
-
-
-
-
     if (book.drive === "") {
       setValid((...valid) => ({ ...valid, drive: true }));
       return;
@@ -239,10 +207,12 @@ export default function Book() {
       setValid((...valid) => ({ ...valid, state: true }));
       return;
     }
+
     if (book.pickup === "") {
       setValid((...valid) => ({ ...valid, pickup: true }));
       return;
     }
+
     if (book.drop === "") {
       setValid((...valid) => ({ ...valid, drop: true }));
       return;
@@ -255,17 +225,8 @@ export default function Book() {
 
     axios
       .post("http://localhost:8000/api/mailsent", book)
-
       .then((res) => console.log("dtaa", res.data.message));
-
-
-
-
-
     localStorage.setItem("bookingdata", JSON.stringify(book));
-
-
-
     navigate("/Bookingconform");
 
   };
@@ -279,7 +240,6 @@ export default function Book() {
   return (
     <>
       <title>Book Now  - Sppedo Car Rental </title>
-
       <Navbar />
       <Grid>
         <Grid className={classes.color}>
@@ -287,7 +247,6 @@ export default function Book() {
           <Box className={classes.we}>Book Your Ride Now</Box>
         </Grid>
         <Box className={classes.car}>Rent A Car Online</Box>
-
         <Grid className={classes.form}>
           <Box style={{ fontWeight: "400", fontSize: "20px" }}> Full Name*</Box>
           <TextField
@@ -334,7 +293,6 @@ export default function Book() {
               Enter Valid Number
             </span>
           )}
-
           <Box style={{ fontWeight: "400", fontSize: "20px" }}>
             {" "}
             Email Address*
@@ -412,7 +370,6 @@ export default function Book() {
               Car not available
             </span>
           )}
-
           <FormControl fullWidth>
             <Box style={{ fontWeight: "400", fontSize: "20px" }}>
               Self Drive*
@@ -452,8 +409,6 @@ export default function Book() {
               onChange={OnBook}
               value={book.state}
             >
-
-
               {(data2 || []).map((u) => (
                 <MenuItem value={u.state} >{u.state}
 

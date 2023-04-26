@@ -1,11 +1,7 @@
 import React from "react";
 import Navbar from "../Dashboard/Navbar";
-
 import Footer from "../Dashboard/Footer";
-
-
 import PopulerCenter from "../Popular/PopularCenter";
-
 import AboutCenter from "../About/AboutCenter";
 import ContactCenter from "../Contact/ContactCenter";
 import GetInTouch from "./GetInTouch";
@@ -39,7 +35,6 @@ const useStyles = makeStyles((theme) => ({
 export default function Home() {
   const classes = useStyles();
   const navigate = useNavigate();
-
   const Onpush = () => {
     navigate("/Book");
   };
@@ -47,9 +42,7 @@ export default function Home() {
   return (
     <>
       <title>Home - Sppedo Car Rental</title>
-
       <Navbar />
-
       <div className="row text-bg-dark ">
         <div className="col-12 col-lg-8 col-sm-6" style={{ marginTop: "7vw" }}>
           <GetInTouch />
@@ -63,7 +56,6 @@ export default function Home() {
         <Box className={classes.us}>Upto 35% Discounts & Special Offers</Box>
         <Box className={classes.we}>Rent a Car for 7 Day</Box>
         <Box className={classes.we}>and get 3 days extra absolutely FREE</Box>
-
         <Button
           sx={{ mt: 2, backgroundColor: "#23809fc2", padding: "12px" }}
           variant="contained"
@@ -74,7 +66,6 @@ export default function Home() {
       </Grid>
       <AboutCenter />
       <PopulerCenter />
-
       <Footer />
     </>
   );

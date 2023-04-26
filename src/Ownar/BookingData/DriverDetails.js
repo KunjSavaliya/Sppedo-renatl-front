@@ -7,11 +7,7 @@ import { Box } from "@mui/system";
 import { makeStyles } from "@mui/styles";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { useNavigate, useParams } from "react-router-dom";
-import { DriveEtaRounded } from '@mui/icons-material';
-
-
-
+import { useParams } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     us: {
@@ -39,24 +35,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function State() {
-    const navigate = useNavigate();
-
-
 
     const classes = useStyles();
     const [comment, setComment] = useState({});
-
     const { index } = useParams();
-
     const fetchEditedData = async (id) => {
         const data = await axios.get(`http://localhost:8000/api/Gmailupdateid/${id}`);
-
         setComment(data);
-
     };
     console.log("comm", comment.data);
     let data1 = comment.data
-
     useEffect(() => {
         if (index) {
             fetchEditedData(index);
@@ -65,7 +53,6 @@ export default function State() {
 
     const [valid, setValid] = useState({});
     const [driver, setDriver] = useState({
-        // email: "",
         dname: "",
         driverphone: ""
     })
@@ -79,15 +66,9 @@ export default function State() {
             [name]: value,
         }));
         setValid(true);
-        // setHide(true);
     };
 
     const onSubmit = () => {
-        // if (driver.email === "") {
-        //     setValid((...valid) => ({ ...valid, email: true }));
-        //     return;
-        // }
-
         if (driver.drivername === "") {
             setValid((...valid) => ({ ...valid, dname: true }));
             return;
@@ -96,28 +77,16 @@ export default function State() {
             return;
         }
 
-
         axios
             .post("http://localhost:8000/api/driversent", mergedState)
-
             .then((res) => console.log(res.data.message));;
-
-
-
-
-
-
     };
     return (
         <>
-
+            <title>Send Driver Data - Speedo Car Rental</title>
             <OwnerNavbar />
             <Box className={classes.car}>Driver Details</Box>
-
-
             <Grid className={classes.form}>
-
-
                 <Box style={{ fontWeight: "400", fontSize: "20px" }}> Driver Full Name*</Box>
                 <TextField
                     id="outlined-basic"
@@ -177,7 +146,6 @@ export default function State() {
                     Submit
                 </Button>
             </Grid>
-
             <Footer />
         </>
     )

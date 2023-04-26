@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Footer from "../Dashboard/Footer";
 import Navbar from "../Dashboard/Navbar";
 import Grid from "@mui/material/Grid";
@@ -9,7 +9,6 @@ import ContactCenter from "./ContactCenter";
 import Button from "@mui/material/Button";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
 import "./Contact.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -37,43 +36,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 export default function Contact() {
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState([]);
-
-  const fetchData = async () => {
-    setLoading(true);
-    try {
-      const { data: response } = await axios.get(
-        "http://localhost:8000/api/commentdata"
-      );
-
-      setData(response);
-
-
-    } catch (error) { }
-    setLoading(false);
-  }
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
   const classes = useStyles();
   const navigate = useNavigate();
-
   const [comment, setComment] = useState({
     name: "",
     phone: "",
     email: "",
     message: "",
   });
-
   const [valid, setValid] = useState({});
   const [hide, setHide] = useState({});
-
   const oninput = (e) => {
     const { name, value } = e.target;
-
     setComment((pre) => ({
       ...pre,
       [name]: value,
@@ -112,19 +86,14 @@ export default function Contact() {
     }
     axios
       .post("http://localhost:8000/api/comment  ", comment)
-
       .then((res) => console.log(res.data.message));
-
-
     localStorage.setItem("Contact", JSON.stringify(comment));
-
     navigate("/GetintouchConfirm");
   };
 
   return (
     <>
       <title>Contact Us - Sppedo Car Rental</title>
-
       <Navbar />
       <Grid>
         <Grid className={classes.color}>
@@ -132,7 +101,6 @@ export default function Contact() {
           <Box className={classes.we}>Get in Touch With Us</Box>
         </Grid>
         <ContactCenter />
-
         <Box className={classes.car}>Get In Touch With Us</Box>
         <Grid className={classes.form}>
           <Box style={{ fontWeight: "400", fontSize: "20px" }}> Full Name*</Box>
@@ -252,7 +220,6 @@ export default function Contact() {
           </Button>
         </Grid>
       </Grid>
-
       <Footer />
     </>
   );

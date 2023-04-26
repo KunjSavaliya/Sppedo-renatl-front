@@ -24,7 +24,6 @@ const useStyles = makeStyles((theme) => ({
   },
   eqv1: {
     fontSize: "18px",
-    // padding: "5px",
     marginTop: "10px",
   },
 }));
@@ -47,18 +46,14 @@ export default function Thanks() {
         <Card
           sx={{
             width: 600,
-
             backgroundColor: "rgba(119, 204, 255, 0.22)",
           }}
           className={classes.words}
         >
           <Box className={classes.eqv}>Thanks For Your Enquiry</Box>
-
           <Box className={classes.eqv1}>Name: {name.name}</Box>
           <Box className={classes.eqv1}>Email: {name.email}</Box>
           <Box className={classes.eqv1}>Message: {name.message}</Box>
-
-
           <Button
             style={{
               backgroundColor: "rgba(35, 128, 159, 0.76)",

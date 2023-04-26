@@ -13,41 +13,28 @@ import axios from "axios";
 import Footer from "../../Dashboard/Footer";
 import Button from "@mui/material/Button";
 
-
 export default function BookData() {
-
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const navigate = useNavigate();
-
-
   const fetchData = async () => {
     setLoading(true);
     try {
       const { data: response } = await axios.get(
         "http://localhost:8000/api/Addcardata"
       );
-
       setData(response);
-      console.log("==>", response);
-
     } catch (error) { }
     setLoading(false);
-
   };
-
-
-
-
   useEffect(() => {
     fetchData();
   }, []);
 
   const DeleteUser = (id) => {
-    console.log("id", id);
     axios.delete(`http://localhost:8000/api/cardelete/${id}`);
+    window.alert("Data Deleted SuccessFully");
     fetchData();
-
   };
 
   const UpdateUser = (index) => {
@@ -58,16 +45,11 @@ export default function BookData() {
     navigate("/Car")
   }
 
-
-
-
   return (
     <>
-      <title>Booking Data</title>
-
+      <title>Booking Data - Speedo Car Rental</title>
       <OwnerNavbar />
       <Button
-        // className="btn"
         style={{
           backgroundColor: "#23809fc2",
           marginTop: "20px",
@@ -92,21 +74,15 @@ export default function BookData() {
           <TableBody>
             {data.map((row, i) => (
               <TableRow
-                // key={row.name}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell align="left">{row.carname}</TableCell>
-
                 <TableCell align="left">{row.carbrand}</TableCell>
                 <TableCell align="left">{row.platnumber}</TableCell>
-
-
-
                 <TableCell align="left">
                   <button
                     style={{ width: "80px", borderRadius: "8px" }}
                     onClick={() => UpdateUser(row._id)}
-
                   >
                     Edit
                   </button>

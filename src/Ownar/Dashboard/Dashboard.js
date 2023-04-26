@@ -91,11 +91,7 @@ export default function Dashboard() {
             <div className="stats1">
               <h3 className="stats__title">State Orders</h3>
               <Addcar />
-
             </div>
-
-
-
           </div>
         </div>
       </div>

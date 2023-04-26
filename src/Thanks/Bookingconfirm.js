@@ -25,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
   },
   eqv1: {
     fontSize: "18px",
-    // padding: "5px",
     marginTop: "10px",
     textAlign: "initial",
   },
@@ -39,7 +38,6 @@ export default function Thanks() {
     const data = JSON.parse(localStorage.getItem("bookingdata"));
     setname(data);
     console.log("name", name);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onView = () => {
@@ -52,16 +50,11 @@ export default function Thanks() {
         <Card
           sx={{
             width: 600,
-            // alignItems: "center",
             backgroundColor: "rgba(119, 204, 255, 0.22)",
           }}
           className={classes.words}
         >
           <Box className={classes.eqv}>Thanks For Your Enquiry</Box>
-          {/* <Box className={classes.eqv1}>
-            We have recieved your enquiry,we will get back to soon...
-          </Box> */}
-
           <Box className={classes.eqv1}>Name: {name.name}</Box>
           <Box className={classes.eqv1}>Email: {name.email}</Box>
           <Box className={classes.eqv1}>Phone no: {name.phone}</Box>

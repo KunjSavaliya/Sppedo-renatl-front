@@ -1,42 +1,28 @@
-
 .dashboard {
-    
     padding: 0px 30px;
     
-  }
-  
+}
   .single__card {
     padding: 20px;
-
-    margin-top: 50px;
-
-    display: flex;
+ margin-top: 50px;
+ display: flex;
     align-items: center;
     justify-content: space-between;
     border-radius: 5px;
     cursor: pointer;
   }
-  
-  .single__card:nth-child(1) {
-    /* background: var(--card-01-bg); */
-    background:  linear-gradient(#ef621c, #e1424e);
+ .single__card:nth-child(1) {
+   background:  linear-gradient(#ef621c, #e1424e);
   }
-  
-  .single__card:nth-child(2) {
-    /* background: var(--card-02-bg); */
-    background: linear-gradient(#01d293, #56c57a);;
+   .single__card:nth-child(2) {
+  background: linear-gradient(#01d293, #56c57a);;
   }
-  
-  .single__card:nth-child(3) {
-    /* background: var(--card-03-bg); */
+   .single__card:nth-child(3) {
     background: #725cff;;
   }
-  
-  .single__card:nth-child(4) {
+   .single__card:nth-child(4) {
     background-color:  #2884ff;;
-    /* background: var(--card-04-bg); */
-  }
-  
+    }
   .card__content h4 {
     color: var(--heading-color);
     font-size: 1rem;
@@ -79,11 +65,9 @@
     column-gap: 2rem;
     margin-top: 2rem;
     row-gap: 12px;
-
-  }
+}
   .stats {
-    /* background: var(--primary-color); */
-    background: #a6dff5;
+   background: #a6dff5;
     padding: 30px;
     border-radius: 5px; 
     height: 320px;
@@ -91,29 +75,23 @@
     width: 700px;
   }
   .stats1 {
-
-    background: #a6dff5;
+ background: #a6dff5;
     padding: 30px;
     border-radius: 5px;
     height: 450px;
     width: 700px;
     margin-bottom: 15px;
-    /* margin-left: 15px; */
-  
-  }
-  
+}
   .tooltip__style {
     background: var(--body-bg) !important;
     color: #fff;
   }
-  
-  .stats__title {
+ .stats__title {
     color: #fff;
     font-size: 1.2rem;
     font-weight: 500;
-    /* margin-bottom: 20px; */
+   
   }
-  
   .recommend__cars-wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -190,8 +168,7 @@
     width: 12px;
     height: 12px;
     background-color: #00C49F;
-    /* display: -webkit-inline-box; */
-  }.box2{
+   }.box2{
     width: 12px;
     height: 12px;
     background-color: #0088FE;
@@ -199,17 +176,13 @@
   }
   @media screen and (max-width: 600px) {
     .stats {
-     
-      
       height: 320px;
-      
-      width: 350px;
+       width: 350px;
     }
     .stats1{
       width: 350px;
       height: 600px;
-
-    }
+ }
     .pi{
       width: 320px;
     }
@@ -217,26 +190,13 @@
     width: 180px;
   }
   }
-  /* @media screen and (min-width max-width: 800px) { */
-    @media only screen and (min-width: 600px) and (max-width: 800px)  {
+  @media only screen and (min-width: 600px) and (max-width: 800px)  {
     .stats {
-     
-      
       height: 320px;
-      
       width: 591px;
     }
     .stats1 {
-     
-      
-      
-      width: 591px;
+       width: 591px;
     }
   }
-    /* @media only screen and (min-width:0px) and (max-width: 400px)  {
-      
-    .stats {
-      width: 277px;
-
-    }
-  } */
+    

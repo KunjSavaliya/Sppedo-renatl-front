@@ -2,10 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
-
-
 function Details() {
-
+    const navigate = useNavigate();
     const [userRegistration, setUserRegistration] = useState({
         name: "",
         phone: "",
@@ -17,38 +15,16 @@ function Details() {
     const { id } = useParams();
     const [valid, setValid] = useState({});
     const [hide, setHide] = useState({});
-
-
-    // debugger
     const fetchEditedData = async (id) => {
         const data = await axios.get(`http://localhost:8000/api/profileupdate/${id}`);
-
         setUserRegistration(data.data);
-
     };
-
 
     useEffect(() => {
         if (id) {
             fetchEditedData(id);
         }
     }, []);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     const OnHandel = (e) => {
         const { value, name } = e.target;
@@ -73,7 +49,6 @@ function Details() {
             return;
         }
 
-
         const items = JSON.parse(localStorage.getItem('user'));
         var names = items.map(function (val) {
             return val.email;
@@ -90,7 +65,6 @@ function Details() {
             setValid((...valid) => ({ ...valid, email: true }));
             return;
         }
-
 
         if (userRegistration.gender === "") {
             setValid((...valid) => ({ ...valid, gender: true }));
@@ -110,28 +84,20 @@ function Details() {
         if (id) {
             axios
                 .put(`http://localhost:8000/api/pupdate/${id}`, userRegistration)
-
                 .then((res) => console.log("dtaa", res.data.message));
             localStorage.setItem("Profiledata", JSON.stringify(userRegistration));
             localStorage.setItem("Profile1", JSON.stringify([userRegistration]));
-
-
+            navigate("/ShowProfile")
         } else {
             axios
                 .post("http://localhost:8000/api/Profile", userRegistration)
-
                 .then((res) => console.log("dtaa", res.data.message));
-
             localStorage.setItem("Profiledata", JSON.stringify(userRegistration));
             localStorage.setItem("Profile1", JSON.stringify([userRegistration]));
-
-
         }
-
     };
 
     return (
-
         <div className="card" style={{ margin: "2vw 8vw 2vw 8vw" }}>
             <div className="card-body">
                 <h5
@@ -145,7 +111,6 @@ function Details() {
                 >
                     Edit Profile
                 </h5>
-
                 <div className="mb-2" style={{ fontSize: "17px", color: "black" }}>
                     <label htmlFor="exampleInputEmail1" className="form-label">
                         Full Name*
@@ -179,7 +144,6 @@ function Details() {
                     <input
                         type="text"
                         className="form-control"
-
                         name="phone"
                         value={userRegistration.phone}
                         onChange={OnHandel}
@@ -205,7 +169,6 @@ function Details() {
                     <input
                         type="email"
                         className="form-control"
-
                         name="email"
                         value={userRegistration.email}
                         onChange={OnHandel}
@@ -244,7 +207,6 @@ function Details() {
                     <select
                         type="text"
                         className="form-control"
-
                         name="gender"
                         value={userRegistration.gender}
                         onChange={OnHandel}
@@ -268,14 +230,12 @@ function Details() {
                             Enter Your Gender
                         </span>
                     )}
-
                     <label htmlFor="exampleInputEmail1" className="form-label">
                         DOB
                     </label>
                     <input
                         type="date"
                         className="form-control"
-
                         name="dob"
                         value={userRegistration.dob}
                         onChange={OnHandel}
@@ -329,7 +289,6 @@ function Details() {
                 >
                     Submit
                 </button>
-
             </div >
         </div >
     );

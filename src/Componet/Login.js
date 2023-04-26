@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
-// import './Register.css'
 import { Link } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-// import Link from '@mui/material/Link';
 import { makeStyles } from "@mui/styles";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -17,18 +14,13 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import logo from "../Image/logoo.jpg";
 
 const theme = createTheme();
 
-const useStyles = makeStyles((theme) => ({}));
-
 export default function Register() {
   const navigate = useNavigate();
-
   const [valid, setValid] = useState({});
   const [type, setType] = useState("password");
-
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
@@ -49,8 +41,6 @@ export default function Register() {
     fetchData();
   }, []);
 
-  //   console.log("data", data);
-
   const [input, setinput] = useState({
     email: "",
     password: "",
@@ -62,10 +52,8 @@ export default function Register() {
   }
   const handelpass = () => {
     if (type === "password") {
-      // setIcon(eye);
       setType("text");
     } else {
-      // setIcon(eyeOff);
       setType("password");
     }
   };
@@ -78,14 +66,12 @@ export default function Register() {
         data[index]?.password === input.password
       ) {
         if (data[index].email === "speedocarrental85@gmail.com") {
-          navigate("/BookData");
+          navigate("/Dashboard");
         } else {
           navigate("/");
         }
         localStorage.setItem("user", JSON.stringify([data[index]]));
         localStorage.setItem("user1", JSON.stringify(data[index]));
-
-        // setinput({ email: "", password: "" });
       }
       if (index === -1) {
         setValid((...valid) => ({ ...valid, email: true }));
@@ -97,7 +83,6 @@ export default function Register() {
       if (input.password === "") {
         setValid((...valid) => ({ ...valid, password: true }));
       }
-
       if (input.email === "") {
         setValid((...valid) => ({ ...valid, email: true }));
       }
@@ -107,7 +92,6 @@ export default function Register() {
   return (
     <>
       <title>Login - Sppedo Car Rental</title>
-
       <div>
         <h2
           style={{
@@ -120,14 +104,12 @@ export default function Register() {
           {" "}
           Speedo Car Rental
         </h2>
-
         <ThemeProvider theme={theme}>
           <Container
             component="main"
             maxWidth="xs"
             style={{ backgroundColor: "white", borderRadius: "20px" }}
           >
-            {/* <CssBaseline /> */}
             <Box
               sx={{
                 marginTop: 8,
@@ -196,7 +178,6 @@ export default function Register() {
               >
                 Sign In
               </Button>
-
               <Grid container style={{ margin: 5 }}>
                 <Grid item xs>
                   <Link to="/Forget" variant="body2">
@@ -212,7 +193,6 @@ export default function Register() {
             </Box>
           </Container>
         </ThemeProvider>
-
       </div>
     </>
   );

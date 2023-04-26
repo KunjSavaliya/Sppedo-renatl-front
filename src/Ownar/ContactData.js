@@ -9,23 +9,18 @@ import Paper from "@mui/material/Paper";
 import OwnerNavbar from "./Navbar/OwnerNavbar";
 import Footer from "../Dashboard/Footer";
 import axios from "axios";
-import { json } from "react-router-dom";
 
 export default function ContactData() {
 
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
-
   const fetchData = async () => {
     setLoading(true);
     try {
       const { data: response } = await axios.get(
         "http://localhost:8000/api/commentdata"
       );
-
       setData(response);
-
-
     } catch (error) { }
     setLoading(false);
   }
@@ -34,32 +29,21 @@ export default function ContactData() {
     fetchData();
   }, []);
 
-
-
-
   const DeleteUser = (id) => {
-    console.log("id", id);
-    //  axios.delete(`http://localhost:3030/student/delete/${id}`);
     axios.delete(`http://localhost:8000/api/cdelete/${id}`);
+    window.alert("Data Deleted SuccessFully");
     fetchData();
-
   };
 
-
-
-
-  // const value = {data.length};
   return (
     <>
       <title>Contact Data - Sppedo Car Rental</title>
       <OwnerNavbar />
-
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 100, color: "red" }} aria-label="simple table">
           <TableHead>
             <TableRow>
               <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Name</TableCell>
-
               <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Email Address</TableCell>
               <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Phone Number</TableCell>
               <TableCell align="left" style={{ backgroundColor: "#23809fc2" }}  >Message</TableCell>
@@ -69,11 +53,9 @@ export default function ContactData() {
           <TableBody>
             {data.map((row) => (
               <TableRow
-                // key={row.drive}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell align="left"> {row.name}</TableCell>
-
                 <TableCell align="left">{row.email}</TableCell>
                 <TableCell align="left">{row.phone}</TableCell>
                 <TableCell align="left">{row.message}</TableCell>

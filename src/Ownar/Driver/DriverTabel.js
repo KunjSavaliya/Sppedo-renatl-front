@@ -13,13 +13,10 @@ import axios from "axios";
 import Footer from "../../Dashboard/Footer";
 import Button from "@mui/material/Button";
 
-
 export default function DriverTabel() {
-
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState([]);
     const navigate = useNavigate();
-
 
     const fetchData = async () => {
         setLoading(true);
@@ -27,42 +24,28 @@ export default function DriverTabel() {
             const { data: response } = await axios.get(
                 "http://localhost:8000/api/Driverdata"
             );
-
             setData(response);
-            console.log("==>", response);
-
         } catch (error) { }
         setLoading(false);
 
     };
-
-
-
 
     useEffect(() => {
         fetchData();
     }, []);
 
     const DeleteUser = (id) => {
-        console.log("id", id);
         axios.delete(`http://localhost:8000/api/Driverdelete/${id}`);
+        window.alert("Data Deleted SuccessFully");
         fetchData();
-
     };
-
-
-
     const onSubmit = () => {
         navigate("/Driver")
     }
 
-
-
-
     return (
         <>
             <title>Driver Data - Sppedo Car Rental</title>
-
             <OwnerNavbar />
             <Button
                 className="btn"
@@ -87,13 +70,11 @@ export default function DriverTabel() {
                             <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Licence Number</TableCell>
                             <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >State Name</TableCell>
                             <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Delete</TableCell>
-
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {data.map((row, i) => (
                             <TableRow
-                                // key={row.name}
                                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                             >
                                 <TableCell align="left">{row.driver}</TableCell>
@@ -102,10 +83,6 @@ export default function DriverTabel() {
                                 <TableCell align="left">{row.email}</TableCell>
                                 <TableCell align="left">{row.licence}</TableCell>
                                 <TableCell align="left">{row.state}</TableCell>
-
-
-
-
                                 <TableCell align="left">
                                     <button
                                         style={{ width: "80px", borderRadius: "8px" }}

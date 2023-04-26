@@ -4,7 +4,6 @@ import { Box } from "@mui/system";
 import { makeStyles } from "@mui/styles";
 import { MdEmail } from "react-icons/md";
 import { MdBookmark } from "react-icons/md";
-
 import { CiLocationOn } from "react-icons/ci";
 import "./Contact.css";
 
@@ -33,7 +32,6 @@ export default function ContactCenter() {
           <Box className={classes.etext}>Email Address</Box>
           <Box className="border"></Box>
           <Box className="border1"></Box>
-
           <Box className={classes.eetext}>speedocarrental85@gmail.com</Box>
         </Grid>
         <Grid className="ebox">
@@ -43,7 +41,6 @@ export default function ContactCenter() {
           <Box className={classes.etext}>Fast & Easy Booking</Box>
           <Box className="border"></Box>
           <Box className="border1"></Box>
-
           <Box className={classes.eetext}>
             You can book a cab online in just 2 minutes. It's easy & simple
           </Box>
@@ -55,7 +52,6 @@ export default function ContactCenter() {
           <Box className={classes.etext}>No Booking Charges</Box>
           <Box className="border"></Box>
           <Box className="border1"></Box>
-
           <Box className={classes.eetext}>
             20-22, Silver Business Point, VIP Cir, near Royal Square, Uttran,
             Surat, Gujarat 394101

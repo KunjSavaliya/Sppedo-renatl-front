@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from "react";
-// import './Register.css'
 import { Link } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-// import Link from '@mui/material/Link';
-import { makeStyles } from "@mui/styles";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -17,14 +13,7 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-// import { Icon } from "react-icons-kit";
-// import { eyeOff } from "react-icons-kit/feather/eyeOff";
-// import { eye } from "react-icons-kit/feather/eye";
-// import SweetAlert from "react-bootstrap-sweetalert";
-
 const theme = createTheme();
-
-const useStyles = makeStyles((theme) => ({}));
 
 export default function Register() {
   const navigate = useNavigate();
@@ -37,20 +26,15 @@ export default function Register() {
       const { data: response } = await axios.get(
         "http://localhost:8000/api/userdata"
       );
-
       setData(response);
       console.log("==>", response);
     } catch (error) { }
     setLoading(false);
   };
 
-  console.log(data);
-
   useEffect(() => {
     fetchData();
   }, []);
-
-  console.log("data", data);
 
   const [user, setuser] = useState({
     name: "",
@@ -62,9 +46,7 @@ export default function Register() {
   const [all, setAll] = useState({});
   const [valid, setValid] = useState({});
   const [type, setType] = useState("password");
-  // const [icon, setIcon] = useState(eyeOff);
   const value = data.length
-
   localStorage.setItem("registerdata", (value));
 
   function pagehandler(e) {
@@ -78,10 +60,8 @@ export default function Register() {
   }
   const handelpass = () => {
     if (type === "password") {
-      // setIcon(eye);
       setType("text");
     } else {
-      // setIcon(eyeOff);
       setType("password");
     }
   };
@@ -135,19 +115,13 @@ export default function Register() {
 
     axios
       .post("http://localhost:8000/api/regi", user)
-
       .then((res) => console.log(res.data.message));
-
-    console.log(user);
-
     navigate("/login");
   }
-
 
   return (
     <>
       <title>Register - Sppedo Car Rental</title>
-      {/* <h1 style={{textAlign:"center",color:"#23809fc2",marginBottom: "-42px"}}>Car Rental Register</h1> */}
       <h2
         style={{
           textAlign: "center",
@@ -166,7 +140,6 @@ export default function Register() {
             maxWidth="xs"
             style={{ backgroundColor: "white", borderRadius: "20px" }}
           >
-            {/* <CssBaseline /> */}
             <Box
               sx={{
                 marginTop: 8,
@@ -185,7 +158,6 @@ export default function Register() {
               >
                 Register In
               </Typography>
-
               <TextField
                 margin="normal"
                 required
@@ -198,7 +170,6 @@ export default function Register() {
                 onChange={pagehandler}
                 value={user.name}
               />
-
               {valid.name == true && (
                 <span
                   style={{ color: "red", fontWeight: "bold", fontSize: "15px" }}
@@ -227,7 +198,6 @@ export default function Register() {
                   Enter Your Phone Number
                 </span>
               )}
-
               <TextField
                 margin="normal"
                 required
@@ -240,7 +210,6 @@ export default function Register() {
                 onChange={pagehandler}
                 value={user.email}
               />
-
               {valid.email == true && (
                 <span
                   style={{ color: "red", fontWeight: "bold", fontSize: "15px" }}
@@ -275,7 +244,6 @@ export default function Register() {
                 onChange={pagehandler}
                 value={user.password}
               />
-
               {valid.password == true && (
                 <span
                   style={{ color: "red", fontWeight: "bold", fontSize: "15px" }}
@@ -290,7 +258,6 @@ export default function Register() {
                   Enter Symbols,Uppercase,Numbers Characters
                 </span>
               )}
-
               <FormControlLabel
                 style={{ marginRight: "230px" }}
                 control={
@@ -302,7 +269,6 @@ export default function Register() {
                 }
                 label="Show Password"
               />
-
               <Button
                 type="submit"
                 fullWidth

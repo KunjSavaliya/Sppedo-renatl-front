@@ -3,16 +3,13 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function CarForm() {
-
   const [data1, setData1] = useState([]);
   const [data2, setData2] = useState([]);
-
   useEffect(() => {
     const fetchData = async () => {
       const [response1, response2] = await Promise.all([
         axios.get("http://localhost:8000/api/Addcardata"),
         axios.get("http://localhost:8000/api/Statedata"),
-
       ]);
       setData1(response1.data);
       setData2(response2.data);
@@ -25,7 +22,6 @@ function CarForm() {
   let array1 = []
   for (let value of iterator) {
     var carname = value.carname;
-
     array1.push(carname)
   }
 
@@ -35,19 +31,10 @@ function CarForm() {
     return count;
   }
 
-
   var HatchBack = getOccurrence(array1, "HatchBack");
-
-
   var Sedan = getOccurrence(array1, "Sedan");
-
-
   var Suv = getOccurrence(array1, "SUV/MUV");
-
-
   var Premium = getOccurrence(array1, "Primium");
-
-
   var Luxury = getOccurrence(array1, "Luxury");
 
   const [userRegistration, setUserRegistration] = useState({
@@ -67,14 +54,12 @@ function CarForm() {
   const handleinput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-
     setUserRegistration({ ...userRegistration, [name]: value });
     setValid(true);
     setHide(true);
   };
 
   const onSubmit = () => {
-
     if (userRegistration.name === "") {
       setValid((...valid) => ({ ...valid, name: true }));
       return;
@@ -108,7 +93,7 @@ function CarForm() {
       setValid((...valid) => ({ ...valid, car: true }));
       return;
     }
-    // debugger
+
     const Hatch = JSON.parse(localStorage.getItem('HatchBack'));
     const sed = JSON.parse(localStorage.getItem('Sedan'));
     const su = JSON.parse(localStorage.getItem('Suv'));
@@ -121,7 +106,6 @@ function CarForm() {
       return;
     }
     if (userRegistration.car === "HatchBack") {
-      // HatchBack
       if (HatchBack === Hatch) {
         setHide((...hide) => ({ ...hide, car: true }));
         return;
@@ -133,7 +117,6 @@ function CarForm() {
         localStorage.setItem('HatchBack', JSON.stringify(sum));
       }
     } else if (userRegistration.car === "Sedan") {
-      // Sedan
       if (Sedan === sed) {
         setHide((...hide) => ({ ...hide, car: true }));
         return;
@@ -145,7 +128,6 @@ function CarForm() {
         localStorage.setItem('Sedan', JSON.stringify(sum));
       }
     } else if (userRegistration.car === "SUV/MUV") {
-      // Suv
       if (Suv === su) {
         setHide((...hide) => ({ ...hide, car: true }));
         return;
@@ -157,7 +139,6 @@ function CarForm() {
         localStorage.setItem('Suv', JSON.stringify(sum));
       }
     } else if (userRegistration.car === "Premium") {
-      // Premium
       if (Premium === pre) {
         setHide((...hide) => ({ ...hide, car: true }));
         return;
@@ -169,7 +150,6 @@ function CarForm() {
         localStorage.setItem('Premium', JSON.stringify(sum));
       }
     } else if (userRegistration.car === "Luxury") {
-      // Luxury
       if (Luxury === lux) {
         setHide((...hide) => ({ ...hide, car: true }));
         return;
@@ -181,20 +161,10 @@ function CarForm() {
         localStorage.setItem('Luxury', JSON.stringify(sum));
       }
     }
-
-
-
-
-
-
-
-
-
     if (userRegistration.drive === "") {
       setValid((...valid) => ({ ...valid, drive: true }));
       return;
     }
-    debugger
     if (userRegistration.state === "") {
       setValid((...valid) => ({ ...valid, state: true }));
       return;
@@ -207,7 +177,6 @@ function CarForm() {
       setValid((...valid) => ({ ...valid, drop: true }));
       return;
     }
-
     if (userRegistration.date === "") {
       setValid((...valid) => ({ ...valid, date: true }));
       return;
@@ -215,19 +184,9 @@ function CarForm() {
 
     axios
       .post("http://localhost:8000/api/mailsent", userRegistration)
-
       .then((res) => console.log("dtaa", res.data.message));
-
-
-
-
     localStorage.setItem("bookingdata", JSON.stringify(userRegistration));
-
-
-
     navigate("/Bookingconform");
-
-
   };
   return (
     <div className="card" style={{ margin: "7vw 4vw 7vw" }}>
@@ -243,7 +202,6 @@ function CarForm() {
         >
           Rent A Car Online
         </h5>
-        {/* <form action="" onSubmit={handleSubmit}> */}
         <div className="mb-2" style={{ fontSize: "17px", color: "black" }}>
           <label htmlFor="exampleInputEmail1" className="form-label">
             Full Name*
@@ -321,7 +279,6 @@ function CarForm() {
               }}
             >
               Use Register Email Address
-
             </span>
           )}
           {hide.email == true && (
@@ -422,15 +379,10 @@ function CarForm() {
             name="state"
             value={userRegistration.State}
             onChange={handleinput}
-          // aria-describedby="state"
-
-
           >
             <option> Chose your Option </option>
-
             {(data2 || []).map((u) => (
               <option value={u.state} >{u.state}
-
               </option>
             ))}
           </select>
@@ -524,7 +476,6 @@ function CarForm() {
             </span>
           )}
         </div>
-
         <button
           type="submit"
           className="btn btn-dark"
@@ -533,7 +484,6 @@ function CarForm() {
         >
           Submit
         </button>
-        {/* </form> */}
       </div>
     </div>
   );

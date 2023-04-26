@@ -8,40 +8,28 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import OwnerNavbar from "../Navbar/OwnerNavbar";
 import { useNavigate } from "react-router-dom";
-import Button from "@mui/material/Button";
-// import "../../Book/Book.css";
-
-
 import axios from "axios";
 import Footer from "../../Dashboard/Footer";
 
 export default function BookData(props) {
-  // var data = JSON.parse(localStorage.getItem("Book"));
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const navigate = useNavigate();
-
-
   const fetchData = async () => {
     setLoading(true);
     try {
       const { data: response } = await axios.get(
         "http://localhost:8000/api/Gmaildata"
       );
-
       setData(response);
-      console.log("==>", response);
-
     } catch (error) { }
     setLoading(false);
 
   };
 
-
   useEffect(() => {
     fetchData();
   }, []);
-
 
   let iterator = data.values();
   let array1 = []
@@ -73,15 +61,9 @@ export default function BookData(props) {
   var Luxury = getOccurrence(array1, "Luxury")
   localStorage.setItem('Luxury', JSON.stringify(Luxury));
 
-  console.log("w=>", Sedan);
-
-
-
   const DeleteUser = (id) => {
-
     axios.delete(`http://localhost:8000/api/Gdelete/${id}`);
-
-
+    window.alert("Data Deleted SuccessFully");
     fetchData();
 
   };
@@ -102,15 +84,12 @@ export default function BookData(props) {
   return (
     <>
       <title>Booking Data - Sppedo Car Rental</title>
-
       <OwnerNavbar />
-
       <TableContainer component={Paper} sx={{ marginTop: "10px" }}>
         <Table sx={{ minWidth: 300 }} aria-label="simple table">
           <TableHead>
             <TableRow>
               <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Name</TableCell>
-
               <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Booking Date</TableCell>
               <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Email Address</TableCell>
               <TableCell align="left" style={{ backgroundColor: "#23809fc2" }} >Phone Number</TableCell>
@@ -127,11 +106,9 @@ export default function BookData(props) {
           <TableBody>
             {data.map((row, i) => (
               <TableRow
-                // key={row.name}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell align="left">{row.name}</TableCell>
-
                 <TableCell align="left">{row.date}</TableCell>
                 <TableCell align="left">{row.email}</TableCell>
                 <TableCell align="left">{row.phone}</TableCell>
@@ -143,9 +120,7 @@ export default function BookData(props) {
                 <TableCell align="left">
                   <button
                     style={{ width: "80px", borderRadius: "8px" }}
-                    onClick={() => SendDriver(row._id)}
-
-                  >
+                    onClick={() => SendDriver(row._id)}  >
                     SEND
                   </button>
                 </TableCell>
@@ -153,7 +128,6 @@ export default function BookData(props) {
                   <button
                     style={{ width: "80px", borderRadius: "8px" }}
                     onClick={() => UpdateUser(row._id)}
-
                   >
                     EDIT
                   </button>

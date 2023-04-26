@@ -7,15 +7,10 @@ import { Box } from "@mui/system";
 import { makeStyles } from "@mui/styles";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import InputLabel from '@mui/material/InputLabel';
-
-
-
-
 const useStyles = makeStyles((theme) => ({
     us: {
         fontSize: "35px",
@@ -44,24 +39,18 @@ const useStyles = makeStyles((theme) => ({
 export default function Driver() {
     const navigate = useNavigate();
     const [data2, setData2] = useState([]);
-
     useEffect(() => {
         const fetchData = async () => {
             const [response2] = await Promise.all([
-
                 axios.get("http://localhost:8000/api/Statedata"),
-
             ]);
-
             setData2(response2.data);
         };
         fetchData();
     }, []);
 
-
     const classes = useStyles();
     const [comment, setComment] = useState({
-
         driver: "",
         phone: "",
         alternativephone: "",
@@ -70,15 +59,10 @@ export default function Driver() {
         licence: "",
 
     });
-
-
-
     const [valid, setValid] = useState({});
     const [hide, setHide] = useState({});
-
     const oninput = (e) => {
         const { name, value } = e.target;
-
         setComment((pre) => ({
             ...pre,
             [name]: value,
@@ -102,7 +86,6 @@ export default function Driver() {
             return;
         }
 
-        // var IndNum1 = /^[0]?[789]\d{9}$/;
         if (comment.alternativephone === "") {
             setValid((...valid) => ({ ...valid, alternativephone: true }));
             return;
@@ -111,11 +94,8 @@ export default function Driver() {
             return;
         } else if (comment.alternativephone === comment.phone) {
             setHide((...hide) => ({ ...hide, alternativephone: true }));
-
             return;
-            // console.log("password",user.password !== user.cpass);
         }
-
 
         var filter =
             /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
@@ -130,6 +110,7 @@ export default function Driver() {
             setValid((...valid) => ({ ...valid, state: true }));
             return;
         }
+
         if (comment.licence === "") {
             setValid((...valid) => ({ ...valid, licence: true }));
             return;
@@ -137,22 +118,16 @@ export default function Driver() {
 
         axios
             .post("http://localhost:8000/api/Driver", comment)
-
             .then((res) => console.log(res.data.message));
-
-
-
-
         navigate("/DriverTabel")
 
 
     };
     return (
         <>
-
+            <title>Driver Details - Speedo Car Rental</title>
             <OwnerNavbar />
             <Box className={classes.car}>ENTER DRIVER DETAILS</Box>
-
             <Grid className={classes.form}>
                 <Box style={{ fontWeight: "400", fontSize: "20px" }}> Driver Name*</Box>
                 <TextField
@@ -234,7 +209,6 @@ export default function Driver() {
                         }}
                     >
                         Phone Number And Alternatvie number are Match
-
                     </span>
                 )}
                 <Box style={{ fontWeight: "400", fontSize: "20px" }}>
@@ -288,7 +262,6 @@ export default function Driver() {
 
                         {(data2 || []).map((u) => (
                             <MenuItem value={u.state} >{u.state}
-
                             </MenuItem>
                         ))}
                     </Select>
@@ -306,7 +279,6 @@ export default function Driver() {
                         Select State
                     </span>
                 )}
-
                 <Box style={{ fontWeight: "400", fontSize: "20px" }}> Licence Number*</Box>
                 <TextField
                     name="licence"
@@ -328,7 +300,6 @@ export default function Driver() {
                         Enter licence Number
                     </span>
                 )}
-
                 <Button
                     className="btn"
                     onClick={onSubmit}
@@ -341,7 +312,6 @@ export default function Driver() {
                     Submit
                 </Button>
             </Grid>
-
             <Footer />
         </>
     )

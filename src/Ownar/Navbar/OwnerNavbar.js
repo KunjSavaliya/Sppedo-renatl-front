@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../Dashboard/Navbar";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -26,7 +26,6 @@ function DrawerAppBar(props) {
     setMobileOpen(!mobileOpen);
   };
 
-
   const handleOnLogout = () => {
     localStorage.removeItem("user");
     navigate("/login");
@@ -51,7 +50,6 @@ function DrawerAppBar(props) {
               <p className="view1" key={item.id}>
                 <Link
                   to={item.path}
-                  className={item.cName}
                   style={{
                     color: "black",
                     textDecoration: "none",
@@ -59,19 +57,15 @@ function DrawerAppBar(props) {
                   }}
                 >
                   {item.title}
-                </Link>
-                {/* {Dropdowns && <Dropdown />} */}
-              </p>
+                </Link> </p>
             );
           })}
         </div>
       </List>
     </Box>
   );
-
   const container =
     window !== undefined ? () => window().document.body : undefined;
-
   return (
     <>
       <Box>
@@ -92,12 +86,7 @@ function DrawerAppBar(props) {
               component="img"
               sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
             ></Typography>
-
             <Box sx={{ display: "flex", flexDirection: "row", gap: "7px" }}>
-
-
-
-
               <Button
                 key="Dashbaord"
                 className="hover"
@@ -110,7 +99,6 @@ function DrawerAppBar(props) {
                 <NavLink to="/Dashboard" className="btnactive">
                   Dashboard
                 </NavLink>
-
               </Button>
               <Button
                 key="Feedback"
@@ -124,7 +112,6 @@ function DrawerAppBar(props) {
                 <NavLink to="/CarTabel" className="btnactive">
                   AddCar
                 </NavLink>
-
               </Button>
               <Button
                 key="Feedback"
@@ -138,7 +125,6 @@ function DrawerAppBar(props) {
                 <NavLink to="/BookData" className="btnactive">
                   BookData
                 </NavLink>
-
               </Button>
               <Button
                 key="Data"
@@ -152,7 +138,6 @@ function DrawerAppBar(props) {
                 <NavLink to="/ContactData" className="btnactive">
                   Contact Data
                 </NavLink>
-
               </Button>
               <Button
                 key="State"
@@ -166,7 +151,6 @@ function DrawerAppBar(props) {
                 <NavLink to="/StateTabel" className="btnactive">
                   State Data
                 </NavLink>
-
               </Button>
               <Button
                 key="Stated"
@@ -180,9 +164,7 @@ function DrawerAppBar(props) {
                 <NavLink to="/DriverTabel" className="btnactive">
                   Driver Data
                 </NavLink>
-
               </Button>
-
               <Button onClick={handleOnLogout} className="hover" style={{ fontWeight: "bold" }} sx={{
                 color: "black",
                 textTransform: "none",
@@ -191,7 +173,6 @@ function DrawerAppBar(props) {
                 Logout
               </Button>
             </Box>
-
             <IconButton
               color="inherit"
               aria-label="open drawer"
