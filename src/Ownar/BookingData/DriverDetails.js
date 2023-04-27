@@ -8,6 +8,8 @@ import { makeStyles } from "@mui/styles";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 const useStyles = makeStyles((theme) => ({
     us: {
@@ -35,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function State() {
+    const navigate = useNavigate();
 
     const classes = useStyles();
     const [comment, setComment] = useState({});
@@ -79,7 +82,8 @@ export default function State() {
 
         axios
             .post("http://localhost:8000/api/driversent", mergedState)
-            .then((res) => console.log(res.data.message));;
+            .then((res) => console.log(res.data.message));
+        navigate("/BookData")
     };
     return (
         <>
