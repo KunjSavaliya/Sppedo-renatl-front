@@ -41,7 +41,7 @@ export default function Thanks() {
   };
   return (
     <>
-      <title>FeedbackConfirm - Sppedo Car Rental</title>
+      <title>FeedbackConfirm - Speedo Car Rental</title>
       <div className={classes.cards}>
         <Card
           sx={{

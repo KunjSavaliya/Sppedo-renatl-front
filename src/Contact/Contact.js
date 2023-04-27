@@ -93,7 +93,7 @@ export default function Contact() {
 
   return (
     <>
-      <title>Contact Us - Sppedo Car Rental</title>
+      <title>Contact Us - Speedo Car Rental</title>
       <Navbar />
       <Grid>
         <Grid className={classes.color}>

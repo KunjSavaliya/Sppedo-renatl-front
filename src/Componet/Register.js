@@ -121,7 +121,7 @@ export default function Register() {
 
   return (
     <>
-      <title>Register - Sppedo Car Rental</title>
+      <title>Register - Speedo Car Rental</title>
       <h2
         style={{
           textAlign: "center",

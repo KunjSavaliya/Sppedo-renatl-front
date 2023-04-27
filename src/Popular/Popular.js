@@ -28,7 +28,7 @@ export default function Populer() {
   const classes = useStyles();
   return (
     <>
-      <title>Popular Fleets - Sppedo Car Rental</title>
+      <title>Popular Fleets - Speedo Car Rental</title>
       <Navbar />
       <Grid>
         <Grid className={classes.color}>

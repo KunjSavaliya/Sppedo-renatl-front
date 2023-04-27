@@ -38,7 +38,7 @@ function Details() {
 
     return (
         <>
-            <title>Profile - Sppedo Car Rental</title>
+            <title>Profile - Speedo Car Rental</title>
 
             <Navbar />
             <div className="card" style={{ margin: "2vw 8vw 2vw 8vw" }}>

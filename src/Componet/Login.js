@@ -91,7 +91,7 @@ export default function Register() {
 
   return (
     <>
-      <title>Login - Sppedo Car Rental</title>
+      <title>Login - Speedo Car Rental</title>
       <div>
         <h2
           style={{

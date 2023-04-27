@@ -37,7 +37,7 @@ export default function ContactData() {
 
   return (
     <>
-      <title>Contact Data - Sppedo Car Rental</title>
+      <title>Contact Data - Speedo Car Rental</title>
       <OwnerNavbar />
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 100, color: "red" }} aria-label="simple table">

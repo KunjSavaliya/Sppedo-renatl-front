@@ -46,7 +46,7 @@ export default function StateTabel() {
     }
     return (
         <>
-            <title>State Data - Sppedo Car Rental</title>
+            <title>State Data - Speedo Car Rental</title>
             <OwnerNavbar />
             <Button
                 className="btn"

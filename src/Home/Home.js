@@ -41,7 +41,7 @@ export default function Home() {
 
   return (
     <>
-      <title>Home - Sppedo Car Rental</title>
+      <title>Home - Speedo Car Rental</title>
       <Navbar />
       <div className="row text-bg-dark ">
         <div className="col-12 col-lg-8 col-sm-6" style={{ marginTop: "7vw" }}>

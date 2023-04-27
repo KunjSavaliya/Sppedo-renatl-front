@@ -239,7 +239,7 @@ export default function Book() {
 
   return (
     <>
-      <title>Book Now  - Sppedo Car Rental </title>
+      <title>Book Now  - Speedo Car Rental </title>
       <Navbar />
       <Grid>
         <Grid className={classes.color}>

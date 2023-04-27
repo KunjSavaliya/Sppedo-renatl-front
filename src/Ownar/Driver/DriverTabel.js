@@ -45,7 +45,7 @@ export default function DriverTabel() {
 
     return (
         <>
-            <title>Driver Data - Sppedo Car Rental</title>
+            <title>Driver Data - Speedo Car Rental</title>
             <OwnerNavbar />
             <Button
                 className="btn"

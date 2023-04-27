@@ -6,7 +6,7 @@ import Footer from "../Dashboard/Footer";
 function Profile() {
     return (
         <>
-            <title>Edit Profile - Sppedo Car Rental</title>
+            <title>Edit Profile - Speedo Car Rental</title>
             <Navbar />
             <div style={{ display: "flex", flexWrap: "wrap" }}>
                 <div className="col-6 col-12">

@@ -28,7 +28,7 @@ export default function About() {
 
   return (
     <>
-      <title>About us - Sppedo Car Rental</title>
+      <title>About us - Speedo Car Rental</title>
       <Navbar />
       <Grid>
         <Grid className={classes.color}>

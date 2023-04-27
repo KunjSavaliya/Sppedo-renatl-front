@@ -83,7 +83,7 @@ export default function BookData(props) {
 
   return (
     <>
-      <title>Booking Data - Sppedo Car Rental</title>
+      <title>Booking Data - Speedo Car Rental</title>
       <OwnerNavbar />
       <TableContainer component={Paper} sx={{ marginTop: "10px" }}>
         <Table sx={{ minWidth: 300 }} aria-label="simple table">

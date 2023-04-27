@@ -94,6 +94,8 @@ function Details() {
                 .then((res) => console.log("dtaa", res.data.message));
             localStorage.setItem("Profiledata", JSON.stringify(userRegistration));
             localStorage.setItem("Profile1", JSON.stringify([userRegistration]));
+            navigate("/ShowProfile")
+
         }
     };
 

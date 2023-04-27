@@ -67,7 +67,7 @@ export default function Dashboard() {
   return (
 
     <>
-      <title>Dashboard - Sppedo Car Rental</title>
+      <title>Dashboard - Speedo Car Rental</title>
       <OwnerNavbar />
       <div className="dashboard">
         <div className="dashboard__wrapper">

@@ -84,7 +84,7 @@ export default function Feedback() {
 
   return (
     <>
-      <title>Feed Back - Sppedo Car Rental</title>
+      <title>Feed Back - Speedo Car Rental</title>
       <Navbar />
       <Grid className={classes.color}>
         <Box className={classes.us}>Feedback</Box>
