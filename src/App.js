@@ -37,11 +37,11 @@ function App() {
     return user ? children : <Navigate to="/Login" replace />;
   }
 
-  const items = JSON.parse(localStorage.getItem('user1'));
-  var Profiledata = JSON.parse(localStorage.getItem('Profiledata'));
-  function RequireAuth1({ children }) {
-    return items.email === Profiledata.email ? children : <Navigate to="/Profile" replace />;
-  }
+  // const items = JSON.parse(localStorage.getItem('user1'));
+  // var Profiledata = JSON.parse(localStorage.getItem('Profiledata'));
+  // function RequireAuth1({ children }) {
+  //   return items.email === Profiledata.email ? children : <Navigate to="/Profile" replace />;
+  // }
 
   return (
     <>
@@ -68,7 +68,7 @@ function App() {
           <Route exact path="/Driver" element={<Driver />}> </Route>
           <Route exact path="/DriverTabel" element={<DriverTabel />}> </Route>
           <Route exact path="/Profile" element={<RequireAuth><Profile /></RequireAuth>}> </Route>
-          <Route exact path="/ShowProfile" element={<RequireAuth1><ShowProfile /></RequireAuth1>}> </Route>
+          <Route exact path="/ShowProfile" element={<ShowProfile />}> </Route>
           <Route exact path='/EditBookData/:index' element={< EditBookData />} ></Route>
           <Route exact path='/Car/:index' element={< Car />} ></Route>
           <Route exact path='/DriverDetails/:index' element={< DriverDetails />} ></Route>
