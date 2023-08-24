@@ -30,7 +30,7 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
       with:
-        server: ${{ secrets.SERVER }}
+        server: "116.202.221.212"
         username: "kunj"
-        password: Kunj@212121212121212121212121212121
+        password: "Kunj@212121212121212121212121212121"
         local-dir: build/
