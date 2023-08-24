@@ -22,7 +22,11 @@ jobs:
       uses: actions/setup-node@master
       with:
         node-version: ${{ matrix.node-version }}
-    
+        
+    build_product:
+  stage: build
+  script:
+    - npm run build
   
     - name: List output files
       run: find build/ -print

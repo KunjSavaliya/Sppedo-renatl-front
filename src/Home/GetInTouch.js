@@ -12,7 +12,7 @@ function GetInTouch() {
       style={{ color: "white", margin: "12% 5% 0 5vw" }}
     >
       <p style={{ fontSize: "5vw", fontWeight: "bold" }}>
-        Book A Cab Online Kunj From ₹ 8 Per KM
+        Book A Cab Online Kunj Savaliya From ₹ 8 Per KM
       </p>
       <p style={{ fontSize: "24px" }}>
         Book a cab from wide range of cars available. Book for one way, round
