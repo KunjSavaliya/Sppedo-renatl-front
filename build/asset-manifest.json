@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.8ee3c56e.css",
-    "main.js": "/static/js/main.b6c37999.js",
+    "main.js": "/static/js/main.215b951d.js",
     "static/media/thar.png": "/static/media/thar.6c3ff18b049253df20cf.png",
     "static/media/benz.jpg": "/static/media/benz.71f0de418c698a9186be.jpg",
     "static/media/bc-car.jpg": "/static/media/bc-car.4e546d6e1706e5d34147.jpg",
@@ -20,10 +20,10 @@
     "static/media/logoo.jpg": "/static/media/logoo.e6c4d6c916afbb546b84.jpg",
     "index.html": "/index.html",
     "main.8ee3c56e.css.map": "/static/css/main.8ee3c56e.css.map",
-    "main.b6c37999.js.map": "/static/js/main.b6c37999.js.map"
+    "main.215b951d.js.map": "/static/js/main.215b951d.js.map"
   },
   "entrypoints": [
     "static/css/main.8ee3c56e.css",
-    "static/js/main.b6c37999.js"
+    "static/js/main.215b951d.js"
   ]
 }
