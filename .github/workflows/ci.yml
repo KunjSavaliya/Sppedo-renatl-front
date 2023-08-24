@@ -30,7 +30,7 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
       with:
-        server: "ftp.uttamhansora.com"
+        server: "kunjnew@uttamhansora.com"
         username: "kunjnew"
         password: "Kunj@2131"
         local-dir: build/
