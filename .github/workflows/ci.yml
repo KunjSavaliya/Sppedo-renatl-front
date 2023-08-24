@@ -18,16 +18,17 @@ jobs:
     - name: 🚚 Get latest code
       uses: actions/checkout@v3
 
-       - name: 'node'
-    entrypoint: 'npm'
-    args: ['run', 'build']
+   
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@master
 
       with:
         node-version: ${{ matrix.node-version }}
-       -
+        
+           - name: 'node'
+    entrypoint: 'npm'
+    args: ['run', 'build']
   
   
     - name: List output files
