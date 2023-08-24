@@ -31,6 +31,6 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
       with:
         server: 116.202.221.212
-        username: kunjnew
+        username: kunjnew@uttamhansora.com
         password: Kunj@2131
         local-dir: build/
