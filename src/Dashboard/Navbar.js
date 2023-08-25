@@ -175,7 +175,7 @@ function DrawerAppBar(props) {
                 Logout
               </Button>
             </Box>
-            <Button
+            {/* <Button
               key="Profile"
               className="hover"
               sx={{
@@ -188,7 +188,7 @@ function DrawerAppBar(props) {
                 <AccountCircleIcon />
               </NavLink>
 
-            </Button>
+            </Button> */}
             <IconButton
               color="inherit"
               aria-label="open drawer"

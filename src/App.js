@@ -68,7 +68,7 @@ function App() {
           <Route exact path="/Driver" element={<Driver />}> </Route>
           <Route exact path="/DriverTabel" element={<DriverTabel />}> </Route>
           <Route exact path="/Profile" element={<RequireAuth><Profile /></RequireAuth>}> </Route>
-          <Route exact path="/ShowProfile" element={<ShowProfile />}> </Route>
+          {/* <Route exact path="/ShowProfile" element={<ShowProfile />}> </Route> */}
           <Route exact path='/EditBookData/:index' element={< EditBookData />} ></Route>
           <Route exact path='/Car/:index' element={< Car />} ></Route>
           <Route exact path='/DriverDetails/:index' element={< DriverDetails />} ></Route>
