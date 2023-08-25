@@ -27,9 +27,7 @@ jobs:
     - name: List output files
       run: find build/ -print
 
-   
-        
-         - name: 📂 Sync files
+    - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
       with:
         server: 116.202.221.212
